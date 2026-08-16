@@ -1,81 +1,89 @@
 {
+  "\"json\n{\n  \"market_mood\": \"Mixed \u2013 momentum is positive for the top raid\u2011reward items (Twisted Bow, Tumeken\"s Shadow) but their liquidity is thin and volume is low.  High\u2011turnover items such as Ancient Brew and Seeking Amethyst Arrow show strong volume acceleration, signalling potential price swings.  Overall sentiment is cautiously bullish for high\u2011value gear but wary of slippage risk on low\u2011liquidity assets.\",\n  \"regime\": \"Momentum\u2011driven, high\u2011turnover regime with emerging volatility.  The market is currently in a liquidity\u2011constrained phase for premium raid rewards, but volume acceleration on items like Ancient Brew suggests a shift toward a more active, price\u2011moving regime.  Upcoming updates to Twisted Bow and Tumeken\"s Shadow could trigger a regime shift by altering demand dynamics.\",\n  \"summary\": \"The market is dominated by rare raid rewards \u2013 Twisted Bow, Tumeken\"s Shadow, and Scythe of Vitur \u2013 which exhibit modest positive momentum but suffer from low liquidity and limited trade volume.  The Velocity wallet is chasing high\u2011turnover items (Ancient Brew, Seeking Amethyst Arrow, Dragon Axe) but is underperforming due to adverse selection and high spread costs.  The Market Maker wallet focuses on spread\u2011rent assets (Necklace of Passage, Teleports) but also suffers from slippage": null,
+  "Tumeken": "s Shadow, and Scythe of Vitur \u2013 which exhibit modest positive momentum but suffer from low liquidity and limited trade volume.  The Velocity wallet is chasing high\u2011turnover items (Ancient Brew, Seeking Amethyst Arrow, Dragon Axe) but is underperforming due to adverse selection and high spread costs.  The Market Maker wallet focuses on spread\u2011rent assets (Necklace of Passage, Teleports) but also suffers from slippage",
   "auxiliary": [
     {
-      "error": "ValueError",
       "kind": "analyst_critique",
-      "status": "unavailable"
+      "model": "google/gemma-4-26b-a4b-it:free",
+      "result": {
+        "concerns": [
+          "Unsupported certainty regarding 'upcoming updates' to Twisted Bow and Tumeken's Shadow; no specific patch notes or developer communications are cited to justify a predicted regime shift.",
+          "Stale/Vague catalysts: The mention of updates to end-game gear is a common speculative trope in OSRS analysis that often fails to materialize or lacks specific direction.",
+          "Narrative-following: The 'Velocity wallet' and 'Market Maker wallet' terminology appears to be an overlay of traditional finance jargon onto OSRS mechanics without explaining the specific algorithmic or behavioral basis for these labels.",
+          "Missing counterarguments: The analysis assumes volume acceleration in consumables (Ancient Brew) signals a shift to a price-moving regime, ignoring the possibility that this is merely seasonal consumption or a localized supply shock.",
+          "Semantic mistake: The term 'adverse selection' is used in the context of a 'Velocity wallet' chasing high-turnover items, but the analysis fails to clarify if the selection is against informed traders or simply a result of high friction/spreads.",
+          "Logical leap: Conflating low liquidity in high-value gear with 'cautious bullishness' is contradictory; low liquidity typically necessitates a neutral or bearish outlook due to the inability to exit positions."
+        ],
+        "confidence": "low",
+        "summary": "The analysis attempts to categorize the OSRS market into distinct regimes and wallet strategies but relies heavily on speculative correlations and lacks empirical depth regarding the 'upcoming updates' mentioned."
+      },
+      "status": "ok"
     },
     {
       "kind": "wallet_red_team",
-      "model": "google/gemma-4-26b-a4b-it:free",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "result": {
         "market_maker": [
-          "Market Maker is highly susceptible to adverse selection; by providing liquidity and capturing spread rent, the wallet risks being 'picked off' by aggressive momentum traders (like the Velocity wallet) who move prices through the maker's quotes.",
-          "The strategy suffers from regime mismatch in trending markets; in a strong directional move, the attempt to provide liquidity will result in accumulating large, losing positions that require expensive liquidation.",
-          "Liquidity risk is inherent in the reliance on spread capture; if market depth thins, the 'completion probability' drops, and the cost of managing inventory in illiquid assets can quickly exceed the earned spread.",
-          "The opportunity cost of maintaining a neutral, liquidity-providing stance means the wallet misses out on significant directional gains during high-conviction market shifts, potentially underperforming simple trend-following strategies."
+          "Providing liquidity on assets with deteriorating depth can lead to inventory imbalances and adverse selection",
+          "The spread\u2011rent assumptions may not hold when price trends persist, causing mispriced quotes",
+          "The prevailing market trend may be inconsistent with the mean\u2011reverting logic underpinning the strategy",
+          "Positions with negative realized returns indicate that the market maker is absorbing unfavorable trades",
+          "Capital locked in low\u2011yield or losing positions limits flexibility to allocate to more attractive opportunities"
         ],
         "velocity": [
-          "Velocity is vulnerable to adverse selection; by chasing momentum and volume acceleration, the wallet risks buying at local tops just as informed sellers exit, turning 'fast capital recycling' into a mechanism for catching falling knives.",
-          "The strategy faces significant regime mismatch risk; in low-volatility or mean-reverting markets, the high-turnover requirement will lead to excessive transaction costs and 'whipsaw' losses where momentum signals fail to materialize.",
-          "Liquidity constraints may prevent efficient exits; if the wallet enters high-momentum assets with thin order books, the very volume it relies on for signal may evaporate during a reversal, leading to high slippage.",
-          "Opportunity cost is high due to the focus on high-turnover assets; capital tied up in momentum trades that stall or enter drawdown prevents the wallet from pivoting to more stable, high-edge opportunities."
+          "Liquidity strain on thinly traded items limits timely exits and amplifies slippage",
+          "Momentum signals may be front\u2011run, causing entry prices to move against the position",
+          "The current market regime lacks the rapid price swings the strategy relies on, creating a regime mismatch",
+          "Capital is tied up in low\u2011return or negative\u2011return holdings, reducing the ability to pursue higher\u2011edge opportunities",
+          "Concentrated risk budgets expose the wallet to outsized losses if a few positions reverse"
         ]
       },
       "status": "ok"
     },
     {
-      "error": "ValueError",
       "kind": "news_triage",
-      "status": "unavailable"
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "result": {
+        "important": [
+          "Summer Sweep Up - Agility & Chambers of Xeric Changes",
+          "Bronzeman Mode & A Ruff Situation"
+        ],
+        "probably_noise": [
+          "PvP Bootcamp: Event by Katerena",
+          "Game Status Information Centre",
+          "Community Spotlight: Molgoatkirby",
+          "Charity Event: OneBigGame - Jagex v Xbox",
+          "The Official OS"
+        ]
+      },
+      "status": "ok"
     }
   ],
-  "generated_at": "2026-08-16T15:33:09.379513+00:00",
-  "market_mood": "Neutral\u2011to\u2011slightly bearish. High\u2011turnover items such as the Twisted Bow and Soulreaper Axe show limited momentum (momentum_5m_vs_1h \u2248\u202f0) and negative volume acceleration, indicating a lack of sustained buying pressure. Liquidity scores of 1 for these items suggest thin order books, increasing the risk of slippage on large trades. The market is currently dominated by short\u2011term, low\u2011margin trades (e.g., teleportation items, potions) rather than long\u2011term value accumulation.",
+  "generated_at": "2026-08-16T16:37:51.575650+00:00",
+  "market_mood": "Mixed \u2013 momentum is positive for the top raid\u2011reward items (Twisted Bow, Tumeken\u2019s Shadow) but their liquidity is thin and volume is low.  High\u2011turnover items such as Ancient Brew and Seeking Amethyst Arrow show strong volume acceleration, signalling potential price swings.  Overall sentiment is cautiously bullish for high\u2011value gear but wary of slippage risk on low\u2011liquidity assets.",
   "model": "openai/gpt-oss-20b",
-  "notable_events": [
-    {
-      "date": "2022\u201105\u201111",
-      "event": "Twisted Bow damage curve adjustment",
-      "impact": "Reduced damage scaling, minimal price impact",
-      "source": "OFFICIAL: Twisted Bow wiki"
-    },
-    {
-      "date": "2026\u201107\u201109",
-      "event": "Soulreaper Axe stack decay and damage bonus tweak",
-      "impact": "Improved uptime, negligible price movement",
-      "source": "OFFICIAL: Summer Sweep\u2011Up 2026 wiki"
-    },
-    {
-      "date": "2026\u201108\u201115",
-      "event": "No major economy update announced",
-      "impact": "No new macro\u2011economic catalysts",
-      "source": "OFFICIAL: Game Status Information Centre"
-    }
-  ],
-  "regime": "Short\u2011term, high\u2011frequency trading regime. The velocity wallet\u2019s focus on rapid capital recycling and the market maker wallet\u2019s emphasis on spread rent and completion probability both reflect a market environment where traders prioritize liquidity and turnover over long\u2011term asset appreciation.",
-  "research_summary": "Microstructure analysis shows that the top\u2011turnover items have thin order books (liquidity_score\u202f=\u202f1) and low momentum, which limits the effectiveness of high\u2011frequency strategies. Volume acceleration is negative for the Twisted Bow and Soulreaper Axe, suggesting a potential regime shift toward consolidation. The velocity wallet\u2019s positions are heavily weighted toward items with high turnover but low liquidity, exposing it to adverse selection and slippage. The market maker wallet\u2019s spread\u2011rent strategy benefits from higher liquidity and better completion probability, mitigating adverse selection risk. Community narratives on Reddit highlight concerns over low liquidity but do not indicate any imminent price catalysts. No recent Jagex announcements have introduced significant economic shocks.",
+  "regime": "Momentum\u2011driven, high\u2011turnover regime with emerging volatility.  The market is currently in a liquidity\u2011constrained phase for premium raid rewards, but volume acceleration on items like Ancient Brew suggests a shift toward a more active, price\u2011moving regime.  Upcoming updates to Twisted Bow and Tumeken\u2019s Shadow could trigger a regime shift by altering demand dynamics.",
   "status": "ok",
-  "summary": "The OSRS economy remains in a state of high turnover but low momentum for premium items. Recent Jagex updates have not materially altered the value of key gear; the Twisted Bow\u2019s damage curve was slightly adjusted (OFFICIAL: Twisted Bow wiki) and the Soulreaper Axe received a stack\u2011decay and damage\u2011bonus tweak (OFFICIAL: Summer Sweep\u2011Up 2026 wiki). These changes have not generated significant price swings. The velocity wallet is heavily exposed to low\u2011liquidity, high\u2011turnover items (teleports, potions) and is currently underperforming, while the market maker wallet holds a more diversified spread\u2011rent portfolio with a modest negative return. Overall, the market is in a consolidation phase with limited catalyst risk.",
+  "summary": "The market is dominated by rare raid rewards \u2013 Twisted Bow",
   "usage": {
-    "completion_tokens": 1782,
+    "completion_tokens": 1824,
     "completion_tokens_details": {
       "audio_tokens": 0,
       "image_tokens": 0,
-      "reasoning_tokens": 869
+      "reasoning_tokens": 1471
     },
     "cost": 0.014,
     "cost_details": {
-      "upstream_inference_completions_cost": 0.0005346,
-      "upstream_inference_cost": 0.0036701249999999998,
-      "upstream_inference_prompt_cost": 0.003135525
+      "upstream_inference_completions_cost": 0.0005472,
+      "upstream_inference_cost": 0.004115625,
+      "upstream_inference_prompt_cost": 0.003568425
     },
     "is_byok": true,
-    "prompt_tokens": 46671,
+    "prompt_tokens": 47579,
     "prompt_tokens_details": {
       "audio_tokens": 0,
       "cache_write_tokens": 0,
-      "cached_tokens": 9728,
+      "cached_tokens": 0,
       "video_tokens": 0
     },
     "server_tool_use_details": {
@@ -83,28 +91,6 @@
       "tool_calls_requested": 3,
       "web_search_requests": 3
     },
-    "total_tokens": 48453
-  },
-  "wallet_notes": [
-    {
-      "description": "High\u2011turnover, momentum\u2011based positions in low\u2011liquidity items (teleports, potions, seeds). Current unrealized P&L is negative across all holdings, reflecting the difficulty of capturing spread rent in thin markets. The wallet\u2019s thesis is not yet yielding positive returns, suggesting a potential shift toward higher\u2011liquidity assets or a rebalancing of risk budgets.",
-      "wallet": "Velocity"
-    },
-    {
-      "description": "Liquidity\u2011provision portfolio with a focus on spread rent and completion probability. Holds a mix of high\u2011liquidity items (necklace of passage, teleportation items) and a few lower\u2011liquidity items (Mithril scimitar, Antifire potion). The wallet\u2019s return is closer to breakeven, indicating that spread rent is being captured more effectively than in the velocity strategy.",
-      "wallet": "Market Maker"
-    }
-  ],
-  "watchlist": [
-    "Twisted Bow",
-    "Soulreaper Axe",
-    "Large camphor hull parts",
-    "Prayer potion(2)",
-    "Stamina potion(3)",
-    "Crystal weapon seed",
-    "Mithril scimitar",
-    "Antifire potion(4)",
-    "Moonlight antelope fur",
-    "Yew bird house"
-  ]
+    "total_tokens": 49403
+  }
 }
