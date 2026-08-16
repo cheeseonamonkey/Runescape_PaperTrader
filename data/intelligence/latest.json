@@ -2,311 +2,368 @@
   "auxiliary": [
     {
       "kind": "analyst_critique",
-      "model": "poolside/laguna-s-2.1:free",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "result": {
         "concerns": [
-          "Stale Catalysts: The notable events listed (e.g., Project Rebalance on 17 January 2024, Summer Sweep-Up on 22 July 2026) are either outdated or futuristic relative to the generation date (16 August 2026), suggesting a disconnect between event relevance and current market conditions.",
-          "Unsupported Certainty: The report confidently asserts a 'transitioning regime' and attributes market behavior to specific updates without providing quantitative evidence or data to substantiate these claims.",
-          "Narrative-Following: The analysis appears to follow a preconceived narrative of regime shift and bearish sentiment without adequately exploring alternative explanations for the observed wallet performance or market dynamics.",
-          "Missing Counterarguments: There is no discussion of potential bullish factors, external influences (e.g., seasonal trends, upcoming content), or internal inconsistencies in the data (e.g., why high liquidity coexists with weak momentum).",
-          "Semantic Mistakes: The JSON structure is malformed, particularly in the 'Market Maker' section where 'Moonlight antelope antler' lacks proper key-value pairs, and the overall structure repeats nested objects incorrectly, indicating possible parsing or formatting errors.",
-          "Incomplete Data: The 'Market Maker' wallet notes are truncated, omitting full position details and potentially skewing the comparative analysis between the two wallets."
+          "Claims of underperformance and high activity are asserted without quantitative evidence; no supporting data or time\u2011frame is given.",
+          "The listed upcoming events (PvP Bootcamp, Sailing skill) are months away and may not materially affect current prices, making them stale catalysts.",
+          "The focus on a handful of premium items creates a narrative\u2011following bias, ignoring the majority of the market and potentially overstating momentum signals.",
+          "The term \"adverse\u2011selection risk\" is used without explaining how thin order books specifically increase this risk, and the phrase \"liquidity is thin on many high\u2011turnover items\" is contradictory.",
+          "The analysis omits potential bearish counter\u2011arguments such as upcoming content that could reduce demand for PvP items, macro\u2011player\u2011base trends, or possible liquidity improvements.",
+          "Minor semantic errors (e.g., \"spread\u2011rent focus\", ambiguous \"velocity\u2019s flow\u2011following strategy\\)) detract from clarity."
         ],
-        "confidence": "Medium",
-        "summary": "The analysis presents a cautiously bearish outlook on the OSRS market, attributing underperformance to shifts in trading regimes and recent game updates. However, it contains several structural and contextual issues that undermine its reliability."
+        "confidence": "moderate",
+        "summary": "The analysis presents a bearish view of the OSRS Grand Exchange, but relies on several unsubstantiated claims, outdated catalysts, and a narrow narrative that overlooks broader market dynamics and counter\u2011arguments."
       },
       "status": "ok"
     },
     {
+      "error": "ValueError",
       "kind": "wallet_red_team",
-      "model": "poolside/laguna-s-2.1:free",
-      "result": {
-        "market_maker": [
-          "Liquidity: While the wallet targets high-liquidity assets, the current market environment has seen a broad withdrawal of liquidity from order books. Even assets with high liquidity scores are experiencing wider spreads and lower fill rates, undermining the spread-rent thesis.",
-          "Adverse Selection: The market-making strategy relies on balanced flow, but current conditions are characterized by highly directional, informed trading. The wallet is being picked off as it provides liquidity to large players who have superior information about near-term price movements.",
-          "Regime Mismatch: The strategy assumes a stable, range-bound market where spreads can be captured consistently. However, the current regime is one of elevated uncertainty and directional moves, causing frequent stop-outs and making it difficult to maintain profitable positions.",
-          "Opportunity Cost: The capital allocated to market-making is generating negative returns while safer strategies, such"
-        ],
-        "velocity": [
-          "Liquidity: The wallet is concentrated in mid-tier items with moderate liquidity scores (0.7-0.9), but in a regime where liquidity is evaporating due to broader market stress, these positions become hard to exit without slippage. The high turnover assumption breaks down when market depth dries up.",
-          "Adverse Selection: The momentum-based entries are chasing short-term price moves that are increasingly driven by informed flow rather than retail speculation. In the current environment, momentum is more likely to reverse quickly as large players unwind, leaving the wallet buying high and selling lower.",
-          "Regime Mismatch: The strategy assumes a trending, high-volatility regime where momentum persists. However, current conditions show mean-reverting behavior and compressed volatility, making the flow-following approach structurally misaligned with price action.",
-          "Opportunity Cost: Capital is tied up in positions that are all losing value simultaneously, with no diversification benefit. The opportunity cost of holding these momentum names is significant when safer assets or cash equivalents are offering better risk-adjusted returns in the current environment."
-        ]
-      },
-      "status": "ok"
+      "status": "unavailable"
     },
     {
+      "error": "ValueError",
       "kind": "news_triage",
-      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "result": {
-        "important": [
-          "Summer Sweep Up - Agility"
-        ]
-      },
-      "status": "ok"
+      "status": "unavailable"
     }
   ],
-  "generated_at": "2026-08-16T11:31:07.371241+00:00",
-  "market_mood": "Cautiously bearish \u2013 both wallets are currently in a loss\u2011making state, with Velocity\u2019s high\u2011turnover strategy underperforming and Market Maker\u2019s spread\u2011focused approach only slightly better.  Liquidity remains high for the top items, but momentum for the most active trades is weak or negative, indicating a slowdown in the high\u2011frequency segment.",
+  "generated_at": "2026-08-16T12:57:48.733078+00:00",
+  "market_mood": "Cautiously bearish \u2013 both wallets are currently underperforming, but the market remains highly active with significant turnover and momentum signals. Liquidity is thin on many high\u2011turnover items, increasing adverse\u2011selection risk.",
   "model": "openai/gpt-oss-20b",
   "notable_events": [
     {
-      "date": "17 January 2024",
-      "description": "Added +15 Slash Accuracy and reduced charge cost to 1 vial + 200 blood runes for 100 charges.",
-      "event": "Project Rebalance \u2013 Scythe of Vitur",
-      "evidence_class": "OFFICIAL",
-      "source": "https://oldschool.runescape.wiki/w/Scythe_of_vitur"
+      "date": "2026-08-13",
+      "source": "Jagex RSS",
+      "title": "PvP Bootcamp: Event by Katerena",
+      "type": "OFFICIAL"
     },
     {
-      "date": "17 January 2024",
-      "description": "Same changes as above, plus charges only used when at least one hit > 0.",
-      "event": "Project Rebalance \u2013 Scythe & Fang",
-      "evidence_class": "OFFICIAL",
-      "source": "https://oldschool.runescape.wiki/w/Update:Project_Rebalance:_Overview,_Scythe_%26_Fang"
+      "date": "2026-08-15",
+      "source": "Jagex RSS",
+      "title": "Game Status Information Centre",
+      "type": "OFFICIAL"
     },
     {
-      "date": "22 July 2026",
-      "description": "Twisted Bow +15, other gear changes; no direct price impact noted.",
-      "event": "Summer Sweep\u2011Up Gear & PvM Changes",
-      "evidence_class": "OFFICIAL",
-      "source": "https://secure.runescape.com/m=news/summer-sweep-up-gear--pvm-changes?oldschool=1"
+      "date": "2026-08-12",
+      "source": "Jagex RSS",
+      "title": "Summer Sweep Up \u2013 Agility & Chambers of Xeric Changes",
+      "type": "OFFICIAL"
     }
   ],
-  "regime": "Transitioning from a high\u2011velocity, momentum\u2011driven regime to a more spread\u2011controlled, liquidity\u2011focused regime.  The recent Project Rebalance updates (Scythe of Vitur +15 Slash Accuracy, cheaper charges) and the Summer Sweep\u2011Up gear changes (Twisted Bow +15) have slightly altered the value curves of the top megarare items, but the overall market remains dominated by high\u2011turnover trades.",
+  "regime": "Momentum\u2011driven, high\u2011volatility, low\u2011liquidity regime.  The GE is exhibiting rapid price swings on a handful of items, with volume acceleration fluctuating between + and \u2013 5\u2011minute windows.",
   "status": "ok",
-  "summary": "The market is dominated by a handful of megarare items (Twisted Bow, Scythe of Vitur, Tumeken\u2019s Shadow) that still command high prices but show modest momentum.  Velocity\u2019s portfolio is heavily weighted toward items with negative unrealized ROI, reflecting a recent dip in the high\u2011turnover segment.  Market Maker\u2019s positions are more spread\u2011oriented but still suffer from negative ROI, suggesting that adverse selection and completion risk are eating into spread rent.  No major economy\u2011wide changes were announced by Jagex in the last week.",
+  "summary": "The OSRS Grand Exchange is in a high\u2011turnover, low\u2011liquidity state dominated by a few premium items (Scythe of Vitur, Twisted Bow, Zaryte Crossbow, Tumeken\u2019s Shadow, Soulreaper Axe).  Velocity\u2019s flow\u2011following strategy is heavily exposed to momentum and volume acceleration, yielding a -10.5\u202f% return.  Market Maker\u2019s spread\u2011rent focus is more conservative, with a -0.5\u202f% return.  Both wallets face adverse\u2011selection risk due to thin order books.  Upcoming events (PvP Bootcamp, new Sailing skill) may act as catalysts for PvP\u2011related items.",
   "usage": {
-    "completion_tokens": 1818,
+    "completion_tokens": 1600,
     "completion_tokens_details": {
       "audio_tokens": 0,
       "image_tokens": 0,
-      "reasoning_tokens": 477
+      "reasoning_tokens": 634
     },
-    "cost": 0.014,
+    "cost": 0,
     "cost_details": {
-      "upstream_inference_completions_cost": 0.0005454,
-      "upstream_inference_cost": 0.004939799999999999,
-      "upstream_inference_prompt_cost": 0.0043944
+      "upstream_inference_completions_cost": 0.00048,
+      "upstream_inference_cost": 0.001340175,
+      "upstream_inference_prompt_cost": 0.000860175
     },
     "is_byok": true,
-    "prompt_tokens": 64224,
+    "prompt_tokens": 11469,
     "prompt_tokens_details": {
       "audio_tokens": 0,
       "cache_write_tokens": 0,
-      "cached_tokens": 11264,
+      "cached_tokens": 0,
       "video_tokens": 0
     },
-    "server_tool_use_details": {
-      "tool_calls_executed": 4,
-      "tool_calls_requested": 4,
-      "web_search_requests": 4
-    },
-    "total_tokens": 66042
+    "total_tokens": 13069
   },
-  "wallet_notes": {
-    "Market Maker": {
-      "cash_gp": 424019,
-      "positions": [
-        {
-          "item": "Necklace of passage(5)",
-          "unrealized_pnl_gp": -23733,
-          "unrealized_roi": -0.0232
-        },
-        {
-          "item": "Mos le'harmless teleport",
-          "unrealized_pnl_gp": -18120,
-          "unrealized_roi": -0.02372
-        },
-        {
-          "item": "Grimy kwuarm",
-          "unrealized_pnl_gp": -24769,
-          "unrealized_roi": -0.02324
-        },
-        {
-          "": "json",
-          "item": "Moonlight antelope antler"
-        },
-        {
-          "market_mood": "Cautiously bearish \u2013 both wallets are currently in a loss\u2011making state, with Velocity\u2019s high\u2011turnover strategy underperforming and Market Maker\u2019s spread\u2011focused approach only slightly better.  Liquidity remains high for the top items, but momentum for the most active trades is weak or negative, indicating a slowdown in the high\u2011frequency segment.",
-          "notable_events": [
-            {
-              "date": "17 January 2024",
-              "description": "Added +15 Slash Accuracy and reduced charge cost to 1 vial + 200 blood runes for 100 charges.",
-              "event": "Project Rebalance \u2013 Scythe of Vitur",
-              "evidence_class": "OFFICIAL",
-              "source": "https://oldschool.runescape.wiki/w/Scythe_of_vitur"
-            },
-            {
-              "date": "17 January 2024",
-              "description": "Same changes as above, plus charges only used when at least one hit > 0.",
-              "event": "Project Rebalance \u2013 Scythe & Fang",
-              "evidence_class": "OFFICIAL",
-              "source": "https://oldschool.runescape.wiki/w/Update:Project_Rebalance:_Overview,_Scythe_%26_Fang"
-            },
-            {
-              "date": "22 July 2026",
-              "description": "Twisted Bow +15, other gear changes; no direct price impact noted.",
-              "event": "Summer Sweep\u2011Up Gear & PvM Changes",
-              "evidence_class": "OFFICIAL",
-              "source": "https://secure.runescape.com/m=news/summer-sweep-up-gear--pvm-changes?oldschool=1"
-            }
-          ],
-          "regime": "Transitioning from a high\u2011velocity, momentum\u2011driven regime to a more spread\u2011controlled, liquidity\u2011focused regime.  The recent Project Rebalance updates (Scythe of Vitur +15 Slash Accuracy, cheaper charges) and the Summer Sweep\u2011Up gear changes (Twisted Bow +15) have slightly altered the value curves of the top megarare items, but the overall market remains dominated by high\u2011turnover trades.",
-          "summary": "The market is dominated by a handful of megarare items (Twisted Bow, Scythe of Vitur, Tumeken\u2019s Shadow) that still command high prices but show modest momentum.  Velocity\u2019s portfolio is heavily weighted toward items with negative unrealized ROI, reflecting a recent dip in the high\u2011turnover segment.  Market Maker\u2019s positions are more spread\u2011oriented but still suffer from negative ROI, suggesting that adverse selection and completion risk are eating into spread rent.  No major economy\u2011wide changes were announced by Jagex in the last week.",
-          "wallet_notes": {
-            "Market Maker": {
-              "cash_gp": 424019,
-              "positions": [
-                {
-                  "item": "Necklace of passage(5)",
-                  "unrealized_pnl_gp": -23733,
-                  "unrealized_roi": -0.0232
-                },
-                {
-                  "item": "Mos le'harmless teleport",
-                  "unrealized_pnl_gp": -18120,
-                  "unrealized_roi": -0.02372
-                },
-                {
-                  "item": "Grimy kwuarm",
-                  "unrealized_pnl_gp": -24769,
-                  "unrealized_roi": -0.02324
-                },
-                {
-                  "item": "Moonlight antelope antler"
-                }
-              ],
-              "return_pct": -0.006482
-            },
-            "Velocity": {
-              "cash_gp": 103641,
-              "positions": [
-                {
-                  "item": "Divine ranging potion(1)",
-                  "unrealized_pnl_gp": -18720,
-                  "unrealized_roi": -0.02327
-                },
-                {
-                  "item": "Unicorn horn",
-                  "unrealized_pnl_gp": -1261,
-                  "unrealized_roi": -0.02394
-                },
-                {
-                  "item": "Ancient staff",
-                  "unrealized_pnl_gp": -9240,
-                  "unrealized_roi": -0.01565
-                },
-                {
-                  "item": "Diamond bolts",
-                  "unrealized_pnl_gp": -11525,
-                  "unrealized_roi": -0.01437
-                },
-                {
-                  "item": "Moonlight antelope antler",
-                  "unrealized_pnl_gp": -18630,
-                  "unrealized_roi": -0.02387
-                },
-                {
-                  "item": "Steel bar",
-                  "unrealized_pnl_gp": -12680,
-                  "unrealized_roi": -0.01386
-                },
-                {
-                  "item": "Wilderness crabs teleport",
-                  "unrealized_pnl_gp": -18676,
-                  "unrealized_roi": -0.02357
-                },
-                {
-                  "item": "Dragon dart tip",
-                  "unrealized_pnl_gp": -23528,
-                  "unrealized_roi": -0.02469
-                },
-                {
-                  "item": "Cotton seed",
-                  "unrealized_pnl_gp": -18500,
-                  "unrealized_roi": -0.02441
-                },
-                {
-                  "item": "Bounty supply crate (anglerfish)",
-                  "unrealized_pnl_gp": -8450,
-                  "unrealized_roi": -0.02401
-                }
-              ],
-              "return_pct": -0.096265,
-              "top_candidate": {
-                "expected_roi": 0.025924,
-                "item": "Dragon dart tip",
-                "momentum_5m_vs_1h": 0.081329,
-                "volume_acceleration": 2.606
-              }
-            }
-          }
-        }
-      ],
-      "return_pct": -0.006482
-    },
-    "Velocity": {
-      "cash_gp": 103641,
+  "wallet_notes": [
+    {
+      "cash_gp": 102044,
+      "name": "Velocity",
       "positions": [
         {
           "item": "Divine ranging potion(1)",
-          "unrealized_pnl_gp": -18720,
-          "unrealized_roi": -0.02327
+          "momentum": 0.0259,
+          "unrealized_roi": -0.0233
         },
         {
           "item": "Unicorn horn",
-          "unrealized_pnl_gp": -1261,
-          "unrealized_roi": -0.02394
+          "momentum": 0.0035,
+          "unrealized_roi": -0.024
         },
         {
           "item": "Ancient staff",
-          "unrealized_pnl_gp": -9240,
-          "unrealized_roi": -0.01565
+          "momentum": 0.0259,
+          "unrealized_roi": -0.0198
         },
         {
           "item": "Diamond bolts",
-          "unrealized_pnl_gp": -11525,
-          "unrealized_roi": -0.01437
+          "momentum": 0.083,
+          "unrealized_roi": -0.0086
         },
         {
           "item": "Moonlight antelope antler",
-          "unrealized_pnl_gp": -18630,
-          "unrealized_roi": -0.02387
-        },
-        {
-          "item": "Steel bar",
-          "unrealized_pnl_gp": -12680,
-          "unrealized_roi": -0.01386
+          "momentum": 0.083,
+          "unrealized_roi": -0.0239
         },
         {
           "item": "Wilderness crabs teleport",
-          "unrealized_pnl_gp": -18676,
-          "unrealized_roi": -0.02357
+          "momentum": 0.0151,
+          "unrealized_roi": -0.0236
         },
         {
           "item": "Dragon dart tip",
-          "unrealized_pnl_gp": -23528,
-          "unrealized_roi": -0.02469
+          "momentum": 0.0813,
+          "unrealized_roi": -0.0094
+        },
+        {
+          "item": "Burning amulet(5)",
+          "momentum": 0.0241,
+          "unrealized_roi": -0.0208
+        },
+        {
+          "item": "Contract of glyphic attenuation",
+          "momentum": 0.0196,
+          "unrealized_roi": -0.0095
+        },
+        {
+          "item": "Lava battlestaff",
+          "momentum": 0.0518,
+          "unrealized_roi": -0.0231
+        }
+      ],
+      "return_pct": -0.104567,
+      "top_candidates": [
+        {
+          "expected_roi": 0.0542,
+          "name": "Grubby key"
+        },
+        {
+          "expected_roi": 0.0288,
+          "name": "Mahogany hull parts"
+        },
+        {
+          "expected_roi": 0.0112,
+          "name": "Crystal weapon seed"
+        },
+        {
+          "expected_roi": 0.021,
+          "name": "Lantadyme"
+        },
+        {
+          "expected_roi": 0.0452,
+          "name": "Kwuarm seed"
+        }
+      ]
+    },
+    "market_maker",
+    ":",
+    {
+      "cash_gp": 478793,
+      "positions": [
+        {
+          "item": "Necklace of passage(5)",
+          "momentum": 0.0362,
+          "unrealized_roi": -0.0077
+        },
+        {
+          "item": "Mos le'harmless teleport",
+          "momentum": 0.087,
+          "unrealized_roi": -0.0237
+        },
+        {
+          "item": "Grimy kwuarm",
+          "momentum": 0.0232,
+          "unrealized_roi": -0.0084
+        },
+        {
+          "item": "Moonlight antelope antler",
+          "momentum": 0.083,
+          "unrealized_roi": -0.0228
+        },
+        {
+          "item": "Wilderness crabs teleport",
+          "momentum": 0.0151,
+          "unrealized_roi": -0.0225
+        },
+        {
+          "item": "Dragon dart tip",
+          "momentum": 0.0813,
+          "unrealized_roi": -0.008
+        },
+        {
+          "item": "Burning amulet(5)",
+          "momentum": 0.0241,
+          "unrealized_roi": -0.0198
         },
         {
           "item": "Cotton seed",
-          "unrealized_pnl_gp": -18500,
-          "unrealized_roi": -0.02441
+          "momentum": 0.0301,
+          "unrealized_roi": -0.0228
         },
         {
-          "item": "Bounty supply crate (anglerfish)",
-          "unrealized_pnl_gp": -8450,
-          "unrealized_roi": -0.02401
+          "item": ""
+        },
+        {
+          "market_mood": "Cautiously bearish \u2013 both wallets are currently underperforming, but the market remains highly active with significant turnover and momentum signals. Liquidity is thin on many high\u2011turnover items, increasing adverse\u2011selection risk.",
+          "notable_events": [
+            {
+              "date": "2026-08-13",
+              "source": "Jagex RSS",
+              "title": "PvP Bootcamp: Event by Katerena",
+              "type": "OFFICIAL"
+            },
+            {
+              "date": "2026-08-15",
+              "source": "Jagex RSS",
+              "title": "Game Status Information Centre",
+              "type": "OFFICIAL"
+            },
+            {
+              "date": "2026-08-12",
+              "source": "Jagex RSS",
+              "title": "Summer Sweep Up \u2013 Agility & Chambers of Xeric Changes",
+              "type": "OFFICIAL"
+            }
+          ],
+          "regime": "Momentum\u2011driven, high\u2011volatility, low\u2011liquidity regime.  The GE is exhibiting rapid price swings on a handful of items, with volume acceleration fluctuating between + and \u2013 5\u2011minute windows.",
+          "summary": "The OSRS Grand Exchange is in a high\u2011turnover, low\u2011liquidity state dominated by a few premium items (Scythe of Vitur, Twisted Bow, Zaryte Crossbow, Tumeken\u2019s Shadow, Soulreaper Axe).  Velocity\u2019s flow\u2011following strategy is heavily exposed to momentum and volume acceleration, yielding a -10.5\u202f% return.  Market Maker\u2019s spread\u2011rent focus is more conservative, with a -0.5\u202f% return.  Both wallets face adverse\u2011selection risk due to thin order books.  Upcoming events (PvP Bootcamp, new Sailing skill) may act as catalysts for PvP\u2011related items.",
+          "wallet_notes": [
+            {
+              "cash_gp": 102044,
+              "name": "Velocity",
+              "positions": [
+                {
+                  "item": "Divine ranging potion(1)",
+                  "momentum": 0.0259,
+                  "unrealized_roi": -0.0233
+                },
+                {
+                  "item": "Unicorn horn",
+                  "momentum": 0.0035,
+                  "unrealized_roi": -0.024
+                },
+                {
+                  "item": "Ancient staff",
+                  "momentum": 0.0259,
+                  "unrealized_roi": -0.0198
+                },
+                {
+                  "item": "Diamond bolts",
+                  "momentum": 0.083,
+                  "unrealized_roi": -0.0086
+                },
+                {
+                  "item": "Moonlight antelope antler",
+                  "momentum": 0.083,
+                  "unrealized_roi": -0.0239
+                },
+                {
+                  "item": "Wilderness crabs teleport",
+                  "momentum": 0.0151,
+                  "unrealized_roi": -0.0236
+                },
+                {
+                  "item": "Dragon dart tip",
+                  "momentum": 0.0813,
+                  "unrealized_roi": -0.0094
+                },
+                {
+                  "item": "Burning amulet(5)",
+                  "momentum": 0.0241,
+                  "unrealized_roi": -0.0208
+                },
+                {
+                  "item": "Contract of glyphic attenuation",
+                  "momentum": 0.0196,
+                  "unrealized_roi": -0.0095
+                },
+                {
+                  "item": "Lava battlestaff",
+                  "momentum": 0.0518,
+                  "unrealized_roi": -0.0231
+                }
+              ],
+              "return_pct": -0.104567,
+              "top_candidates": [
+                {
+                  "expected_roi": 0.0542,
+                  "name": "Grubby key"
+                },
+                {
+                  "expected_roi": 0.0288,
+                  "name": "Mahogany hull parts"
+                },
+                {
+                  "expected_roi": 0.0112,
+                  "name": "Crystal weapon seed"
+                },
+                {
+                  "expected_roi": 0.021,
+                  "name": "Lantadyme"
+                },
+                {
+                  "expected_roi": 0.0452,
+                  "name": "Kwuarm seed"
+                }
+              ]
+            },
+            "market_maker",
+            ":",
+            {
+              "cash_gp": 478793,
+              "positions": [
+                {
+                  "item": "Necklace of passage(5)",
+                  "momentum": 0.0362,
+                  "unrealized_roi": -0.0077
+                },
+                {
+                  "item": "Mos le'harmless teleport",
+                  "momentum": 0.087,
+                  "unrealized_roi": -0.0237
+                },
+                {
+                  "item": "Grimy kwuarm",
+                  "momentum": 0.0232,
+                  "unrealized_roi": -0.0084
+                },
+                {
+                  "item": "Moonlight antelope antler",
+                  "momentum": 0.083,
+                  "unrealized_roi": -0.0228
+                },
+                {
+                  "item": "Wilderness crabs teleport",
+                  "momentum": 0.0151,
+                  "unrealized_roi": -0.0225
+                },
+                {
+                  "item": "Dragon dart tip",
+                  "momentum": 0.0813,
+                  "unrealized_roi": -0.008
+                },
+                {
+                  "item": "Burning amulet(5)",
+                  "momentum": 0.0241,
+                  "unrealized_roi": -0.0198
+                },
+                {
+                  "item": "Cotton seed",
+                  "momentum": 0.0301,
+                  "unrealized_roi": -0.0228
+                },
+                {
+                  "item": ""
+                }
+              ],
+              "return_pct": -0.004557
+            }
+          ]
         }
       ],
-      "return_pct": -0.096265,
-      "top_candidate": {
-        "expected_roi": 0.025924,
-        "item": "Dragon dart tip",
-        "momentum_5m_vs_1h": 0.081329,
-        "volume_acceleration": 2.606
-      }
+      "return_pct": -0.004557
     }
-  }
+  ]
 }
