@@ -1,96 +1,13 @@
 {
-  "\"json\n{\n  \"market_mood\": \"Mixed \u2013 momentum is positive for the top raid\u2011reward items (Twisted Bow, Tumeken\"s Shadow) but their liquidity is thin and volume is low.  High\u2011turnover items such as Ancient Brew and Seeking Amethyst Arrow show strong volume acceleration, signalling potential price swings.  Overall sentiment is cautiously bullish for high\u2011value gear but wary of slippage risk on low\u2011liquidity assets.\",\n  \"regime\": \"Momentum\u2011driven, high\u2011turnover regime with emerging volatility.  The market is currently in a liquidity\u2011constrained phase for premium raid rewards, but volume acceleration on items like Ancient Brew suggests a shift toward a more active, price\u2011moving regime.  Upcoming updates to Twisted Bow and Tumeken\"s Shadow could trigger a regime shift by altering demand dynamics.\",\n  \"summary\": \"The market is dominated by rare raid rewards \u2013 Twisted Bow, Tumeken\"s Shadow, and Scythe of Vitur \u2013 which exhibit modest positive momentum but suffer from low liquidity and limited trade volume.  The Velocity wallet is chasing high\u2011turnover items (Ancient Brew, Seeking Amethyst Arrow, Dragon Axe) but is underperforming due to adverse selection and high spread costs.  The Market Maker wallet focuses on spread\u2011rent assets (Necklace of Passage, Teleports) but also suffers from slippage": null,
-  "Tumeken": "s Shadow, and Scythe of Vitur \u2013 which exhibit modest positive momentum but suffer from low liquidity and limited trade volume.  The Velocity wallet is chasing high\u2011turnover items (Ancient Brew, Seeking Amethyst Arrow, Dragon Axe) but is underperforming due to adverse selection and high spread costs.  The Market Maker wallet focuses on spread\u2011rent assets (Necklace of Passage, Teleports) but also suffers from slippage",
-  "auxiliary": [
-    {
-      "kind": "analyst_critique",
-      "model": "google/gemma-4-26b-a4b-it:free",
-      "result": {
-        "concerns": [
-          "Unsupported certainty regarding 'upcoming updates' to Twisted Bow and Tumeken's Shadow; no specific patch notes or developer communications are cited to justify a predicted regime shift.",
-          "Stale/Vague catalysts: The mention of updates to end-game gear is a common speculative trope in OSRS analysis that often fails to materialize or lacks specific direction.",
-          "Narrative-following: The 'Velocity wallet' and 'Market Maker wallet' terminology appears to be an overlay of traditional finance jargon onto OSRS mechanics without explaining the specific algorithmic or behavioral basis for these labels.",
-          "Missing counterarguments: The analysis assumes volume acceleration in consumables (Ancient Brew) signals a shift to a price-moving regime, ignoring the possibility that this is merely seasonal consumption or a localized supply shock.",
-          "Semantic mistake: The term 'adverse selection' is used in the context of a 'Velocity wallet' chasing high-turnover items, but the analysis fails to clarify if the selection is against informed traders or simply a result of high friction/spreads.",
-          "Logical leap: Conflating low liquidity in high-value gear with 'cautious bullishness' is contradictory; low liquidity typically necessitates a neutral or bearish outlook due to the inability to exit positions."
-        ],
-        "confidence": "low",
-        "summary": "The analysis attempts to categorize the OSRS market into distinct regimes and wallet strategies but relies heavily on speculative correlations and lacks empirical depth regarding the 'upcoming updates' mentioned."
-      },
-      "status": "ok"
-    },
-    {
-      "kind": "wallet_red_team",
-      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "result": {
-        "market_maker": [
-          "Providing liquidity on assets with deteriorating depth can lead to inventory imbalances and adverse selection",
-          "The spread\u2011rent assumptions may not hold when price trends persist, causing mispriced quotes",
-          "The prevailing market trend may be inconsistent with the mean\u2011reverting logic underpinning the strategy",
-          "Positions with negative realized returns indicate that the market maker is absorbing unfavorable trades",
-          "Capital locked in low\u2011yield or losing positions limits flexibility to allocate to more attractive opportunities"
-        ],
-        "velocity": [
-          "Liquidity strain on thinly traded items limits timely exits and amplifies slippage",
-          "Momentum signals may be front\u2011run, causing entry prices to move against the position",
-          "The current market regime lacks the rapid price swings the strategy relies on, creating a regime mismatch",
-          "Capital is tied up in low\u2011return or negative\u2011return holdings, reducing the ability to pursue higher\u2011edge opportunities",
-          "Concentrated risk budgets expose the wallet to outsized losses if a few positions reverse"
-        ]
-      },
-      "status": "ok"
-    },
-    {
-      "kind": "news_triage",
-      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "result": {
-        "important": [
-          "Summer Sweep Up - Agility & Chambers of Xeric Changes",
-          "Bronzeman Mode & A Ruff Situation"
-        ],
-        "probably_noise": [
-          "PvP Bootcamp: Event by Katerena",
-          "Game Status Information Centre",
-          "Community Spotlight: Molgoatkirby",
-          "Charity Event: OneBigGame - Jagex v Xbox",
-          "The Official OS"
-        ]
-      },
-      "status": "ok"
-    }
-  ],
-  "generated_at": "2026-08-16T16:37:51.575650+00:00",
-  "market_mood": "Mixed \u2013 momentum is positive for the top raid\u2011reward items (Twisted Bow, Tumeken\u2019s Shadow) but their liquidity is thin and volume is low.  High\u2011turnover items such as Ancient Brew and Seeking Amethyst Arrow show strong volume acceleration, signalling potential price swings.  Overall sentiment is cautiously bullish for high\u2011value gear but wary of slippage risk on low\u2011liquidity assets.",
-  "model": "openai/gpt-oss-20b",
-  "regime": "Momentum\u2011driven, high\u2011turnover regime with emerging volatility.  The market is currently in a liquidity\u2011constrained phase for premium raid rewards, but volume acceleration on items like Ancient Brew suggests a shift toward a more active, price\u2011moving regime.  Upcoming updates to Twisted Bow and Tumeken\u2019s Shadow could trigger a regime shift by altering demand dynamics.",
-  "status": "ok",
-  "summary": "The market is dominated by rare raid rewards \u2013 Twisted Bow",
-  "usage": {
-    "completion_tokens": 1824,
-    "completion_tokens_details": {
-      "audio_tokens": 0,
-      "image_tokens": 0,
-      "reasoning_tokens": 1471
-    },
-    "cost": 0.014,
-    "cost_details": {
-      "upstream_inference_completions_cost": 0.0005472,
-      "upstream_inference_cost": 0.004115625,
-      "upstream_inference_prompt_cost": 0.003568425
-    },
-    "is_byok": true,
-    "prompt_tokens": 47579,
-    "prompt_tokens_details": {
-      "audio_tokens": 0,
-      "cache_write_tokens": 0,
-      "cached_tokens": 0,
-      "video_tokens": 0
-    },
-    "server_tool_use_details": {
-      "tool_calls_executed": 3,
-      "tool_calls_requested": 3,
-      "web_search_requests": 3
-    },
-    "total_tokens": 49403
-  }
+  "auxiliary": [],
+  "error_type": "ValueError",
+  "http_status": null,
+  "market_mood": "unknown",
+  "notable_events": [],
+  "regime": "unknown",
+  "research_summary": "",
+  "status": "error",
+  "summary": "Primary AI failed safely: ValueError",
+  "wallet_notes": [],
+  "watchlist": []
 }
