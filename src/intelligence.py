@@ -1,48 +1,13 @@
 import json, os, re
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from datetime import datetime, timezone
 from .config import OPENROUTER_MODEL, OPENROUTER_FREE_MODEL, OPENROUTER_SUBAGENT_MODEL, ENABLE_WEB_RESEARCH, ENABLE_SUBAGENT, ENABLE_FREE_AUX, FREE_AUX_PASSES
 
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
-SYSTEM = """You are the qualitative research sidecar for an OSRS economy terminal running two independent paper-trading wallets. Never calculate P&L, ROI, tax, sizing, or prices. Deterministic code supplies those. Interpret microstructure, liquidity, momentum, volume acceleration, catalyst risk, adverse selection, regime shifts, community narratives, historical context, and opportunity cost. Compare Velocity (flow/momentum/high turnover) with Market Maker (spread/liquidity/completion quality). Distinguish OFFICIAL, CONFIRMED_COMMUNITY, COMMUNITY, RUMOR, MODEL_INFERENCE. Prefer Jagex/Wiki evidence. Reddit/community is sentiment evidence, not fact. Do not invent sources."""
+SYSTEM = """You are the qualitative research sidecar for an OSRS economy terminal running two independent paper-trading wallets. Never calculate P&L, ROI, tax, sizing, or prices. Deterministic code supplies those. Interpret microstructure, liquidity, momentum, volume acceleration, catalyst risk, adverse selection, regime shifts, community narratives, historical context, and opportunity cost. Compare Velocity (flow/momentum/high turnover) with Market Maker (spread/liquidity/completion quality). Distinguish OFFICIAL, CONFIRMED_COMMUNITY, COMMUNITY, RUMOR, MODEL_INFERENCE. Prefer Jagex/Wiki evidence. Reddit/community is sentiment evidence, not fact. Return one JSON object only with keys market_mood, regime, summary, notable_events, wallet_notes, research_summary, watchlist. Do not invent sources."""
 
-PRIMARY_RESPONSE_FORMAT = {
-    "type": "json_schema",
-    "json_schema": {
-        "name": "osrs_market_intelligence",
-        "strict": True,
-        "schema": {
-            "type": "object",
-            "properties": {
-                "market_mood": {"type": "string"},
-                "regime": {"type": "string"},
-                "summary": {"type": "string"},
-                "notable_events": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "title": {"type": "string"},
-                            "evidence_class": {"type": "string", "enum": ["OFFICIAL", "CONFIRMED_COMMUNITY", "COMMUNITY", "RUMOR", "MODEL_INFERENCE"]},
-                            "confidence": {"type": "number", "minimum": 0, "maximum": 1},
-                            "market_relevance": {"type": "number", "minimum": 0, "maximum": 1},
-                            "affected_items": {"type": "array", "items": {"type": "string"}},
-                            "explanation": {"type": "string"},
-                            "sources": {"type": "array", "items": {"type": "string"}}
-                        },
-                        "required": ["title", "evidence_class", "confidence", "market_relevance", "affected_items", "explanation", "sources"],
-                        "additionalProperties": False
-                    }
-                },
-                "wallet_notes": {"type": "array", "items": {"type": "string"}},
-                "research_summary": {"type": "string"},
-                "watchlist": {"type": "array", "items": {"type": "string"}}
-            },
-            "required": ["market_mood", "regime", "summary", "notable_events", "wallet_notes", "research_summary", "watchlist"],
-            "additionalProperties": False
-        }
-    }
-}
+JSON_OBJECT = {"type": "json_object"}
 
 
 def _extract(text):
@@ -61,21 +26,27 @@ def _extract(text):
     return json.loads(m.group(0))
 
 
-def _call(key, model, messages, tools=None, max_tokens=1600, timeout=120, response_format=None):
+def _call(key, model, messages, tools=None, max_tokens=1600, timeout=120, json_mode=False):
     body = {"model": model, "messages": messages, "temperature": .18, "max_tokens": max_tokens}
     if tools:
         body["tools"] = tools
-    if response_format:
-        body["response_format"] = response_format
-        body["provider"] = {"require_parameters": True}
+    if json_mode:
+        body["response_format"] = JSON_OBJECT
+        body["plugins"] = [{"id": "response-healing"}]
     req = Request(ENDPOINT, data=json.dumps(body).encode(), headers={
         "Authorization": f"Bearer {key}",
         "Content-Type": "application/json",
         "HTTP-Referer": "https://github.com/cheeseonamonkey/Runescape_PaperTrader",
         "X-Title": "OSRS PaperTrader"
     })
-    with urlopen(req, timeout=timeout) as r:
-        return json.load(r)
+    try:
+        with urlopen(req, timeout=timeout) as r:
+            return json.load(r)
+    except HTTPError as e:
+        # Do not persist response bodies: they may contain provider details not meant for the public dataset.
+        err = RuntimeError(f"OpenRouter HTTP {e.code}")
+        err.http_status = e.code
+        raise err from e
 
 
 def _free_aux(key, context, primary):
@@ -92,8 +63,13 @@ def _free_aux(key, context, primary):
             raw = _call(key, OPENROUTER_FREE_MODEL, [
                 {"role": "system", "content": prompt},
                 {"role": "user", "content": json.dumps(payload, separators=(",", ":"))}
-            ], max_tokens=420, timeout=60)
-            out.append({"kind": kind, "status": "ok", "model": raw.get("model", OPENROUTER_FREE_MODEL), "result": _extract(raw["choices"][0]["message"]["content"])})
+            ], max_tokens=420, timeout=60, json_mode=True)
+            out.append({
+                "kind": kind,
+                "status": "ok",
+                "model": raw.get("model", OPENROUTER_FREE_MODEL),
+                "result": _extract(raw["choices"][0]["message"]["content"])
+            })
         except Exception as e:
             out.append({"kind": kind, "status": "unavailable", "error": type(e).__name__})
     return out
@@ -102,7 +78,17 @@ def _free_aux(key, context, primary):
 def analyze(context):
     key = os.getenv("OPENROUTER_API_KEY")
     if not key:
-        return {"status": "disabled", "market_mood": "unknown", "regime": "unknown", "summary": "AI disabled; deterministic research and wallet engines continue.", "notable_events": [], "wallet_notes": [], "watchlist": [], "research_summary": "", "auxiliary": []}
+        return {
+            "status": "disabled",
+            "market_mood": "unknown",
+            "regime": "unknown",
+            "summary": "AI disabled; deterministic research and wallet engines continue.",
+            "notable_events": [],
+            "wallet_notes": [],
+            "watchlist": [],
+            "research_summary": "",
+            "auxiliary": []
+        }
 
     tools = []
     if ENABLE_WEB_RESEARCH:
@@ -111,17 +97,41 @@ def analyze(context):
             {"type": "openrouter:web_fetch"}
         ]
     if ENABLE_SUBAGENT:
-        tools.append({"type": "openrouter:subagent", "parameters": {"model": OPENROUTER_SUBAGENT_MODEL, "max_completion_tokens": 800, "tools": [{"type": "openrouter:web_search", "parameters": {"max_total_results": 5}}]}})
+        tools.append({
+            "type": "openrouter:subagent",
+            "parameters": {
+                "model": OPENROUTER_SUBAGENT_MODEL,
+                "max_completion_tokens": 800,
+                "tools": [{"type": "openrouter:web_search", "parameters": {"max_total_results": 5}}]
+            }
+        })
 
     messages = [
         {"role": "system", "content": SYSTEM},
         {"role": "user", "content": json.dumps(context, separators=(",", ":"))}
     ]
     try:
-        raw = _call(key, OPENROUTER_MODEL, messages, tools, response_format=PRIMARY_RESPONSE_FORMAT)
+        raw = _call(key, OPENROUTER_MODEL, messages, tools, json_mode=True)
         out = _extract(raw["choices"][0]["message"]["content"])
-        out.update(status="ok", model=raw.get("model", OPENROUTER_MODEL), generated_at=datetime.now(timezone.utc).isoformat(), usage=raw.get("usage", {}))
+        out.update(
+            status="ok",
+            model=raw.get("model", OPENROUTER_MODEL),
+            generated_at=datetime.now(timezone.utc).isoformat(),
+            usage=raw.get("usage", {})
+        )
         out["auxiliary"] = _free_aux(key, context, out)
         return out
     except Exception as e:
-        return {"status": "error", "error_type": type(e).__name__, "market_mood": "unknown", "regime": "unknown", "summary": f"Primary AI failed safely: {type(e).__name__}", "notable_events": [], "wallet_notes": [], "watchlist": [], "research_summary": "", "auxiliary": []}
+        return {
+            "status": "error",
+            "error_type": type(e).__name__,
+            "http_status": getattr(e, "http_status", None),
+            "market_mood": "unknown",
+            "regime": "unknown",
+            "summary": f"Primary AI failed safely: {type(e).__name__}",
+            "notable_events": [],
+            "wallet_notes": [],
+            "watchlist": [],
+            "research_summary": "",
+            "auxiliary": []
+        }
