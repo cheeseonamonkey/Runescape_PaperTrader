@@ -1,13 +1,201 @@
 {
-  "auxiliary": [],
-  "error_type": "ValueError",
-  "http_status": null,
-  "market_mood": "unknown",
-  "notable_events": [],
-  "regime": "unknown",
-  "research_summary": "",
-  "status": "error",
-  "summary": "Primary AI failed safely: ValueError",
-  "wallet_notes": [],
-  "watchlist": []
+  "auxiliary": [
+    {
+      "error": "ValueError",
+      "kind": "analyst_critique",
+      "status": "unavailable"
+    },
+    {
+      "kind": "wallet_red_team",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "result": {
+        "market_maker": [
+          "Spread rent erodes when competition drives fees lower, diminishing the primary profit source",
+          "Low turnover reduces the frequency of completing trades, lowering overall earnings",
+          "Adverse selection intensifies when market makers hold inventory opposite to informed traders, causing losses",
+          "Current market regime features sustained directional moves, exposing makers to inventory risk rather than balanced spreads",
+          "Liquidity constraints limit the ability to provide tight spreads across all assets, increasing execution cost",
+          "Opportunity cost arises as capital is allocated to low\u2011yield market\u2011making positions while higher\u2011return strategies exist elsewhere"
+        ],
+        "velocity": [
+          "Insufficient market depth for rapid position entry and exit, causing slippage and missed fills",
+          "Momentum signals weakened in a low\u2011volatility environment, reducing predictive power",
+          "High turnover strategy demands constant capital recycling, but limited liquidity traps funds in low\u2011yield holdings",
+          "Adverse selection risk rises when entering trades during thin order books, leading to purchases at unfavorable prices",
+          "Regime shift toward range\u2011bound markets undermines the effectiveness of fast\u2011following tactics",
+          "Opportunity cost emerges as capital is tied up in short\u2011lived positions while broader market trends favor longer\u2011term holds"
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "kind": "news_triage",
+      "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+      "result": {
+        "important": [
+          "string"
+        ],
+        "probably_noise": [
+          "string"
+        ]
+      },
+      "status": "ok"
+    }
+  ],
+  "generated_at": "2026-08-16T18:42:58.453334+00:00",
+  "market_mood": "Cautiously bearish with low liquidity. High\u2011value items such as the Scythe of Vitur and Twisted Bow show weak or negative momentum (momentum_5m_vs_1h \u2248 \u20130.0004 and \u20130.0003 respectively) and negative volume acceleration, indicating a slowdown in trading activity. Liquidity scores are uniformly low (1) and quote ages are short, suggesting tight spreads but limited depth.",
+  "model": "openai/gpt-oss-20b",
+  "notable_events": [
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "PvP Bootcamp: Event by Katerena"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "Game Status Information Centre"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "Community Spotlight: Molgoatkirby"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "Charity Event: OneBigGame - Jagex v Xbox"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "Summer Sweep Up - Agility & Chambers of Xeric Changes"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "Bronzeman Mode & A Ruff Situation"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "The Official OSRS Podcast Episode 17 With Mod Arcane"
+    },
+    {
+      "evidence_class": "OFFICIAL",
+      "source": "Jagex RSS",
+      "title": "Golden Gnome Awards 2026 Finalist Voting Open Now!"
+    },
+    {
+      "evidence_class": "COMMUNITY",
+      "source": "OSRS Wiki",
+      "title": "Scythe of Vitur (uncharged) \u2013 OSRS Wiki"
+    },
+    {
+      "evidence_class": "COMMUNITY",
+      "source": "OSRS Wiki",
+      "title": "Twisted Bow glitch \u2013 OSRS Wiki"
+    }
+  ],
+  "regime": "Low\u2011turnover, high\u2011spread regime. The market is dominated by a few high\u2011value items with thin order books, leading to higher adverse\u2011selection risk for traders who rely on rapid execution.",
+  "status": "ok",
+  "summary": "The current microstructure is characterised by thin liquidity and modest momentum. Velocity\u2019s high\u2011turnover strategy is exposed to slippage on items with low volume, while Market Maker\u2019s spread\u2011rent focus is hampered by the same liquidity constraints. Both wallets are reporting negative unrealised P&L, reflecting the broader market slowdown. Catalyst risk remains moderate: a Twisted Bow glitch could temporarily spike demand, but the overall trend for premium items is downward.",
+  "usage": {
+    "completion_tokens": 1600,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 891
+    },
+    "cost": 0,
+    "cost_details": {
+      "upstream_inference_completions_cost": 0.00048,
+      "upstream_inference_cost": 0.00134685,
+      "upstream_inference_prompt_cost": 0.00086685
+    },
+    "is_byok": true,
+    "prompt_tokens": 11558,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 13158
+  },
+  "wallet_notes": {
+    "Velocity": [
+      {
+        "comment": "Low momentum (0.0268) but high fill",
+        "item": "Bones to peaches (tablet)",
+        "unrealised_roi": -0.0236
+      },
+      {
+        "market_mood": "Cautiously bearish with low liquidity. High\u2011value items such as the Scythe of Vitur and Twisted Bow show weak or negative momentum (momentum_5m_vs_1h \u2248 \u20130.0004 and \u20130.0003 respectively) and negative volume acceleration, indicating a slowdown in trading activity. Liquidity scores are uniformly low (1) and quote ages are short, suggesting tight spreads but limited depth.",
+        "notable_events": [
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "PvP Bootcamp: Event by Katerena"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "Game Status Information Centre"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "Community Spotlight: Molgoatkirby"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "Charity Event: OneBigGame - Jagex v Xbox"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "Summer Sweep Up - Agility & Chambers of Xeric Changes"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "Bronzeman Mode & A Ruff Situation"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "The Official OSRS Podcast Episode 17 With Mod Arcane"
+          },
+          {
+            "evidence_class": "OFFICIAL",
+            "source": "Jagex RSS",
+            "title": "Golden Gnome Awards 2026 Finalist Voting Open Now!"
+          },
+          {
+            "evidence_class": "COMMUNITY",
+            "source": "OSRS Wiki",
+            "title": "Scythe of Vitur (uncharged) \u2013 OSRS Wiki"
+          },
+          {
+            "evidence_class": "COMMUNITY",
+            "source": "OSRS Wiki",
+            "title": "Twisted Bow glitch \u2013 OSRS Wiki"
+          }
+        ],
+        "regime": "Low\u2011turnover, high\u2011spread regime. The market is dominated by a few high\u2011value items with thin order books, leading to higher adverse\u2011selection risk for traders who rely on rapid execution.",
+        "summary": "The current microstructure is characterised by thin liquidity and modest momentum. Velocity\u2019s high\u2011turnover strategy is exposed to slippage on items with low volume, while Market Maker\u2019s spread\u2011rent focus is hampered by the same liquidity constraints. Both wallets are reporting negative unrealised P&L, reflecting the broader market slowdown. Catalyst risk remains moderate: a Twisted Bow glitch could temporarily spike demand, but the overall trend for premium items is downward.",
+        "wallet_notes": {
+          "Velocity": [
+            {
+              "comment": "Low momentum (0.0268) but high fill",
+              "item": "Bones to peaches (tablet)",
+              "unrealised_roi": -0.0236
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
