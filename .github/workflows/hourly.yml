@@ -57,6 +57,7 @@ jobs:
           python3 -m compileall -q src scripts
           node --check site/app.js
       - name: Run v0.3 multi-wallet engine
+        if: github.event_name != 'push'
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.reset }}" == "true" ]]; then
             python3 scripts/run.py --reset
@@ -79,6 +80,7 @@ jobs:
       - name: Build mobile site
         run: python3 scripts/build_site.py
       - name: Persist state
+        if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
