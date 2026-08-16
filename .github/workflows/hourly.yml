@@ -2,6 +2,10 @@ name: Hourly paper trade
 on:
   schedule:
     - cron: "7 * * * *"
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - "data/**"
   workflow_dispatch:
     inputs:
       reset:
@@ -54,7 +58,11 @@ jobs:
           node --check site/app.js
       - name: Run v0.3 multi-wallet engine
         run: |
-          if [[ "${{ inputs.reset }}" == "true" ]]; then python3 scripts/run.py --reset; else python3 scripts/run.py; fi
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.reset }}" == "true" ]]; then
+            python3 scripts/run.py --reset
+          else
+            python3 scripts/run.py
+          fi
       - name: Snapshot invariants
         run: |
           python3 - <<'PY'
