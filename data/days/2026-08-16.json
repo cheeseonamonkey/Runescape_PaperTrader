@@ -1858,6 +1858,543 @@
           "value_gp": 9251509
         }
       }
+    },
+    {
+      "at": "2026-08-16T10:34:37.514991+00:00",
+      "intelligence": {
+        "market_mood": {
+          "sources": [
+            {
+              "description": "Analysis of top_by_turnover data (Scythe of Vitur, Twisted Bow, Tumeken\u2019s Shadow).",
+              "type": "MODEL_INFERENCE"
+            }
+          ],
+          "text": "The current market exhibits high turnover and liquidity for the top megarare weapons, but momentum is largely flat or slightly negative.  Scythe of Vitur shows a modest positive volume acceleration (+0.263) but a negative 5\u2011minute vs 1\u2011hour momentum (\u20110.0066).  Twisted Bow and Tumeken\u2019s Shadow have zero momentum and negative acceleration, indicating a slight cooling.  Overall, the mood is one of active trading but with a slight drift toward consolidation."
+        },
+        "regime": {
+          "sources": [
+            {
+              "description": "Liquidity and spread analysis from common_market data.",
+              "type": "MODEL_INFERENCE"
+            }
+          ],
+          "text": "The market is in a high\u2011turnover, high\u2011liquidity regime dominated by megarare PvM gear.  Spread rents are modest (\u22480.006\u20130.022) and liquidity scores are consistently 1, indicating a stable regime with frequent order flow.  No regime shift is evident; the market remains in a normal trading cycle."
+        },
+        "status": "ok",
+        "summary": {
+          "sources": [
+            {
+              "description": "Combined analysis of market data and wallet positions.",
+              "type": "MODEL_INFERENCE"
+            }
+          ],
+          "text": "High\u2011turnover items such as Scythe of Vitur, Twisted Bow, and Tumeken\u2019s Shadow are actively traded with low spreads and high liquidity.  Momentum is largely flat, with slight negative acceleration for the Twisted Bow.  The Velocity wallet, which prioritises momentum and volume acceleration, is currently underperforming due to negative momentum and high volatility.  The Market Maker wallet, focused on spread rent and completion probability, shows better fill probabilities but still suffers from negative unrealised PnL.  Recent updates to the Scythe and Twisted Bow have slightly altered their value dynamics."
+        }
+      },
+      "market": {
+        "median_top_momentum": 0.001333,
+        "total_turnover_gp_1h": 178163736344,
+        "tracked_items": 3316
+      },
+      "version": "0.3",
+      "wallets": {
+        "market_maker": {
+          "cash_gp": 462234,
+          "positions": 12,
+          "realized_pnl_gp": 354056,
+          "return_pct": 0.015584,
+          "trades": [
+            {
+              "at": "2026-08-16T10:34:39.413203+00:00",
+              "held_hours": 2.16,
+              "item_id": 29782,
+              "name": "Spider cave teleport",
+              "pnl_gp": 15064,
+              "qty": 28,
+              "reason": "take_profit",
+              "roi": 0.018321,
+              "side": "SELL",
+              "unit_price": 29904,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.413203+00:00",
+              "held_hours": 2.13,
+              "item_id": 12405,
+              "name": "Lunar isle teleport",
+              "pnl_gp": 24156,
+              "qty": 366,
+              "reason": "take_profit",
+              "roi": 0.027352,
+              "side": "SELL",
+              "unit_price": 2479,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.413203+00:00",
+              "held_hours": 1.86,
+              "item_id": 29280,
+              "name": "Mixed hide top",
+              "pnl_gp": 14768,
+              "qty": 52,
+              "reason": "take_profit",
+              "roi": 0.01849,
+              "side": "SELL",
+              "unit_price": 15644,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.413203+00:00",
+              "held_hours": 0.95,
+              "item_id": 2436,
+              "name": "Super attack(4)",
+              "pnl_gp": 27995,
+              "qty": 509,
+              "reason": "take_profit",
+              "roi": 0.027473,
+              "side": "SELL",
+              "unit_price": 2057,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.413203+00:00",
+              "held_hours": 0.95,
+              "item_id": 21483,
+              "name": "Ultracompost",
+              "pnl_gp": 18777,
+              "qty": 1707,
+              "reason": "take_profit",
+              "roi": 0.022965,
+              "side": "SELL",
+              "unit_price": 490,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.413203+00:00",
+              "held_hours": 0.95,
+              "item_id": 12410,
+              "name": "Iorwerth camp teleport",
+              "pnl_gp": -9018,
+              "qty": 27,
+              "reason": "stop_loss",
+              "roi": -0.052155,
+              "side": "SELL",
+              "unit_price": 6070,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.415051+00:00",
+              "cost_gp": 1023606,
+              "expected_roi": 0.041983,
+              "fill_model": "expected_quantity",
+              "item_id": 31970,
+              "name": "Teak repair kit",
+              "order_qty": 2929,
+              "qty": 2337,
+              "reason": "market_maker_rank",
+              "score": 161.477,
+              "side": "BUY",
+              "unit_price": 438,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.415058+00:00",
+              "cost_gp": 1016039,
+              "expected_roi": 0.024611,
+              "fill_model": "expected_quantity",
+              "item_id": 24251,
+              "name": "Wilderness crabs teleport",
+              "order_qty": 70,
+              "qty": 59,
+              "reason": "market_maker_rank",
+              "score": 159.74,
+              "side": "BUY",
+              "unit_price": 17221,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.415062+00:00",
+              "cost_gp": 899640,
+              "expected_roi": 0.0309,
+              "fill_model": "expected_quantity",
+              "item_id": 31032,
+              "name": "Ent branch",
+              "order_qty": 351,
+              "qty": 252,
+              "reason": "market_maker_rank",
+              "score": 156.647,
+              "side": "BUY",
+              "unit_price": 3570,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.415066+00:00",
+              "cost_gp": 1011920,
+              "expected_roi": 0.070317,
+              "fill_model": "expected_quantity",
+              "item_id": 32904,
+              "name": "Camphor logs",
+              "order_qty": 2363,
+              "qty": 1946,
+              "reason": "market_maker_rank",
+              "score": 156.122,
+              "side": "BUY",
+              "unit_price": 520,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.415070+00:00",
+              "cost_gp": 511288,
+              "expected_roi": 0.03926,
+              "fill_model": "expected_quantity",
+              "item_id": 12404,
+              "name": "Feldip hills teleport",
+              "order_qty": 872,
+              "qty": 632,
+              "reason": "market_maker_rank",
+              "score": 154.164,
+              "side": "BUY",
+              "unit_price": 809,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-16T10:34:39.415073+00:00",
+              "cost_gp": 142614,
+              "expected_roi": 0.043656,
+              "fill_model": "expected_quantity",
+              "item_id": 5372,
+              "name": "Maple sapling",
+              "order_qty": 51,
+              "qty": 38,
+              "reason": "market_maker_rank",
+              "score": 153.98,
+              "side": "BUY",
+              "unit_price": 3753,
+              "wallet": "market_maker"
+            }
+          ],
+          "unrealized_pnl_gp": -198216,
+          "value_gp": 10155840
+        },
+        "velocity": {
+          "cash_gp": 104639,
+          "positions": 18,
+          "realized_pnl_gp": -605846,
+          "return_pct": -0.079674,
+          "trades": [
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 2.13,
+              "item_id": 24635,
+              "name": "Divine bastion potion(4)",
+              "pnl_gp": 12587,
+              "qty": 41,
+              "reason": "take_profit",
+              "roi": 0.01592,
+              "side": "SELL",
+              "unit_price": 19591,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 1.86,
+              "item_id": 11234,
+              "name": "Dragon dart(p++)",
+              "pnl_gp": 21750,
+              "qty": 435,
+              "reason": "take_profit",
+              "roi": 0.031211,
+              "side": "SELL",
+              "unit_price": 1652,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 1.86,
+              "item_id": 2493,
+              "name": "Blue d'hide chaps",
+              "pnl_gp": -11455,
+              "qty": 79,
+              "reason": "stop_loss",
+              "roi": -0.072428,
+              "side": "SELL",
+              "unit_price": 1857,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 1.86,
+              "item_id": 4131,
+              "name": "Rune boots",
+              "pnl_gp": 5611,
+              "qty": 31,
+              "reason": "take_profit",
+              "roi": 0.027189,
+              "side": "SELL",
+              "unit_price": 6838,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 31970,
+              "name": "Teak repair kit",
+              "pnl_gp": -24542,
+              "qty": 1753,
+              "reason": "stop_loss",
+              "roi": -0.031746,
+              "side": "SELL",
+              "unit_price": 427,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 12410,
+              "name": "Iorwerth camp teleport",
+              "pnl_gp": -38874,
+              "qty": 114,
+              "reason": "stop_loss",
+              "roi": -0.053223,
+              "side": "SELL",
+              "unit_price": 6066,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 32005,
+              "name": "Steel keel parts",
+              "pnl_gp": -13860,
+              "qty": 77,
+              "reason": "stop_loss",
+              "roi": -0.071287,
+              "side": "SELL",
+              "unit_price": 2345,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 2436,
+              "name": "Super attack(4)",
+              "pnl_gp": 21465,
+              "qty": 405,
+              "reason": "take_profit",
+              "roi": 0.026474,
+              "side": "SELL",
+              "unit_price": 2055,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 987,
+              "name": "Loop half of key",
+              "pnl_gp": -32925,
+              "qty": 75,
+              "reason": "stop_loss",
+              "roi": -0.044578,
+              "side": "SELL",
+              "unit_price": 9409,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 1111,
+              "name": "Adamant chainbody",
+              "pnl_gp": -6696,
+              "qty": 72,
+              "reason": "stop_loss",
+              "roi": -0.034598,
+              "side": "SELL",
+              "unit_price": 2595,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.407761+00:00",
+              "held_hours": 0.95,
+              "item_id": 26340,
+              "name": "Ancient brew(4)",
+              "pnl_gp": -1152,
+              "qty": 18,
+              "reason": "stop_loss",
+              "roi": -0.024042,
+              "side": "SELL",
+              "unit_price": 2598,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410588+00:00",
+              "cost_gp": 801540,
+              "expected_roi": 0.041491,
+              "fill_model": "expected_quantity",
+              "item_id": 31970,
+              "name": "Teak repair kit",
+              "order_qty": 2307,
+              "qty": 1830,
+              "reason": "velocity_rank",
+              "score": 143.032,
+              "side": "BUY",
+              "unit_price": 438,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410597+00:00",
+              "cost_gp": 682061,
+              "expected_roi": 0.02803,
+              "fill_model": "expected_quantity",
+              "item_id": 31032,
+              "name": "Ent branch",
+              "order_qty": 277,
+              "qty": 191,
+              "reason": "velocity_rank",
+              "score": 133.26,
+              "side": "BUY",
+              "unit_price": 3571,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410603+00:00",
+              "cost_gp": 660953,
+              "expected_roi": 0.03702,
+              "fill_model": "expected_quantity",
+              "item_id": 12404,
+              "name": "Feldip hills teleport",
+              "order_qty": 1154,
+              "qty": 817,
+              "reason": "velocity_rank",
+              "score": 129.671,
+              "side": "BUY",
+              "unit_price": 809,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410608+00:00",
+              "cost_gp": 536822,
+              "expected_roi": 0.039512,
+              "fill_model": "expected_quantity",
+              "item_id": 5372,
+              "name": "Maple sapling",
+              "order_qty": 200,
+              "qty": 143,
+              "reason": "velocity_rank",
+              "score": 122.574,
+              "side": "BUY",
+              "unit_price": 3754,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410611+00:00",
+              "cost_gp": 914545,
+              "expected_roi": 0.018929,
+              "fill_model": "expected_quantity",
+              "item_id": 2353,
+              "name": "Steel bar",
+              "order_qty": 1774,
+              "qty": 1585,
+              "reason": "velocity_rank",
+              "score": 117.676,
+              "side": "BUY",
+              "unit_price": 577,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410615+00:00",
+              "cost_gp": 792488,
+              "expected_roi": 0.023679,
+              "fill_model": "expected_quantity",
+              "item_id": 24251,
+              "name": "Wilderness crabs teleport",
+              "order_qty": 55,
+              "qty": 46,
+              "reason": "velocity_rank",
+              "score": 117.671,
+              "side": "BUY",
+              "unit_price": 17228,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410619+00:00",
+              "cost_gp": 698016,
+              "expected_roi": 0.024108,
+              "fill_model": "expected_quantity",
+              "item_id": 31099,
+              "name": "Mokhaiotl waystone",
+              "order_qty": 20,
+              "qty": 16,
+              "reason": "velocity_rank",
+              "score": 114.509,
+              "side": "BUY",
+              "unit_price": 43626,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410622+00:00",
+              "cost_gp": 149124,
+              "expected_roi": 0.01994,
+              "fill_model": "expected_quantity",
+              "item_id": 32889,
+              "name": "Lead bar",
+              "order_qty": 140,
+              "qty": 102,
+              "reason": "velocity_rank",
+              "score": 113.199,
+              "side": "BUY",
+              "unit_price": 1462,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410626+00:00",
+              "cost_gp": 44004,
+              "expected_roi": 0.044537,
+              "fill_model": "expected_quantity",
+              "item_id": 8010,
+              "name": "Camelot teleport (tablet)",
+              "order_qty": 144,
+              "qty": 114,
+              "reason": "velocity_rank",
+              "score": 111.774,
+              "side": "BUY",
+              "unit_price": 386,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410630+00:00",
+              "cost_gp": 4494,
+              "expected_roi": 0.014056,
+              "fill_model": "expected_quantity",
+              "item_id": 23709,
+              "name": "Divine super strength potion(4)",
+              "order_qty": 2,
+              "qty": 1,
+              "reason": "velocity_rank",
+              "score": 106.479,
+              "side": "BUY",
+              "unit_price": 4494,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-16T10:34:39.410634+00:00",
+              "cost_gp": 2803,
+              "expected_roi": 0.020599,
+              "fill_model": "expected_quantity",
+              "item_id": 1121,
+              "name": "Mithril platebody",
+              "order_qty": 2,
+              "qty": 1,
+              "reason": "velocity_rank",
+              "score": 102.463,
+              "side": "BUY",
+              "unit_price": 2803,
+              "wallet": "velocity"
+            }
+          ],
+          "unrealized_pnl_gp": -190897,
+          "value_gp": 9203257
+        }
+      }
     }
   ]
 }
