@@ -19,32 +19,57 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b' }}
-      OPENROUTER_SUBAGENT_MODEL: ${{ vars.OPENROUTER_SUBAGENT_MODEL || 'openai/gpt-oss-20b' }}
+      OPENROUTER_FREE_MODEL: ${{ vars.OPENROUTER_FREE_MODEL || 'openrouter/free' }}
+      OPENROUTER_SUBAGENT_MODEL: ${{ vars.OPENROUTER_SUBAGENT_MODEL || 'openrouter/free' }}
       ENABLE_WEB_RESEARCH: ${{ vars.ENABLE_WEB_RESEARCH || '1' }}
       ENABLE_SUBAGENT: ${{ vars.ENABLE_SUBAGENT || '0' }}
-      OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.1 - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
+      ENABLE_FREE_SANITY_PASS: ${{ vars.ENABLE_FREE_SANITY_PASS || '1' }}
+      ENABLE_DDGS: ${{ vars.ENABLE_DDGS || '1' }}
+      DDGS_EVERY_HOURS: ${{ vars.DDGS_EVERY_HOURS || '6' }}
+      OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.2 - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install optional research dependency
+        run: pip install -r requirements.txt
       - uses: actions/configure-pages@v5
-      - name: Run paper trader
+      - name: Run v0.2 engine
         run: |
           if [[ "${{ inputs.reset }}" == "true" ]]; then python3 scripts/run.py --reset; else python3 scripts/run.py; fi
+      - name: Sanity checks
+        run: |
+          python3 -m compileall -q src scripts
+          node --check site/app.js
+          python3 - <<'PY'
+          import json
+          d=json.load(open('data/latest_snapshot.json'))
+          assert d['version']=='0.2' and d['portfolio_value_gp']>=0
+          assert isinstance(d['top_candidates'],list)
+          PY
+      - name: Build mobile site
+        run: python3 scripts/build_site.py
       - name: Persist state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
-          if ! git diff --cached --quiet; then git commit -m "data: hourly paper-trader snapshot"; git push; fi
-      - name: Build mobile site
-        run: python3 scripts/build_site.py
+          if ! git diff --cached --quiet; then
+            git commit -m "data: hourly v0.2 market snapshot"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public

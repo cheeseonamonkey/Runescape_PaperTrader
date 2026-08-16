@@ -1,7 +1,9 @@
-# Strategy
+# v0.2 strategy: aggressive microstructure
 
-The trader is deterministic. The language model is an observer in v0.1.
+v0.2 is deliberately higher-turnover. It attempts to capture the bid/ask spread with passive paper orders while treating an immediate liquidation as a separate, more conservative mark.
 
-Goals: prefer fresh, liquid opportunities with meaningful post-tax edge; preserve a cash reserve; cap concentration; exit winners, losers, and stale positions mechanically.
+Core signals: post-tax expected edge, 5-minute vs 1-hour midpoint momentum, normalized 5-minute volume acceleration, hourly GP turnover, quote freshness, and an explicit adverse-selection penalty.
 
-The engine models 2% GE seller tax (5m GP per-item cap) plus a small slippage haircut. It intentionally avoids stale quotes, low hourly volume, tiny post-tax edge, and implausibly wide spreads.
+Capital is allocated from an equity-based risk budget rather than a percentage of remaining cash. Better liquidity and supportive momentum can earn a larger allocation, but deterministic caps and the GE buy limit remain binding. Inventory rotates after three hours when a thesis is not paying and is forcibly liquidated after eight hours.
+
+This is a paper model. Observed Wiki high/low prices are market observations, not guaranteed executable orders; estimated fill probabilities are heuristics, not calibrated probabilities.

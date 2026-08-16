@@ -1,7 +1,7 @@
-# Intelligence policy
+# v0.2 research policy
 
-AI is for semantic judgment and readable reporting, never arithmetic.
+Research is layered. Deterministic sources run independently of the language model: official Jagex RSS is checked every run; a best-effort DDGS web scout runs periodically (six-hour cadence by default). OpenRouter then receives those findings plus computed market state and may selectively use server-side web search/fetch.
 
 Evidence classes: `OFFICIAL`, `CONFIRMED_COMMUNITY`, `COMMUNITY`, `RUMOR`, `MODEL_INFERENCE`.
 
-Prefer Jagex and OSRS Wiki. Reddit/forums are useful for sentiment, rumor discovery, and player observations but are not authoritative. Search only when external context could plausibly explain a meaningful market move or alter qualitative risk. Never invent a source or promote repetition into confirmation.
+The paid/cheap primary model writes the substantive qualitative read. `openrouter/free` may run a non-critical sanity pass; failure or disagreement never blocks trading. Free routing is intentionally not used for arithmetic or portfolio mutation.
