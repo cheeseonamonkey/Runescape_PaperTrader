@@ -6,13 +6,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.config import VERSION, STARTING_GP, PROFILES
+from src.config import VERSION, STARTING_GP, PROFILES, INTELLIGENCE_EVERY_HOURS
 from src.market import snapshot
-from src.strategy import common_features, wallet_candidates
+from src.strategy import common_features, economy_metrics, wallet_candidates
 from src.portfolio import fresh_wallet, normalize_wallet, close_positions, open_positions, wallet_value, marked_positions
 from src.history import historical_context
 from src.research import deterministic_research
-from src.intelligence import analyze
+from src.intelligence import analyze, normalize_intelligence, SCHEMA as INTELLIGENCE_SCHEMA
 from src.observability import build_run_record, run_index_summary
 from src.io_utils import DATA, read_json, write_json, append_jsonl
 
@@ -28,8 +28,43 @@ def compact_position(row):
 
 
 def compact_candidate(row):
-    keys = ("id", "name", "expected_roi", "momentum_5m_vs_1h", "volume_acceleration", "liquidity_score", "historical_signal", "fill_probability", "risk_budget_pct", "score")
+    keys = (
+        "id", "name", "expected_roi", "expected_edge_gp", "spread_capture_ev_gp", "inventory_risk_ev_gp",
+        "fill_probability", "inventory_probability", "momentum_5m_vs_1h", "volume_acceleration", "liquidity_score",
+        "historical_signal", "risk_budget_pct", "score", "score_components",
+    )
     return {key: row.get(key) for key in keys}
+
+
+def _age_hours(value, now):
+    try:
+        return max(0, (now - datetime.fromisoformat(value)).total_seconds() / 3600)
+    except (TypeError, ValueError):
+        return None
+
+
+def cached_or_fresh_intelligence(context, now):
+    path = DATA / "intelligence" / "latest.json"
+    cached = read_json(path, {})
+    age = _age_hours(cached.get("generated_at"), now)
+    reusable = (
+        cached.get("schema") == INTELLIGENCE_SCHEMA
+        and cached.get("status") in {"ok", "disabled"}
+        and age is not None
+        and age < INTELLIGENCE_EVERY_HOURS
+    )
+    if reusable:
+        clean = normalize_intelligence(cached)
+        for key in ("schema", "status", "model", "generated_at", "usage", "auxiliary"):
+            if key in cached:
+                clean[key] = cached[key]
+        clean["freshness"] = "cached"
+        clean["age_hours"] = round(age, 2)
+        return clean
+    fresh = analyze(context)
+    fresh["freshness"] = "refreshed"
+    fresh["age_hours"] = 0
+    return fresh
 
 
 def main():
@@ -40,6 +75,7 @@ def main():
 
     latest, five, hourly, mapping = snapshot()
     common = common_features(latest, five, hourly, mapping)
+    economy = economy_metrics(common)
 
     history_cache_path = DATA / "historical" / "latest.json"
     research_cache_path = DATA / "research" / "latest.json"
@@ -63,7 +99,7 @@ def main():
             "id": slug, "name": profile.name, "thesis": profile.thesis,
             "value_gp": value, "cash_gp": state["cash_gp"], "return_pct": round(value / STARTING_GP - 1, 6),
             "realized_pnl_gp": state["realized_pnl_gp"], "unrealized_pnl_gp": sum(row["unrealized_pnl_gp"] for row in marks),
-            "positions": marks, "trades_this_run": trades, "eligible_candidates": len(candidates), "top_candidates": candidates[:16],
+            "positions": marks, "trades_this_run": trades, "eligible_candidates": len(candidates), "top_candidates": candidates[:20],
             "strategy": {
                 "max_positions": profile.max_positions, "reserve_pct": profile.reserve_pct,
                 "take_profit": profile.take_profit, "stop_loss": profile.stop_loss,
@@ -77,6 +113,7 @@ def main():
 
     context = {
         "timestamp": started_at.isoformat(), "version": VERSION,
+        "economy": economy,
         "common_market": {
             "top_by_turnover": [compact_market(row) for row in common[:10]],
             "historical": {"status": history.get("status"), "items": history.get("items", {})},
@@ -86,16 +123,16 @@ def main():
                 "name": wallet["name"], "thesis": wallet["thesis"], "return_pct": wallet["return_pct"],
                 "cash_gp": wallet["cash_gp"],
                 "positions": [compact_position(row) for row in wallet["positions"][:8]],
-                "top_candidates": [compact_candidate(row) for row in wallet["top_candidates"][:8]],
+                "top_candidates": [compact_candidate(row) for row in wallet["top_candidates"][:6]],
             }
             for slug, wallet in wallets.items()
         },
         "deterministic_research": {
-            "official": research.get("official", [])[:8], "search": research.get("search", [])[:8],
+            "official": research.get("official", [])[:8], "search": research.get("search", [])[:6],
             "search_status": research.get("search_status"), "queries": research.get("queries", []),
         },
     }
-    intelligence = analyze(context)
+    intelligence = cached_or_fresh_intelligence(context, started_at)
 
     market_stats = {
         "tracked_items": len(common),
@@ -110,11 +147,12 @@ def main():
     document = {
         "version": VERSION, "updated_at": finished_at.isoformat(), "starting_gp_per_wallet": STARTING_GP,
         "run": run_index_summary(run_record), "wallets": wallets,
-        "market": {"stats": market_stats, "top_by_turnover": common[:25], "historical": history},
+        "market": {"stats": market_stats, "economy": economy, "top_by_turnover": common[:40], "items": common[:120], "historical": history},
+        "simulation": read_json(DATA / "simulations" / "latest_72h.json", {}),
         "deterministic_research": research, "intelligence": intelligence,
     }
 
-    # Commit durable state only after the full cycle has been computed successfully.
+    # Durable state only after the complete cycle has been computed successfully.
     for slug, profile in PROFILES.items():
         base = DATA / "wallets" / slug
         state = states[slug]
@@ -133,7 +171,8 @@ def main():
     write_json(research_cache_path, research)
     write_json(DATA / "latest_snapshot.json", document)
     write_json(DATA / "intelligence" / "latest.json", intelligence)
-    append_jsonl(DATA / "intelligence" / "history.jsonl", intelligence)
+    if intelligence.get("freshness") == "refreshed":
+        append_jsonl(DATA / "intelligence" / "history.jsonl", intelligence)
 
     day = finished_at.date().isoformat()
     day_path = DATA / "days" / f"{day}.json"
@@ -149,9 +188,10 @@ def main():
             }
             for slug, wallet in wallets.items()
         },
-        "market": market_stats,
+        "market": {**market_stats, "economy": economy},
         "intelligence": {
-            "status": intelligence.get("status"), "market_mood": intelligence.get("market_mood"),
+            "status": intelligence.get("status"), "freshness": intelligence.get("freshness"),
+            "economy_brief": intelligence.get("economy_brief"), "market_mood": intelligence.get("market_mood"),
             "regime": intelligence.get("regime"), "summary": intelligence.get("summary"),
         },
     })
@@ -176,7 +216,7 @@ def main():
     print(
         "v" + VERSION + " "
         + " ".join(f"{slug}={wallet['value_gp']:,}gp/{len(wallet['positions'])}pos" for slug, wallet in wallets.items())
-        + f" market={len(common)} ai={intelligence.get('status')} health={run_record['health']['status']} warnings={warning_text} run={run_id}"
+        + f" market={len(common)} ai={intelligence.get('status')}/{intelligence.get('freshness')} health={run_record['health']['status']} warnings={warning_text} run={run_id}"
     )
 
 

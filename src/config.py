@@ -65,7 +65,11 @@ ENABLE_WEB_RESEARCH = os.getenv("ENABLE_WEB_RESEARCH", "1") == "1"
 ENABLE_SUBAGENT = os.getenv("ENABLE_SUBAGENT", "0") == "1"
 ENABLE_FREE_AUX = os.getenv("ENABLE_FREE_AUX", "1") == "1"
 FREE_AUX_PASSES = max(0, min(3, int(os.getenv("FREE_AUX_PASSES", "3"))))
+INTELLIGENCE_EVERY_HOURS = max(1, int(os.getenv("INTELLIGENCE_EVERY_HOURS", "2")))
 ENABLE_DDGS = os.getenv("ENABLE_DDGS", "1") == "1"
 DDGS_EVERY_HOURS = max(1, int(os.getenv("DDGS_EVERY_HOURS", "6")))
 HISTORY_EVERY_HOURS = max(1, int(os.getenv("HISTORY_EVERY_HOURS", "6")))
 HISTORY_ITEMS = max(1, min(8, int(os.getenv("HISTORY_ITEMS", "5"))))
+REPLAY_EVERY_HOURS = max(1, int(os.getenv("REPLAY_EVERY_HOURS", "6")))
+REPLAY_HOURS = max(24, min(168, int(os.getenv("REPLAY_HOURS", "72"))))
+REPLAY_ITEMS = max(8, min(40, int(os.getenv("REPLAY_ITEMS", "24"))))

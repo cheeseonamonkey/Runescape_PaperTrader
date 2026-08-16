@@ -40,10 +40,14 @@ jobs:
       ENABLE_SUBAGENT: ${{ vars.ENABLE_SUBAGENT || '0' }}
       ENABLE_FREE_AUX: ${{ vars.ENABLE_FREE_AUX || '1' }}
       FREE_AUX_PASSES: ${{ vars.FREE_AUX_PASSES || '3' }}
+      INTELLIGENCE_EVERY_HOURS: ${{ vars.INTELLIGENCE_EVERY_HOURS || '2' }}
       ENABLE_DDGS: ${{ vars.ENABLE_DDGS || '1' }}
       DDGS_EVERY_HOURS: ${{ vars.DDGS_EVERY_HOURS || '6' }}
       HISTORY_EVERY_HOURS: ${{ vars.HISTORY_EVERY_HOURS || '6' }}
       HISTORY_ITEMS: ${{ vars.HISTORY_ITEMS || '5' }}
+      REPLAY_EVERY_HOURS: ${{ vars.REPLAY_EVERY_HOURS || '6' }}
+      REPLAY_HOURS: ${{ vars.REPLAY_HOURS || '72' }}
+      REPLAY_ITEMS: ${{ vars.REPLAY_ITEMS || '24' }}
       OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.4 - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
 
     steps:
@@ -66,6 +70,11 @@ jobs:
           python3 -m compileall -q src scripts tests
           python3 -m unittest discover -s tests -q
           node --check site/app.js
+
+      - name: Refresh bounded 72h replay
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: python3 scripts/replay_72h.py
 
       - name: Run v0.4 multi-wallet engine
         if: github.event_name != 'push'

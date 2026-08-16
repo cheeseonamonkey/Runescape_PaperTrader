@@ -5,9 +5,10 @@ from datetime import datetime, timezone
 from .config import OPENROUTER_MODEL, OPENROUTER_FREE_MODEL, OPENROUTER_SUBAGENT_MODEL, ENABLE_WEB_RESEARCH, ENABLE_SUBAGENT, ENABLE_FREE_AUX, FREE_AUX_PASSES
 
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
-SYSTEM = """You are the qualitative research sidecar for an OSRS economy terminal running two independent paper-trading wallets. Never calculate P&L, ROI, tax, sizing, or prices. Deterministic code supplies those. Interpret microstructure, liquidity, momentum, volume acceleration, catalyst risk, adverse selection, regime shifts, community narratives, historical context, and opportunity cost. Compare Velocity (flow/momentum/high turnover) with Market Maker (spread/liquidity/completion quality). Distinguish OFFICIAL, CONFIRMED_COMMUNITY, COMMUNITY, RUMOR, MODEL_INFERENCE. Prefer Jagex/Wiki evidence. Reddit/community is sentiment evidence, not fact. Return one compact JSON object only with keys market_mood, regime, summary, notable_events, wallet_notes, research_summary, watchlist. Do not copy the input back. Do not invent sources."""
+SYSTEM = """You are the qualitative research sidecar for an OSRS economy terminal running two independent paper-trading wallets. Deterministic code owns all prices, P&L, tax, sizing, fills, scores and arithmetic. You interpret the supplied macro packet and evidence: breadth, price pressure, concentration, liquidity/spreads, momentum/flow, catalysts, regime shifts, adverse selection, community narratives and opportunity cost. Compare Velocity (flow/momentum/high turnover) with Market Maker (spread/liquidity/completion quality). Distinguish OFFICIAL, CONFIRMED_COMMUNITY, COMMUNITY, RUMOR, MODEL_INFERENCE. Prefer Jagex/Wiki evidence. Reddit/community is sentiment evidence, not fact. Return one compact JSON object only with keys economy_brief, market_mood, regime, summary, notable_events, wallet_notes, research_summary, watchlist. economy_brief should be a readable 2-4 sentence 'state of the OSRS economy' brief, not a list and not a restatement of raw metrics. Do not copy the input back. Do not invent sources."""
 JSON_OBJECT = {"type": "json_object"}
 EVIDENCE = {"OFFICIAL", "CONFIRMED_COMMUNITY", "COMMUNITY", "RUMOR", "MODEL_INFERENCE"}
+SCHEMA = 2
 
 
 def _text(value, limit=1200):
@@ -83,17 +84,18 @@ def normalize_intelligence(raw):
         if normalized:
             events.append(normalized)
     return {
-        "market_mood": _text(raw.get("market_mood") or "unknown", 700),
-        "regime": _text(raw.get("regime") or "unknown", 900),
-        "summary": _text(raw.get("summary") or "", 1600),
+        "economy_brief": _text(raw.get("economy_brief") or raw.get("summary") or "", 1400),
+        "market_mood": _text(raw.get("market_mood") or "unknown", 500),
+        "regime": _text(raw.get("regime") or "unknown", 700),
+        "summary": _text(raw.get("summary") or "", 1400),
         "notable_events": events[:8],
         "wallet_notes": _wallet_notes(raw.get("wallet_notes")),
-        "research_summary": _text(raw.get("research_summary") or "", 1200),
+        "research_summary": _text(raw.get("research_summary") or "", 1000),
         "watchlist": _list_of_text(raw.get("watchlist"), 12, 180),
     }
 
 
-def _call(key, model, messages, tools=None, max_tokens=1600, timeout=120, json_mode=False):
+def _call(key, model, messages, tools=None, max_tokens=1400, timeout=120, json_mode=False):
     body = {"model": model, "messages": messages, "temperature": .18, "max_tokens": max_tokens}
     if tools:
         body["tools"] = tools
@@ -128,7 +130,7 @@ def _free_aux(key, context, primary):
     if not ENABLE_FREE_AUX or FREE_AUX_PASSES < 1:
         return []
     jobs = [
-        ("analyst_critique", "Critique the primary OSRS market analysis. Find unsupported certainty, stale catalysts, narrative-following, missing counterarguments or semantic mistakes. No arithmetic. Return JSON {summary:string, concerns:[string], confidence:string}.", primary),
+        ("analyst_critique", "Critique the primary OSRS economy analysis. Find unsupported certainty, stale catalysts, narrative-following, missing counterarguments or semantic mistakes. No arithmetic. Return JSON {summary:string, concerns:[string], confidence:string}.", primary),
         ("wallet_red_team", "Red-team both supplied wallet theses. Explain why Velocity and Market Maker could each be wrong in current conditions, focusing on liquidity, adverse selection, regime mismatch and opportunity cost. No arithmetic. Return JSON {velocity:[string], market_maker:[string]}.", context.get("wallets", {})),
         ("news_triage", "Review supplied deterministic research only. Classify what deserves attention versus noise/repetition. Do not browse and do no arithmetic. Return JSON {important:[string], probably_noise:[string]}.", context.get("deterministic_research", {})),
     ][:FREE_AUX_PASSES]
@@ -159,7 +161,7 @@ def free_quality_critique(report):
 def analyze(context):
     key = os.getenv("OPENROUTER_API_KEY")
     if not key:
-        return {"status": "disabled", **normalize_intelligence({"summary": "AI disabled; deterministic research and wallet engines continue."}), "auxiliary": []}
+        return {"schema": SCHEMA, "status": "disabled", **normalize_intelligence({"economy_brief": "AI disabled; deterministic market/economy metrics continue."}), "auxiliary": []}
 
     tools = []
     if ENABLE_WEB_RESEARCH:
@@ -171,8 +173,8 @@ def analyze(context):
     try:
         response = _call(key, OPENROUTER_MODEL, messages, tools, json_mode=True)
         out = normalize_intelligence(_extract(response["choices"][0]["message"]["content"]))
-        out.update(status="ok", model=response.get("model", OPENROUTER_MODEL), generated_at=datetime.now(timezone.utc).isoformat(), usage=response.get("usage", {}))
+        out.update(schema=SCHEMA, status="ok", model=response.get("model", OPENROUTER_MODEL), generated_at=datetime.now(timezone.utc).isoformat(), usage=response.get("usage", {}))
         out["auxiliary"] = _free_aux(key, context, out)
         return out
     except Exception as exc:
-        return {"status": "error", "error_type": type(exc).__name__, "http_status": getattr(exc, "http_status", None), **normalize_intelligence({"summary": f"Primary AI failed safely: {type(exc).__name__}"}), "auxiliary": []}
+        return {"schema": SCHEMA, "status": "error", "error_type": type(exc).__name__, "http_status": getattr(exc, "http_status", None), **normalize_intelligence({"economy_brief": f"Primary AI failed safely: {type(exc).__name__}"}), "auxiliary": []}

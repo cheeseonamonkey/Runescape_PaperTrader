@@ -70,10 +70,12 @@ jobs:
   deep-longitudinal:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       OPENROUTER_FREE_MODEL: ${{ vars.OPENROUTER_FREE_MODEL || 'openrouter/free' }}
+      REPLAY_HOURS: ${{ vars.REPLAY_HOURS || '72' }}
+      REPLAY_ITEMS: ${{ vars.REPLAY_ITEMS || '24' }}
       OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.4 quality-suite - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
     steps:
       - uses: actions/checkout@v4
@@ -86,6 +88,12 @@ jobs:
         run: python3 scripts/longterm_test.py --mode deep --report-dir build/quality
       - name: Live read-only OSRS API smoke
         run: python3 scripts/live_smoke.py
+      - name: Forced 72h replay diagnostic
+        continue-on-error: true
+        run: |
+          python3 scripts/replay_72h.py --force
+          mkdir -p build/quality
+          cp data/simulations/latest_72h.json build/quality/replay-72h.json
       - name: Free-router reliability critique
         continue-on-error: true
         run: python3 scripts/quality_critic.py build/quality/report.json

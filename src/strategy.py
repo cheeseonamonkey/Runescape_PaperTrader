@@ -1,4 +1,5 @@
 from math import ceil, floor, log1p
+from statistics import median, pstdev
 from time import time
 from .config import GE_TAX_RATE, GE_TAX_CAP
 
@@ -44,17 +45,50 @@ def common_features(latest, five, hourly, mapping):
     return sorted(out, key=lambda x: x["turnover_gp_1h"], reverse=True)
 
 
+def economy_metrics(rows):
+    """Cross-sectional market diagnostics. These are short-run conditions, not a CPI/inflation claim."""
+    if not rows:
+        return {
+            "advancers": 0, "decliners": 0, "flat": 0, "breadth": 0,
+            "turnover_weighted_price_pressure": 0, "momentum_dispersion": 0,
+            "median_spread": 0, "median_liquidity": 0, "median_volume_acceleration": 0,
+            "top10_turnover_share": 0, "turnover_hhi": 0, "active_share": 0,
+        }
+    eps = .0001
+    adv = sum(1 for r in rows if r["momentum_5m_vs_1h"] > eps)
+    dec = sum(1 for r in rows if r["momentum_5m_vs_1h"] < -eps)
+    flat = len(rows) - adv - dec
+    breadth = (adv - dec) / max(1, adv + dec)
+    turnover_total = sum(max(0, r["turnover_gp_1h"]) for r in rows)
+    weighted_pressure = sum(
+        max(-.08, min(.08, r["momentum_5m_vs_1h"])) * max(0, r["turnover_gp_1h"])
+        for r in rows
+    ) / max(1, turnover_total)
+    shares = [max(0, r["turnover_gp_1h"]) / turnover_total for r in rows] if turnover_total else []
+    top10 = sum(shares[:10]) if shares else 0
+    hhi = sum(s * s for s in shares) if shares else 0
+    momenta = [r["momentum_5m_vs_1h"] for r in rows]
+    active_share = sum(1 for r in rows if r["volume_acceleration"] > 0) / len(rows)
+    return {
+        "advancers": adv, "decliners": dec, "flat": flat,
+        "breadth": round(breadth, 4),
+        "turnover_weighted_price_pressure": round(weighted_pressure, 6),
+        "momentum_dispersion": round(pstdev(momenta) if len(momenta) > 1 else 0, 6),
+        "median_spread": round(median(r["spread_roi"] for r in rows), 6),
+        "median_liquidity": round(median(r["liquidity_score"] for r in rows), 4),
+        "median_volume_acceleration": round(median(r["volume_acceleration"] for r in rows), 3),
+        "top10_turnover_share": round(top10, 4),
+        "turnover_hhi": round(hhi, 6),
+        "active_share": round(active_share, 4),
+    }
+
+
 def liquidation_unit(low, profile):
     gross = floor(max(0, low) * (1 - profile.liquidation_slippage))
     return max(0, gross - ge_tax(gross))
 
 
 def entry_liquidation_baseline(entry_price, profile):
-    """Approximate the immediate liquidation mark that existed when a passive entry was booked.
-
-    This separates market movement from the simulator's own tax/slippage haircut. It is used
-    for stop-loss decisions; accounting still uses the true mark-to-liquidation value.
-    """
     inferred_low = max(1, floor(entry_price / (1 + profile.passive_entry_penalty)))
     return max(1, liquidation_unit(inferred_low, profile))
 
@@ -84,7 +118,9 @@ def wallet_candidates(common, profile, historical=None):
         complete = entry_fill * exit_fill
         inventory = entry_fill * (1 - exit_fill)
         adverse = entry * (.0025 + .012 * max(0, -momentum) + .0025 * (1 - liquidity))
-        expected_value = complete * edge - inventory * adverse
+        gross_capture_ev = complete * edge
+        inventory_risk_ev = inventory * adverse
+        expected_value = gross_capture_ev - inventory_risk_ev
         expected_roi = expected_value / entry
         if expected_value < profile.min_expected_edge_gp or expected_roi < profile.min_expected_roi:
             continue
@@ -95,13 +131,15 @@ def wallet_candidates(common, profile, historical=None):
         momentum_signal = max(-1, min(1, momentum / .03))
         accel_signal = max(-1, min(1, accel / 2))
         edge_signal = min(2, expected_roi / .01)
-        score = 100 * (
-            profile.edge_weight * edge_signal
-            + profile.momentum_weight * momentum_signal
-            + profile.volume_accel_weight * accel_signal
-            + profile.liquidity_weight * liquidity
-            + profile.historical_weight * history_signal
-        ) + 10 * freshness
+        score_components = {
+            "edge": 100 * profile.edge_weight * edge_signal,
+            "momentum": 100 * profile.momentum_weight * momentum_signal,
+            "flow": 100 * profile.volume_accel_weight * accel_signal,
+            "liquidity": 100 * profile.liquidity_weight * liquidity,
+            "history": 100 * profile.historical_weight * history_signal,
+            "freshness": 10 * freshness,
+        }
+        score = sum(score_components.values())
         risk = profile.base_position_pct * (
             .58 + .80 * liquidity + .32 * max(0, momentum_signal) + .20 * max(0, accel_signal) + .15 * max(0, history_signal)
         )
@@ -112,8 +150,12 @@ def wallet_candidates(common, profile, historical=None):
             "raw_roi": round(raw_roi, 6), "expected_edge_gp": round(expected_value, 2),
             "expected_roi": round(expected_roi, 6), "entry_fill_probability": round(entry_fill, 4),
             "exit_fill_probability": round(exit_fill, 4), "fill_probability": round(complete, 4),
+            "inventory_probability": round(inventory, 4), "adverse_selection_unit_gp": round(adverse, 2),
+            "spread_capture_ev_gp": round(gross_capture_ev, 2), "inventory_risk_ev_gp": round(inventory_risk_ev, 2),
             "risk_budget_pct": round(risk, 4), "historical_signal": round(history_signal, 4),
-            "historical": history_row, "score": round(score, 3),
+            "historical": history_row,
+            "score_components": {k: round(v, 3) for k, v in score_components.items()},
+            "score": round(score, 3),
         })
     return sorted(rows, key=lambda x: x["score"], reverse=True)
 

@@ -51,8 +51,8 @@ def _quote_age_minutes(quote, now):
     return max(0, (now.timestamp() - ts) / 60) if ts else None
 
 
-def close_positions(wallet, latest, profile):
-    now = utcnow()
+def close_positions(wallet, latest, profile, now=None):
+    now = now or utcnow()
     kept, trades = [], []
     for position in wallet["positions"]:
         quote = latest.get(str(position["item_id"]), {})
@@ -102,7 +102,8 @@ def close_positions(wallet, latest, profile):
     return trades
 
 
-def open_positions(wallet, candidates, latest, profile):
+def open_positions(wallet, candidates, latest, profile, now=None):
+    now = now or utcnow()
     trades = []
     occupied = {position["item_id"] for position in wallet["positions"]}
     slots = profile.max_positions - len(wallet["positions"])
@@ -127,7 +128,7 @@ def open_positions(wallet, candidates, latest, profile):
         if cost > spendable:
             continue
         wallet["cash_gp"] -= cost
-        opened = utcnow().isoformat()
+        opened = now.isoformat()
         entry_liquidation = liquidation_unit(candidate.get("low") or candidate["passive_entry"], profile)
         position = {
             "item_id": candidate["id"], "name": candidate["name"], "qty": qty,
