@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import os
 
-VERSION = "0.3"
+VERSION = "0.4"
 STARTING_GP = 10_000_000
 
 @dataclass(frozen=True)

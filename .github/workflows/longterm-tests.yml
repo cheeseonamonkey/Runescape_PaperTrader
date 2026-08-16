@@ -1,0 +1,109 @@
+name: Long-term quality suite
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "site/**"
+      - "requirements.txt"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "site/**"
+      - "requirements.txt"
+      - ".github/workflows/**"
+  schedule:
+    - cron: "37 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: osrs-papertrader-quality-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fast-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Compile and unit regressions
+        run: |
+          python3 -m compileall -q src scripts tests
+          python3 -m unittest discover -s tests -v
+          node --check site/app.js
+      - name: Persisted-state invariants
+        run: python3 scripts/verify_state.py --allow-stale-version
+      - name: Ledger, archive and synthetic stress audit
+        run: python3 scripts/longterm_test.py --mode fast --report-dir build/quality
+      - name: Build-site smoke
+        run: |
+          python3 scripts/build_site.py
+          test -s public/index.html
+          test -s public/app.js
+          test -s public/data/latest_snapshot.json
+      - name: Publish test summary
+        if: always()
+        run: |
+          if [[ -f build/quality/report.md ]]; then cat build/quality/report.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: papertrader-fast-quality-${{ github.run_id }}
+          path: build/quality/
+          retention-days: 30
+          if-no-files-found: ignore
+
+  deep-longitudinal:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      OPENROUTER_FREE_MODEL: ${{ vars.OPENROUTER_FREE_MODEL || 'openrouter/free' }}
+      OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.4 quality-suite - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Deep historical + 500-case synthetic audit
+        run: python3 scripts/longterm_test.py --mode deep --report-dir build/quality
+      - name: Live read-only OSRS API smoke
+        run: python3 scripts/live_smoke.py
+      - name: Free-router reliability critique
+        continue-on-error: true
+        run: python3 scripts/quality_critic.py build/quality/report.json
+      - name: Publish deep summary
+        if: always()
+        run: |
+          if [[ -f build/quality/report.md ]]; then cat build/quality/report.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [[ -f build/quality/free-critic.json ]]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "### Free-router test critique" >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat build/quality/free-critic.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: papertrader-deep-quality-${{ github.run_id }}
+          path: build/quality/
+          retention-days: 60
+          if-no-files-found: ignore
