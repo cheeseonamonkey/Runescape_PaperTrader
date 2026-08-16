@@ -1,0 +1,53 @@
+name: Hourly paper trade
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+    inputs:
+      reset:
+        description: Reset paper bankroll before this run
+        required: false
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: osrs-papertrader-hourly
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-oss-20b' }}
+      OPENROUTER_SUBAGENT_MODEL: ${{ vars.OPENROUTER_SUBAGENT_MODEL || 'openai/gpt-oss-20b' }}
+      ENABLE_WEB_RESEARCH: ${{ vars.ENABLE_WEB_RESEARCH || '1' }}
+      ENABLE_SUBAGENT: ${{ vars.ENABLE_SUBAGENT || '0' }}
+      OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.1 - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/configure-pages@v5
+      - name: Run paper trader
+        run: |
+          if [[ "${{ inputs.reset }}" == "true" ]]; then python3 scripts/run.py --reset; else python3 scripts/run.py; fi
+      - name: Persist state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if ! git diff --cached --quiet; then git commit -m "data: hourly paper-trader snapshot"; git push; fi
+      - name: Build mobile site
+        run: python3 scripts/build_site.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
