@@ -1,9 +1,18 @@
-# v0.2 strategy: aggressive microstructure
+# Strategy model — v0.3
 
-v0.2 is deliberately higher-turnover. It attempts to capture the bid/ask spread with passive paper orders while treating an immediate liquidation as a separate, more conservative mark.
+The market layer is strategy-neutral. It computes spread, quote age, 5m/1h midpoint momentum, volume acceleration, turnover and liquidity once.
 
-Core signals: post-tax expected edge, 5-minute vs 1-hour midpoint momentum, normalized 5-minute volume acceleration, hourly GP turnover, quote freshness, and an explicit adverse-selection penalty.
+## Velocity
+High-turnover flow wallet. Objective emphasizes momentum, volume acceleration and capital recycling. More slots, lower reserve, faster rotation.
 
-Capital is allocated from an equity-based risk budget rather than a percentage of remaining cash. Better liquidity and supportive momentum can earn a larger allocation, but deterministic caps and the GE buy limit remain binding. Inventory rotates after three hours when a thesis is not paying and is forcibly liquidated after eight hours.
+## Market Maker
+Liquidity-provision wallet. Objective emphasizes post-tax spread rent, completion probability, turnover/liquidity and adverse-selection control. Fewer slots, more patience.
 
-This is a paper model. Observed Wiki high/low prices are market observations, not guaranteed executable orders; estimated fill probabilities are heuristics, not calibrated probabilities.
+Both wallets:
+- start at 10M fake GP;
+- maintain separate state, journals and equity histories;
+- use deterministic sizing/exits;
+- mark inventory conservatively to liquidation;
+- treat AI as commentary only.
+
+Historical diagnostics may alter candidate scores when available, but missing history must degrade to a neutral signal rather than blocking trading.

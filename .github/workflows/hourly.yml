@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       reset:
-        description: Reset paper bankroll before this run
+        description: Reset both v0.3 wallets before this run
         required: false
         type: boolean
         default: false
@@ -19,7 +19,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -30,10 +30,13 @@ jobs:
       OPENROUTER_SUBAGENT_MODEL: ${{ vars.OPENROUTER_SUBAGENT_MODEL || 'openrouter/free' }}
       ENABLE_WEB_RESEARCH: ${{ vars.ENABLE_WEB_RESEARCH || '1' }}
       ENABLE_SUBAGENT: ${{ vars.ENABLE_SUBAGENT || '0' }}
-      ENABLE_FREE_SANITY_PASS: ${{ vars.ENABLE_FREE_SANITY_PASS || '1' }}
+      ENABLE_FREE_AUX: ${{ vars.ENABLE_FREE_AUX || '1' }}
+      FREE_AUX_PASSES: ${{ vars.FREE_AUX_PASSES || '3' }}
       ENABLE_DDGS: ${{ vars.ENABLE_DDGS || '1' }}
       DDGS_EVERY_HOURS: ${{ vars.DDGS_EVERY_HOURS || '6' }}
-      OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.2 - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
+      HISTORY_EVERY_HOURS: ${{ vars.HISTORY_EVERY_HOURS || '6' }}
+      HISTORY_ITEMS: ${{ vars.HISTORY_ITEMS || '5' }}
+      OSRS_WIKI_USER_AGENT: ${{ vars.OSRS_WIKI_USER_AGENT || 'Runescape_PaperTrader/0.3 - github.com/cheeseonamonkey/Runescape_PaperTrader' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,18 +48,25 @@ jobs:
       - name: Install optional research dependency
         run: pip install -r requirements.txt
       - uses: actions/configure-pages@v5
-      - name: Run v0.2 engine
-        run: |
-          if [[ "${{ inputs.reset }}" == "true" ]]; then python3 scripts/run.py --reset; else python3 scripts/run.py; fi
-      - name: Sanity checks
+      - name: Static checks
         run: |
           python3 -m compileall -q src scripts
           node --check site/app.js
+      - name: Run v0.3 multi-wallet engine
+        run: |
+          if [[ "${{ inputs.reset }}" == "true" ]]; then python3 scripts/run.py --reset; else python3 scripts/run.py; fi
+      - name: Snapshot invariants
+        run: |
           python3 - <<'PY'
           import json
           d=json.load(open('data/latest_snapshot.json'))
-          assert d['version']=='0.2' and d['portfolio_value_gp']>=0
-          assert isinstance(d['top_candidates'],list)
+          assert d['version']=='0.3'
+          assert set(d['wallets'])=={'velocity','market_maker'}
+          for k,w in d['wallets'].items():
+              assert w['value_gp']>=0 and w['cash_gp']>=0
+              assert isinstance(w['top_candidates'],list)
+              assert w['id']==k
+          assert isinstance(d['market']['top_by_turnover'],list)
           PY
       - name: Build mobile site
         run: python3 scripts/build_site.py
@@ -66,7 +76,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
           if ! git diff --cached --quiet; then
-            git commit -m "data: hourly v0.2 market snapshot"
+            git commit -m "data: hourly v0.3 multi-wallet snapshot"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
