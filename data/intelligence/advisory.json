@@ -1,92 +1,14 @@
 {
-  "age_hours": 4.75,
+  "age_hours": 0,
   "biases": {
-    "liquidity": 0.05,
-    "macro": 0.15,
-    "mean_reversion": -0.1,
-    "momentum": 0.1,
-    "risk": -0.05
+    "liquidity": -0.2,
+    "macro": -0.3,
+    "mean_reversion": 0.2,
+    "momentum": -0.4,
+    "risk": -0.5
   },
-  "confidence": 0.6,
+  "confidence": 0.75,
   "ensemble": [
-    {
-      "label": "paid_anchor",
-      "model": "inclusionai/ling-2.6-flash",
-      "result": {
-        "biases": {
-          "liquidity": 0.05,
-          "macro": 0.15,
-          "mean_reversion": -0.1,
-          "momentum": 0.1,
-          "risk": -0.05
-        },
-        "confidence": 0.6,
-        "item_biases": {
-          "1239": 0.1,
-          "1592": 0.15,
-          "20997": 0.05,
-          "21049": 0.0,
-          "22486": 0.0,
-          "24417": 0.0,
-          "24511": 0.0,
-          "26374": 0.0,
-          "26384": -0.1,
-          "27277": 0.0,
-          "28338": -0.05,
-          "28919": -0.05,
-          "29801": 0.0,
-          "31088": 0.0,
-          "31106": 0.0,
-          "34017": -0.15
-        },
-        "patch_risk": 0.15,
-        "rationale": []
-      },
-      "status": "ok",
-      "usage": {
-        "completion_tokens": 372,
-        "completion_tokens_details": {
-          "audio_tokens": 0,
-          "image_tokens": 0,
-          "reasoning_tokens": 0
-        },
-        "cost": 0.00016397,
-        "cost_details": {
-          "upstream_inference_completions_cost": 1.116e-05,
-          "upstream_inference_cost": 0.00016397,
-          "upstream_inference_prompt_cost": 0.00015281
-        },
-        "is_byok": false,
-        "prompt_tokens": 15281,
-        "prompt_tokens_details": {
-          "audio_tokens": 0,
-          "cache_write_tokens": 0,
-          "cached_tokens": 0,
-          "video_tokens": 0
-        },
-        "total_tokens": 15653
-      }
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_2",
-      "status": "unavailable"
-    }
-  ],
-  "freshness": "stale_cache",
-  "generated_at": "2026-08-17T09:53:40.541284+00:00",
-  "item_biases": {
-    "1239": 0.1,
-    "1592": 0.15,
-    "26384": -0.1,
-    "34017": -0.15
-  },
-  "last_attempt": [
     {
       "error": "RuntimeError",
       "label": "paid_anchor",
@@ -98,15 +20,92 @@
       "status": "unavailable"
     },
     {
-      "error": "ValueError",
       "label": "free_peer_2",
-      "status": "unavailable"
+      "model": "poolside/laguna-xs-2.1:free",
+      "result": {
+        "biases": {
+          "liquidity": -0.2,
+          "macro": -0.3,
+          "mean_reversion": 0.2,
+          "momentum": -0.4,
+          "risk": -0.5
+        },
+        "confidence": 0.75,
+        "item_biases": {
+          "1167": -0.4,
+          "11826": -0.1,
+          "11828": -0.1,
+          "11978": -0.1,
+          "12624": -0.3,
+          "1307": -0.35,
+          "1395": -0.05,
+          "1767": -0.25,
+          "20997": -0.15,
+          "21021": -0.15,
+          "21043": -0.1,
+          "22486": -0.1,
+          "23953": -0.15,
+          "2462": -0.5,
+          "403": -0.45,
+          "4371": -0.35,
+          "5098": -0.25,
+          "630": -0.4,
+          "869": -0.2
+        },
+        "patch_risk": 0,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 520,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "cost_details": {
+          "upstream_inference_completions_cost": 0,
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0
+        },
+        "is_byok": true,
+        "prompt_tokens": 15018,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 15538
+      }
     }
   ],
-  "patch_risk": 0.15,
+  "freshness": "refreshed",
+  "generated_at": "2026-08-17T15:35:48.422960+00:00",
+  "item_biases": {
+    "1167": -0.4,
+    "11826": -0.1,
+    "11828": -0.1,
+    "11978": -0.1,
+    "12624": -0.3,
+    "1307": -0.35,
+    "1767": -0.25,
+    "20997": -0.15,
+    "21021": -0.15,
+    "21043": -0.1,
+    "22486": -0.1,
+    "23953": -0.15,
+    "2462": -0.5,
+    "403": -0.45,
+    "4371": -0.35,
+    "5098": -0.25,
+    "630": -0.4,
+    "869": -0.2
+  },
+  "patch_risk": 0,
   "rationale": [],
-  "refresh_error": "all_advisors_unavailable",
   "schema": 1,
-  "status": "stale_cache",
+  "status": "ok",
   "usage": {}
 }
