@@ -1,63 +1,104 @@
 {
-  "age_hours": 3.31,
+  "age_hours": 0,
   "biases": {
-    "liquidity": -0.2,
-    "macro": -0.3,
-    "mean_reversion": 0.2,
-    "momentum": -0.4,
-    "risk": -0.5
+    "liquidity": 0.4005,
+    "macro": -0.4279,
+    "mean_reversion": -0.5522,
+    "momentum": 0.3756,
+    "risk": -0.4776
   },
-  "confidence": 0.75,
+  "confidence": 0.79,
   "ensemble": [
     {
-      "error": "RuntimeError",
       "label": "paid_anchor",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "label": "free_peer_2",
-      "model": "poolside/laguna-xs-2.1:free",
+      "model": "inclusionai/ling-2.6-flash",
       "result": {
         "biases": {
-          "liquidity": -0.2,
-          "macro": -0.3,
-          "mean_reversion": 0.2,
-          "momentum": -0.4,
-          "risk": -0.5
+          "liquidity": 0.3,
+          "macro": 0.15,
+          "mean_reversion": -0.1,
+          "momentum": 0.25,
+          "risk": 0.05
         },
-        "confidence": 0.75,
+        "confidence": 0.78,
         "item_biases": {
-          "1167": -0.4,
-          "11826": -0.1,
-          "11828": -0.1,
-          "11978": -0.1,
-          "12624": -0.3,
-          "1307": -0.35,
-          "1395": -0.05,
-          "1767": -0.25,
-          "20997": -0.15,
-          "21021": -0.15,
-          "21043": -0.1,
-          "22486": -0.1,
-          "23953": -0.15,
-          "2462": -0.5,
-          "403": -0.45,
-          "4371": -0.35,
-          "5098": -0.25,
-          "630": -0.4,
-          "869": -0.2
+          "10150": 0.2,
+          "12640": 0.25,
+          "12817": 0.15,
+          "12913": 0.3,
+          "13190": 0.25,
+          "20997": 0.4,
+          "21021": 0.1,
+          "21049": 0.1,
+          "21634": 0.25,
+          "22461": 0.3,
+          "22486": 0.35,
+          "23037": 0.15,
+          "24511": 0.1,
+          "3004": 0.45,
+          "4300": 0.25,
+          "6392": 0.2,
+          "7327": 0.2
         },
-        "patch_risk": 0,
+        "patch_risk": 0.15,
         "rationale": []
       },
       "status": "ok",
       "usage": {
         "completion_tokens": 520,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "cost": 0.00016553,
+        "cost_details": {
+          "upstream_inference_completions_cost": 1.56e-05,
+          "upstream_inference_cost": 0.00016553,
+          "upstream_inference_prompt_cost": 0.00014993
+        },
+        "is_byok": false,
+        "prompt_tokens": 14993,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 15513
+      }
+    },
+    {
+      "label": "free_peer_1",
+      "model": "nvidia/nemotron-nano-12b-v2-vl:free",
+      "result": {
+        "biases": {
+          "liquidity": 0.5,
+          "macro": -1.0,
+          "mean_reversion": -1.0,
+          "momentum": 0.5,
+          "risk": -1.0
+        },
+        "confidence": 0.8,
+        "item_biases": {
+          "12817": 0.5,
+          "13190": 0.5,
+          "20997": 0.5,
+          "21021": 0.5,
+          "22486": 0.5,
+          "24511": 0.5,
+          "26374": 0.5,
+          "27277": 0.5,
+          "28307": 0.5,
+          "29796": 0.5,
+          "31145": 0.5
+        },
+        "patch_risk": 0.5,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 434,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
@@ -69,43 +110,72 @@
           "upstream_inference_cost": 0,
           "upstream_inference_prompt_cost": 0
         },
-        "is_byok": true,
-        "prompt_tokens": 15018,
+        "is_byok": false,
+        "prompt_tokens": 15473,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15538
+        "total_tokens": 15907
       }
+    },
+    {
+      "error": "ValueError",
+      "label": "free_peer_2",
+      "status": "unavailable"
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-08-17T15:35:48.422960+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-17T19:36:20.542982+00:00",
   "item_biases": {
-    "1167": -0.4,
-    "11826": -0.1,
-    "11828": -0.1,
-    "11978": -0.1,
-    "12624": -0.3,
-    "1307": -0.35,
-    "1767": -0.25,
-    "20997": -0.15,
-    "21021": -0.15,
-    "21043": -0.1,
-    "22486": -0.1,
-    "23953": -0.15,
-    "2462": -0.5,
-    "403": -0.45,
-    "4371": -0.35,
-    "5098": -0.25,
-    "630": -0.4,
-    "869": -0.2
+    "10150": 0.0995,
+    "12640": 0.1244,
+    "12817": 0.3259,
+    "12913": 0.1493,
+    "13190": 0.3756,
+    "20997": 0.4502,
+    "21021": 0.301,
+    "21634": 0.1244,
+    "22461": 0.1493,
+    "22486": 0.4254,
+    "24511": 0.301,
+    "26374": 0.2512,
+    "27277": 0.2512,
+    "28307": 0.2512,
+    "29796": 0.2512,
+    "3004": 0.2239,
+    "31145": 0.2512,
+    "4300": 0.1244,
+    "6392": 0.0995,
+    "7327": 0.0995
   },
-  "patch_risk": 0,
+  "patch_risk": 0.3259,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
-  "usage": {}
+  "status": "ok",
+  "usage": {
+    "completion_tokens": 520,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00016553,
+    "cost_details": {
+      "upstream_inference_completions_cost": 1.56e-05,
+      "upstream_inference_cost": 0.00016553,
+      "upstream_inference_prompt_cost": 0.00014993
+    },
+    "is_byok": false,
+    "prompt_tokens": 14993,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 15513
+  }
 }
