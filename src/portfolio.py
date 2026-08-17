@@ -260,10 +260,16 @@ def open_positions(wallet, candidates, latest, profile, now=None):
         if budget < candidate["passive_entry"]:
             continue
         order_qty = budget // candidate["passive_entry"]
+        held_qty = int(existing.get("qty", 0)) if scaling else 0
         if candidate.get("limit"):
-            order_qty = min(order_qty, int(candidate["limit"]))
+            # Conservative: never let the currently accumulated paper position exceed
+            # the item's published 4h GE buy limit. A full rolling-window ledger would
+            # permit an older tranche to age out, but this avoids fantasy over-buying.
+            order_qty = min(order_qty, max(0, int(candidate["limit"]) - held_qty))
         if candidate.get("capacity_qty"):
-            order_qty = min(order_qty, int(candidate["capacity_qty"]))
+            # Participation capacity applies to the accumulated position during a scale-in,
+            # not independently to every tranche.
+            order_qty = min(order_qty, max(0, int(candidate["capacity_qty"]) - held_qty))
         entry_fill = float(candidate.get("entry_fill_probability", 1))
         qty = int(order_qty * entry_fill)
         if qty <= 0:

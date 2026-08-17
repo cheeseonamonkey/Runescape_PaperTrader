@@ -183,6 +183,26 @@ class FeatureTests(unittest.TestCase):
         metrics = portfolio_diagnostics(wallet, latest, profile, now)
         self.assertAlmostEqual(metrics["net_worth_gp"], metrics["liquid_gp"] + metrics["gross_exposure_gp"])
 
+    def test_scale_in_respects_accumulated_limit_and_capacity(self):
+        profile = PROFILES["frontier"]
+        wallet = fresh_wallet(profile)
+        now = datetime(2026, 1, 1, tzinfo=timezone.utc)
+        candidate = {
+            "id": 9, "name": "capped", "passive_entry": 1000, "low": 999, "risk_budget_pct": .25,
+            "limit": 10, "capacity_qty": 10, "entry_fill_probability": 1, "fill_probability": .8,
+            "score": 100, "expected_roi": .03, "momentum_5m_vs_1h": .02, "conviction": .9,
+            "score_components": {"edge": 40, "ai_prior": 1}, "strategy_lenses": {"trend": .8},
+            "spread_capture_ev_gp": 50, "inventory_risk_ev_gp": 10, "kelly_fraction_proxy": .3,
+            "ai_risk_multiplier": 1, "patch_signal": 0,
+        }
+        latest = {"9": {"low": 999}}
+        open_positions(wallet, [candidate], latest, profile, now=now)
+        self.assertEqual(wallet["positions"][0]["qty"], 10)
+        candidate["score"] = 110
+        second = open_positions(wallet, [candidate], latest, profile, now=now + timedelta(hours=1))
+        self.assertEqual(second, [])
+        self.assertEqual(wallet["positions"][0]["qty"], 10)
+
     def test_history_metrics_are_bounded(self):
         rows = [{"avgHighPrice": 100+i, "avgLowPrice": 98+i, "highPriceVolume": 10, "lowPriceVolume": 10} for i in range(20)]
         metrics = _metrics(rows)
