@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from math import log1p
 from pathlib import Path
 from statistics import mean
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -13,7 +13,7 @@ from src.config import PROFILES, STARTING_GP, REPLAY_EVERY_HOURS, REPLAY_HOURS, 
 from src.io_utils import DATA, read_json, write_json
 from src.market import timeseries
 from src.portfolio import fresh_wallet, close_positions, open_positions, wallet_value
-from src.strategy import wallet_candidates
+from src.strategy import patch_context, wallet_candidates
 
 OUT = DATA / "simulations" / "latest_72h.json"
 
@@ -52,6 +52,12 @@ def _vol(row):
     return int(row.get("highPriceVolume", 0) or 0) + int(row.get("lowPriceVolume", 0) or 0)
 
 
+def _imbalance(row):
+    high = int(row.get("highPriceVolume", 0) or 0)
+    low = int(row.get("lowPriceVolume", 0) or 0)
+    return (high - low) / (high + low) if high + low else 0
+
+
 def _common_at(timestamp, series_by_item, meta):
     out = []
     for item_id, rows in series_by_item.items():
@@ -62,8 +68,7 @@ def _common_at(timestamp, series_by_item, meta):
         mid = _mid(row)
         if not high or not low or high <= low or not mid:
             continue
-        earlier = [r for ts, r in rows.items() if ts < timestamp]
-        earlier = sorted(earlier, key=lambda r: r.get("timestamp", 0))[-6:]
+        earlier = sorted((r for ts, r in rows.items() if ts < timestamp), key=lambda r: r.get("timestamp", 0))[-6:]
         prev_mid = _mid(earlier[-1]) if earlier else mid
         trailing_vol = mean([_vol(r) for r in earlier]) if earlier else max(1, _vol(row))
         volume_1h = _vol(row)
@@ -72,15 +77,32 @@ def _common_at(timestamp, series_by_item, meta):
         volume_5m = max(1, int(volume_1h / 12 * max(.2, min(3, 1 + accel))))
         turnover = volume_1h * mid
         liquidity = min(1, log1p(turnover) / 19)
+        spread = (high - low) / low
         info = meta[item_id]
         out.append({
-            "id": item_id, "name": info["name"], "limit": info.get("limit"), "members": False, "highalch": None,
-            "high": int(high), "low": int(low), "spread_roi": (high - low) / low,
-            "momentum_5m_vs_1h": momentum, "volume_5m": volume_5m, "volume_1h": volume_1h,
-            "volume_acceleration": accel, "turnover_gp_1h": int(turnover),
-            "liquidity_score": liquidity, "quote_age_minutes": 0,
+            "id": item_id,
+            "name": info["name"],
+            "limit": info.get("limit"),
+            "members": False,
+            "highalch": None,
+            "high": int(high),
+            "low": int(low),
+            "spread_roi": spread,
+            "momentum_5m_vs_1h": momentum,
+            "volume_5m": volume_5m,
+            "volume_1h": volume_1h,
+            "volume_acceleration": accel,
+            "high_low_volume_imbalance": _imbalance(row),
+            "turnover_gp_1h": int(turnover),
+            "liquidity_score": liquidity,
+            "market_impact_proxy": spread / max(1, volume_1h) ** .5,
+            "quote_age_minutes": 0,
         })
-    return sorted(out, key=lambda r: r["turnover_gp_1h"], reverse=True)
+    out.sort(key=lambda r: r["turnover_gp_1h"], reverse=True)
+    total = sum(r["turnover_gp_1h"] for r in out)
+    for row in out:
+        row["turnover_share"] = row["turnover_gp_1h"] / total if total else 0
+    return out
 
 
 def _max_drawdown(points):
@@ -106,10 +128,12 @@ def run(force=False):
         raise RuntimeError("not enough items for replay universe")
     meta = {row["id"]: row for row in universe}
     series_by_item, errors = {}, []
+
     def fetch_one(row):
         series = timeseries(row["id"], "1h")
         selected = series[-(REPLAY_HOURS + 8):]
         return row, {int(x["timestamp"]): x for x in selected if x.get("timestamp")}
+
     with ThreadPoolExecutor(max_workers=min(6, len(universe))) as pool:
         futures = {pool.submit(fetch_one, row): row for row in universe}
         for future in as_completed(futures):
@@ -131,12 +155,10 @@ def run(force=False):
         for ts in timestamps:
             now = datetime.fromtimestamp(ts, timezone.utc)
             common = _common_at(ts, series_by_item, meta)
-            latest = {
-                str(r["id"]): {"high": r["high"], "low": r["low"], "highTime": ts, "lowTime": ts}
-                for r in common
-            }
-            trades.extend(close_positions(wallet, latest, profile, now=now))
-            candidates = wallet_candidates(common, profile, None)
+            latest = {str(r["id"]): {"high": r["high"], "low": r["low"], "highTime": ts, "lowTime": ts} for r in common}
+            candidates = wallet_candidates(common, profile, historical=None, advisory=None, patch=patch_context(now))
+            signal_lookup = {row["id"]: row for row in candidates}
+            trades.extend(close_positions(wallet, latest, profile, now=now, signals=signal_lookup))
             trades.extend(open_positions(wallet, candidates, latest, profile, now=now))
             points.append({"at": now.isoformat(), "value_gp": wallet_value(wallet, latest, profile)})
         end = points[-1]["value_gp"]
@@ -154,7 +176,7 @@ def run(force=False):
         }
 
     document = {
-        "schema": 1,
+        "schema": 2,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "window_hours": len(timestamps),
         "requested_hours": REPLAY_HOURS,
@@ -163,7 +185,9 @@ def run(force=False):
         "assumptions": [
             "Read-only replay; never touches live wallet state.",
             "Uses 1-hour Wiki bars, so 5-minute flow is approximated from hourly volume and trailing activity.",
-            "Passive fills remain the same deterministic expected-fill model used by the paper engine; this is diagnostic, not a claim about real GE queue fills.",
+            "Passive fills remain the deterministic expected-fill model used by the paper engine; this is diagnostic, not a claim about real GE queue fills.",
+            "The LLM semantic prior is disabled in replay so strategy diagnostics remain deterministic and reproducible.",
+            "The usual weekly update-window prior is evaluated at each historical replay timestamp rather than using the current live clock.",
             "Universe is bounded to currently relevant/high-activity items, so results are a strategy diagnostic rather than an exhaustive historical backtest.",
         ],
         "wallets": results,

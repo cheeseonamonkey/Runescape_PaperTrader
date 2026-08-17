@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 from math import log
-from statistics import mean, pstdev, median
+from statistics import mean, median, pstdev
+
 from .config import HISTORY_EVERY_HOURS, HISTORY_ITEMS
 from .market import timeseries
 
@@ -29,10 +30,15 @@ def _metrics(rows):
     projection = max(-.12, min(.12, drift))
     confidence = max(0, min(1, 1 - noise * 12))
     return {
-        "points": len(prices), "mean_price": round(avg, 2), "zscore": round((prices[-1] - avg) / sd, 3),
-        "volatility_1h": round(noise, 6), "max_drawdown": round(max_drawdown, 6),
-        "median_hourly_volume": int(median(point[1] for point in points)), "trend_6h": round(drift, 6),
-        "projected_6h_pct": round(projection, 6), "projection_confidence": round(confidence, 3),
+        "points": len(prices),
+        "mean_price": round(avg, 2),
+        "zscore": round((prices[-1] - avg) / sd, 3),
+        "volatility_1h": round(noise, 6),
+        "max_drawdown": round(max_drawdown, 6),
+        "median_hourly_volume": int(median(point[1] for point in points)),
+        "trend_6h": round(drift, 6),
+        "projected_6h_pct": round(projection, 6),
+        "projection_confidence": round(confidence, 3),
     }
 
 
@@ -41,6 +47,32 @@ def _age_hours(value, now):
         return max(0, (now - datetime.fromisoformat(value)).total_seconds() / 3600)
     except (TypeError, ValueError):
         return None
+
+
+def _select_rows(common_rows):
+    """Diversify expensive timeseries calls across turnover, movement and flow."""
+    if not common_rows:
+        return []
+    buckets = [
+        common_rows,
+        sorted(common_rows, key=lambda row: abs(float(row.get("momentum_5m_vs_1h", 0) or 0)), reverse=True),
+        sorted(common_rows, key=lambda row: float(row.get("volume_acceleration", 0) or 0), reverse=True),
+    ]
+    selected, seen = [], set()
+    cursor = 0
+    while len(selected) < HISTORY_ITEMS and any(cursor < len(bucket) for bucket in buckets):
+        for bucket in buckets:
+            if cursor >= len(bucket):
+                continue
+            row = bucket[cursor]
+            item_id = row.get("id")
+            if item_id not in seen:
+                seen.add(item_id)
+                selected.append(row)
+                if len(selected) >= HISTORY_ITEMS:
+                    break
+        cursor += 1
+    return selected
 
 
 def historical_context(common_rows, cached=None):
@@ -52,18 +84,23 @@ def historical_context(common_rows, cached=None):
 
     items = {}
     errors = 0
-    for candidate in common_rows[:HISTORY_ITEMS]:
+    selected = _select_rows(common_rows)
+    for candidate in selected:
         try:
             items[str(candidate["id"])] = {"name": candidate["name"], **_metrics(timeseries(candidate["id"], "1h"))}
         except Exception as exc:
             errors += 1
             items[str(candidate["id"])] = {"name": candidate["name"], "error": type(exc).__name__}
 
-    if errors == len(items) and cached.get("items"):
+    if selected and errors == len(items) and cached.get("items"):
         stale_age = _age_hours(cached.get("generated_at"), now)
         return {**cached, "status": "stale_cache", "age_hours": round(stale_age or 0, 2), "refresh_errors": errors}
 
     return {
         "status": "ok" if not errors else "partial",
-        "generated_at": now.isoformat(), "age_hours": 0, "refresh_errors": errors, "items": items,
+        "generated_at": now.isoformat(),
+        "age_hours": 0,
+        "refresh_errors": errors,
+        "selection": "round_robin_turnover_momentum_flow",
+        "items": items,
     }
