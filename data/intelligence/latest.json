@@ -1,84 +1,161 @@
 {
+  "advisory": {
+    "age_hours": 0,
+    "biases": {
+      "liquidity": -0.05,
+      "macro": -0.12,
+      "mean_reversion": 0.15,
+      "momentum": 0.08,
+      "risk": -0.1
+    },
+    "confidence": 0.6,
+    "ensemble": [
+      {
+        "label": "paid_anchor",
+        "model": "inclusionai/ling-2.6-flash",
+        "result": {
+          "biases": {
+            "liquidity": -0.05,
+            "macro": -0.12,
+            "mean_reversion": 0.15,
+            "momentum": 0.08,
+            "risk": -0.1
+          },
+          "confidence": 0.6,
+          "item_biases": {
+            "105": 0.05,
+            "12817": 0.1,
+            "21049": -0.05,
+            "22486": -0.15,
+            "22966": 0.15,
+            "2572": 0.05,
+            "26374": 0.05,
+            "27277": -0.1,
+            "29796": -0.05,
+            "29801": -0.1
+          },
+          "patch_risk": 0.15,
+          "rationale": []
+        },
+        "status": "ok",
+        "usage": {
+          "completion_tokens": 320,
+          "completion_tokens_details": {
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "reasoning_tokens": 0
+          },
+          "cost": 9.717e-05,
+          "cost_details": {
+            "upstream_inference_completions_cost": 9.6e-06,
+            "upstream_inference_cost": 9.717e-05,
+            "upstream_inference_prompt_cost": 8.757e-05
+          },
+          "is_byok": false,
+          "prompt_tokens": 8757,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "total_tokens": 9077
+        }
+      },
+      {
+        "error": "ValueError",
+        "label": "free_peer_1",
+        "status": "unavailable"
+      },
+      {
+        "error": "ValueError",
+        "label": "free_peer_2",
+        "status": "unavailable"
+      }
+    ],
+    "freshness": "refreshed",
+    "generated_at": "2026-08-17T05:46:34.070283+00:00",
+    "item_biases": {
+      "12817": 0.1,
+      "22486": -0.15,
+      "22966": 0.15,
+      "27277": -0.1,
+      "29801": -0.1
+    },
+    "patch_risk": 0.15,
+    "rationale": [],
+    "schema": 1,
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 320,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 9.717e-05,
+      "cost_details": {
+        "upstream_inference_completions_cost": 9.6e-06,
+        "upstream_inference_cost": 9.717e-05,
+        "upstream_inference_prompt_cost": 8.757e-05
+      },
+      "is_byok": false,
+      "prompt_tokens": 8757,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 9077
+    }
+  },
   "age_hours": 0,
-  "auxiliary": [
-    {
-      "error": "ValueError",
-      "kind": "analyst_critique",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "kind": "wallet_red_team",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "kind": "news_triage",
-      "status": "unavailable"
-    }
-  ],
-  "economy_brief": "The OSRS market remains broadly liquid but shows a slight downward tilt, with modest breadth and a small negative price\u2011pressure signal. High\u2011value items such as the Scythe of Vitur and Tumeken\u2019s Shadow are experiencing modest sell\u2011side momentum, while overall volume acceleration is flat to slightly negative. Liquidity remains healthy with median spreads around 12\u202fc and liquidity scores near 0.59, but the top\u201110 turnover share of 35\u202f% and low HHI suggest a relatively dispersed trading base.",
+  "auxiliary": [],
+  "economy_brief": "The OSRS market is in a low-volatility, high-stale regime with subdued price pressure and turnover-weighted breadth near 6%. The usual weekly update window is scheduled in ~54 hours; no official shift has been confirmed.",
   "freshness": "refreshed",
-  "generated_at": "2026-08-17T04:54:39.528213+00:00",
-  "market_mood": "Neutral\u2011to\u2011slightly bearish; traders are cautious, with negative price pressure and flat volume acceleration, but liquidity is solid.",
-  "model": "openai/gpt-oss-20b",
-  "notable_events": [
-    {
-      "affected_items": [],
-      "confidence": null,
-      "evidence_class": "OFFICIAL",
-      "explanation": "",
-      "market_relevance": null,
-      "published": "",
-      "source": "",
-      "title": "Update:Grand Exchange Tax & Item Sink",
-      "url": "https://oldschool.runescape.wiki/w/Update:Grand_Exchange_Tax_%26_Item_Sink"
-    },
-    {
-      "affected_items": [],
-      "confidence": null,
-      "evidence_class": "MODEL_INFERENCE",
-      "explanation": "",
-      "market_relevance": null,
-      "published": "",
-      "source": "",
-      "title": "Untitled event",
-      "url": ""
-    }
-  ],
-  "regime": "Low\u2011momentum, high\u2011liquidity regime; market dominated by large, low\u2011turnover items, with modest breadth and a dispersed participant base.",
-  "research_summary": "",
-  "schema": 2,
+  "generated_at": "2026-08-17T05:46:34.070283+00:00",
+  "market_mood": "Cautious/range-bound. Breadth is weak, momentum dispersion is low, and liquidity is adequate but not expansive. Dealers are running structured, low-impact strategies.",
+  "model": "inclusionai/ling-2.6-flash",
+  "notable_events": [],
+  "regime": "Range-bound / low-volatility equilibrium with dominant market-making and carry overlays; shock share and extreme spread share are elevated but price pressure remains contained.",
+  "research_summary": "Signal mix is mean-reversion and carry dominant; momentum and shock terms are minor. Cross-factor and liquidity signals provide edge on select staples. No material policy shock detected; weekly cadence remains the primary timeline risk.",
+  "schema": 3,
   "status": "ok",
-  "summary": "The OSRS economy is in a stable, low\u2011momentum phase. Breadth is modest (6.4\u202f%) and price pressure is slightly negative, indicating a mild sell\u2011side bias. Liquidity is healthy (median spread 0.12\u202fgp, liquidity 0.59) but turnover is concentrated (top\u201110 share 35\u202f%) and volume acceleration is flat to negative. High\u2011value items such as the Scythe of Vitur and Tumeken\u2019s Shadow are trending downwards, while the market maker wallet is outperforming the velocity wallet, reflecting the effectiveness of spread\u2011capture strategies in this regime.",
+  "summary": "Breadth is subdued (5.9% advancers, turnover-weighted price pressure ~0.1%). Market structure is fragmented with high stale share (74%) and elevated extreme spread share (67%). Primary engines are spread carry and mean reversion rather than momentum. The next scheduled update is in ~54 hours.",
   "usage": {
-    "completion_tokens": 1576,
+    "completion_tokens": 641,
     "completion_tokens_details": {
       "audio_tokens": 0,
       "image_tokens": 0,
-      "reasoning_tokens": 1098
+      "reasoning_tokens": 0
     },
-    "cost": 0.014,
+    "cost": 0.00032353,
     "cost_details": {
-      "upstream_inference_completions_cost": 0.0004728,
-      "upstream_inference_cost": 0.0025713,
-      "upstream_inference_prompt_cost": 0.0020985
+      "upstream_inference_completions_cost": 1.923e-05,
+      "upstream_inference_cost": 0.00032353,
+      "upstream_inference_prompt_cost": 0.0003043
     },
-    "is_byok": true,
-    "prompt_tokens": 27980,
+    "is_byok": false,
+    "prompt_tokens": 30430,
     "prompt_tokens_details": {
       "audio_tokens": 0,
       "cache_write_tokens": 0,
       "cached_tokens": 0,
       "video_tokens": 0
     },
-    "server_tool_use_details": {
-      "tool_calls_executed": 2,
-      "tool_calls_requested": 2,
-      "web_search_requests": 2
-    },
-    "total_tokens": 29556
+    "total_tokens": 31071
   },
-  "wallet_notes": [],
-  "watchlist": []
+  "wallet_notes": [
+    "velocity: Flow-following carry sleeve: booked small-edge, fast-turn positions (oak plank, dashing kebbit). Net P&L -0.15%.",
+    "market_maker: Spread-rent focus; booked clean mid on Halibut and rhino; net P&L -0.05%.",
+    "frontier_lab: Experimental ensemble with convex sizing; booked on Halibut, rhino, drake chainbody; net P&L -0.02%."
+  ],
+  "watchlist": [
+    "Halibut (32336): edge 96, momentum 24, flow 18, liquidity 11; booked mid; EV 5.5%",
+    "Scythe of vitur (uncharged) (22486): depth anchor; mean ~1.199b; low vol",
+    "Zaryte crossbow (26374): modest edge; booked mid",
+    "Bandos crozier (12275): outlier mover; monitor for follow-through",
+    "Draynor manor teleport (tablet) (19619): freshness rebound play"
+  ]
 }
