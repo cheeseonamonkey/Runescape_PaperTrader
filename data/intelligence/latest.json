@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 3.21,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.3,
-      "macro": 0.15,
-      "mean_reversion": -0.1,
-      "momentum": 0.25,
-      "risk": 0.05
+      "liquidity": 0.1094,
+      "macro": -0.0644,
+      "mean_reversion": 0.0906,
+      "momentum": 0.0832,
+      "risk": 0.0738
     },
-    "confidence": 0.78,
+    "confidence": 0.6942,
     "ensemble": [
       {
         "label": "paid_anchor",
@@ -23,19 +23,23 @@
           },
           "confidence": 0.78,
           "item_biases": {
-            "12817": 0.6,
-            "20997": 0.45,
-            "22486": -0.3,
-            "24488": 0.25,
-            "24511": 0.1,
-            "26235": 0.3,
-            "26374": 0.2,
-            "27277": -0.4,
-            "28338": 0.1,
-            "31088": 0.15,
-            "31106": 0.35
+            "10071": 0.45,
+            "1295": 0.5,
+            "13190": 0.5,
+            "157": 0.35,
+            "2169": 0.2,
+            "22486": 0.4,
+            "22978": 0.35,
+            "24488": 0.4,
+            "24511": 0.45,
+            "26374": 0.3,
+            "2647": 0.6,
+            "27277": 0.35,
+            "3107": 0.55,
+            "632": 0.25,
+            "6981": 0.3
           },
-          "patch_risk": 0.27,
+          "patch_risk": 0.41,
           "rationale": []
         },
         "status": "ok",
@@ -46,27 +50,73 @@
             "image_tokens": 0,
             "reasoning_tokens": 0
           },
-          "cost": 0.00016693,
+          "cost": 0.00016963,
           "cost_details": {
             "upstream_inference_completions_cost": 1.56e-05,
-            "upstream_inference_cost": 0.00016693,
-            "upstream_inference_prompt_cost": 0.00015133
+            "upstream_inference_cost": 0.00016963,
+            "upstream_inference_prompt_cost": 0.00015403
           },
           "is_byok": false,
-          "prompt_tokens": 15133,
+          "prompt_tokens": 15403,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15653
+          "total_tokens": 15923
         }
       },
       {
-        "error": "ValueError",
         "label": "free_peer_1",
-        "status": "unavailable"
+        "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "result": {
+          "biases": {
+            "liquidity": -0.1,
+            "macro": -0.3,
+            "mean_reversion": 0.3,
+            "momentum": -0.1,
+            "risk": 0.1
+          },
+          "confidence": 0.6,
+          "item_biases": {
+            "10071": -1.0,
+            "26233": 0.2,
+            "2647": -1.0,
+            "3107": -1.0,
+            "31139": 0.0,
+            "31949": 0.0,
+            "32336": 0.1,
+            "632": -1.0,
+            "6981": -1.0
+          },
+          "patch_risk": 0.41,
+          "rationale": []
+        },
+        "status": "ok",
+        "usage": {
+          "completion_tokens": 3418,
+          "completion_tokens_details": {
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "reasoning_tokens": 2450
+          },
+          "cost": 0,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0,
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0
+          },
+          "is_byok": false,
+          "prompt_tokens": 15903,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "total_tokens": 19321
+        }
       },
       {
         "error": "ValueError",
@@ -74,28 +124,55 @@
         "status": "unavailable"
       }
     ],
-    "freshness": "cached",
-    "generated_at": "2026-08-18T11:35:30.847949+00:00",
+    "freshness": "refreshed",
+    "generated_at": "2026-08-18T15:42:08.886169+00:00",
     "item_biases": {
-      "12817": 0.6,
-      "20997": 0.45,
-      "22486": -0.3,
-      "24488": 0.25,
-      "24511": 0.1,
-      "26235": 0.3,
-      "26374": 0.2,
-      "27277": -0.4,
-      "28338": 0.1,
-      "31088": 0.15,
-      "31106": 0.35
+      "10071": -0.2409,
+      "1295": 0.2618,
+      "13190": 0.2618,
+      "157": 0.1832,
+      "2169": 0.1047,
+      "22486": 0.2094,
+      "22978": 0.1832,
+      "24488": 0.2094,
+      "24511": 0.2356,
+      "26233": 0.0953,
+      "26374": 0.1571,
+      "2647": -0.1623,
+      "27277": 0.1832,
+      "3107": -0.1885,
+      "632": -0.3456,
+      "6981": -0.3194
     },
-    "patch_risk": 0.27,
+    "patch_risk": 0.41,
     "rationale": [],
     "schema": 1,
-    "status": "cached",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 520,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016963,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.56e-05,
+        "upstream_inference_cost": 0.00016963,
+        "upstream_inference_prompt_cost": 0.00015403
+      },
+      "is_byok": false,
+      "prompt_tokens": 15403,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15923
+    }
   },
-  "age_hours": 6.97,
+  "age_hours": 7.88,
   "auxiliary": [],
   "economy_brief": "The OSRS market shows subdued breadth with modest positive price pressure and persistent stale share. High turnover concentration and elevated liquidity stress coexist with low volatility, while the usual update window approaches in ~27 hours.",
   "freshness": "cached",
