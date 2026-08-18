@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 3.94,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.4005,
-      "macro": -0.4279,
-      "mean_reversion": -0.5522,
-      "momentum": 0.3756,
-      "risk": -0.4776
+      "liquidity": 0.1863,
+      "macro": 0.0931,
+      "mean_reversion": -0.0621,
+      "momentum": 0.1552,
+      "risk": 0.031
     },
-    "confidence": 0.79,
+    "confidence": 0.4843,
     "ensemble": [
       {
         "label": "paid_anchor",
@@ -23,23 +23,21 @@
           },
           "confidence": 0.78,
           "item_biases": {
-            "10150": 0.2,
-            "12640": 0.25,
-            "12817": 0.15,
-            "12913": 0.3,
-            "13190": 0.25,
+            "11256": 0.35,
+            "12817": 0.2,
+            "19669": 0.2,
+            "20023": 0.35,
             "20997": 0.4,
-            "21021": 0.1,
-            "21049": 0.1,
-            "21634": 0.25,
-            "22461": 0.3,
-            "22486": 0.35,
-            "23037": 0.15,
-            "24511": 0.1,
-            "3004": 0.45,
-            "4300": 0.25,
-            "6392": 0.2,
-            "7327": 0.2
+            "21905": 0.3,
+            "22486": 0.3,
+            "22978": 0.2,
+            "24417": 0.45,
+            "2501": 0.25,
+            "25862": 0.25,
+            "27277": 0.35,
+            "3002": 0.25,
+            "3049": 0.25,
+            "3125": 0.3
           },
           "patch_risk": 0.15,
           "rationale": []
@@ -52,54 +50,47 @@
             "image_tokens": 0,
             "reasoning_tokens": 0
           },
-          "cost": 0.00016553,
+          "cost": 0.00016986,
           "cost_details": {
             "upstream_inference_completions_cost": 1.56e-05,
-            "upstream_inference_cost": 0.00016553,
-            "upstream_inference_prompt_cost": 0.00014993
+            "upstream_inference_cost": 0.00016986,
+            "upstream_inference_prompt_cost": 0.00015426
           },
           "is_byok": false,
-          "prompt_tokens": 14993,
+          "prompt_tokens": 15426,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15513
+          "total_tokens": 15946
         }
       },
       {
+        "error": "ValueError",
         "label": "free_peer_1",
-        "model": "nvidia/nemotron-nano-12b-v2-vl:free",
+        "status": "unavailable"
+      },
+      {
+        "label": "free_peer_2",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "result": {
           "biases": {
-            "liquidity": 0.5,
-            "macro": -1.0,
-            "mean_reversion": -1.0,
-            "momentum": 0.5,
-            "risk": -1.0
+            "liquidity": 0.0,
+            "macro": 0.0,
+            "mean_reversion": 0.0,
+            "momentum": 0.0,
+            "risk": 0.0
           },
-          "confidence": 0.8,
-          "item_biases": {
-            "12817": 0.5,
-            "13190": 0.5,
-            "20997": 0.5,
-            "21021": 0.5,
-            "22486": 0.5,
-            "24511": 0.5,
-            "26374": 0.5,
-            "27277": 0.5,
-            "28307": 0.5,
-            "29796": 0.5,
-            "31145": 0.5
-          },
-          "patch_risk": 0.5,
+          "confidence": 0.0,
+          "item_biases": {},
+          "patch_risk": 0.0,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 434,
+          "completion_tokens": 296,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
@@ -111,57 +102,69 @@
             "upstream_inference_cost": 0,
             "upstream_inference_prompt_cost": 0
           },
-          "is_byok": false,
-          "prompt_tokens": 15473,
+          "is_byok": true,
+          "prompt_tokens": 15785,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15907
+          "total_tokens": 16081
         }
-      },
-      {
-        "error": "ValueError",
-        "label": "free_peer_2",
-        "status": "unavailable"
       }
     ],
-    "freshness": "cached",
-    "generated_at": "2026-08-17T19:36:20.542982+00:00",
+    "freshness": "refreshed",
+    "generated_at": "2026-08-18T01:47:30.894235+00:00",
     "item_biases": {
-      "10150": 0.0995,
-      "12640": 0.1244,
-      "12817": 0.3259,
-      "12913": 0.1493,
-      "13190": 0.3756,
-      "20997": 0.4502,
-      "21021": 0.301,
-      "21634": 0.1244,
-      "22461": 0.1493,
-      "22486": 0.4254,
-      "24511": 0.301,
-      "26374": 0.2512,
-      "27277": 0.2512,
-      "28307": 0.2512,
-      "29796": 0.2512,
-      "3004": 0.2239,
-      "31145": 0.2512,
-      "4300": 0.1244,
-      "6392": 0.0995,
-      "7327": 0.0995
+      "11256": 0.2173,
+      "12817": 0.1242,
+      "19669": 0.1242,
+      "20023": 0.2173,
+      "20997": 0.2484,
+      "21905": 0.1863,
+      "22486": 0.1863,
+      "22978": 0.1242,
+      "24417": 0.2794,
+      "2501": 0.1552,
+      "25862": 0.1552,
+      "27277": 0.2173,
+      "3002": 0.1552,
+      "3049": 0.1552,
+      "3125": 0.1863
     },
-    "patch_risk": 0.3259,
+    "patch_risk": 0.0931,
     "rationale": [],
     "schema": 1,
-    "status": "cached",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 520,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016986,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.56e-05,
+        "upstream_inference_cost": 0.00016986,
+        "upstream_inference_prompt_cost": 0.00015426
+      },
+      "is_byok": false,
+      "prompt_tokens": 15426,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15946
+    }
   },
-  "age_hours": 0,
+  "age_hours": 2.24,
   "auxiliary": [],
   "economy_brief": "Broad market breadth remains negative with elevated turnover-weighted spread dispersion and shallow median liquidity. Velocity shows flow-following long bias; Market Maker specialises in spread rent and completion quality; Frontier Lab runs a high-risk ensemble with convex sizing.",
-  "freshness": "refreshed",
+  "freshness": "cached",
   "generated_at": "2026-08-17T23:32:57.948073+00:00",
   "market_mood": "Cautious/experimental \u2014 momentum and cross-factor signals are prominent but overlain by above-normal spread dispersion and moderate liquidity stress.",
   "model": "inclusionai/ling-2.6-flash",
@@ -171,29 +174,7 @@
   "schema": 3,
   "status": "ok",
   "summary": "Price action is being driven by factor tilts (edge, momentum, cross_factor) rather than broad CPI-style pressure. Turnover-weighted breadth is slightly negative, median momentum flat, and liquidity is moderate; turnover concentration is low (top 10 share ~36%).",
-  "usage": {
-    "completion_tokens": 417,
-    "completion_tokens_details": {
-      "audio_tokens": 0,
-      "image_tokens": 0,
-      "reasoning_tokens": 0
-    },
-    "cost": 0.00038551,
-    "cost_details": {
-      "upstream_inference_completions_cost": 1.251e-05,
-      "upstream_inference_cost": 0.00038551,
-      "upstream_inference_prompt_cost": 0.000373
-    },
-    "is_byok": false,
-    "prompt_tokens": 37300,
-    "prompt_tokens_details": {
-      "audio_tokens": 0,
-      "cache_write_tokens": 0,
-      "cached_tokens": 0,
-      "video_tokens": 0
-    },
-    "total_tokens": 37717
-  },
+  "usage": {},
   "wallet_notes": [],
   "watchlist": [
     "Looting bag note",
