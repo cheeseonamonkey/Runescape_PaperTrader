@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 3.69,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.004,
-      "macro": 0.0266,
-      "mean_reversion": -0.0013,
-      "momentum": 0.028,
-      "risk": -0.0734
+      "liquidity": 0.3,
+      "macro": 0.15,
+      "mean_reversion": -0.1,
+      "momentum": 0.25,
+      "risk": 0.05
     },
-    "confidence": 0.6753,
+    "confidence": 0.78,
     "ensemble": [
       {
         "label": "paid_anchor",
@@ -21,26 +21,21 @@
             "momentum": 0.25,
             "risk": 0.05
           },
-          "confidence": 0.7,
+          "confidence": 0.78,
           "item_biases": {
-            "1101": 0.45,
-            "13190": 0.3,
-            "20997": 0.4,
-            "22873": 0.1,
-            "24417": 0.2,
-            "25862": 0.35,
-            "26374": 0.25,
-            "26382": 0.25,
-            "27690": 0.15,
-            "28338": 0.2,
-            "29796": 0.2,
+            "12817": 0.6,
+            "20997": 0.45,
+            "22486": -0.3,
+            "24488": 0.25,
+            "24511": 0.1,
+            "26235": 0.3,
+            "26374": 0.2,
+            "27277": -0.4,
+            "28338": 0.1,
             "31088": 0.15,
-            "31106": 0.2,
-            "353": 0.1,
-            "4162": 0.2,
-            "5496": 0.15
+            "31106": 0.35
           },
-          "patch_risk": 0.15,
+          "patch_risk": 0.27,
           "rationale": []
         },
         "status": "ok",
@@ -51,21 +46,21 @@
             "image_tokens": 0,
             "reasoning_tokens": 0
           },
-          "cost": 0.00016304,
+          "cost": 0.00016693,
           "cost_details": {
             "upstream_inference_completions_cost": 1.56e-05,
-            "upstream_inference_cost": 0.00016304,
-            "upstream_inference_prompt_cost": 0.00014744
+            "upstream_inference_cost": 0.00016693,
+            "upstream_inference_prompt_cost": 0.00015133
           },
           "is_byok": false,
-          "prompt_tokens": 14744,
+          "prompt_tokens": 15133,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15264
+          "total_tokens": 15653
         }
       },
       {
@@ -74,73 +69,55 @@
         "status": "unavailable"
       },
       {
+        "error": "ValueError",
         "label": "free_peer_2",
-        "model": "google/gemma-4-31b-it:free",
-        "result": {
-          "biases": {
-            "liquidity": -0.3,
-            "macro": -0.1,
-            "mean_reversion": 0.1,
-            "momentum": -0.2,
-            "risk": -0.2
-          },
-          "confidence": 0.65,
-          "item_biases": {
-            "13190": 0.2,
-            "20997": -0.1,
-            "26382": -0.2,
-            "28338": 0.1,
-            "31106": -0.2
-          },
-          "patch_risk": 0.15,
-          "rationale": []
-        },
-        "status": "ok",
-        "usage": {
-          "completion_tokens": 304,
-          "completion_tokens_details": {
-            "audio_tokens": 0,
-            "image_tokens": 0,
-            "reasoning_tokens": 0
-          },
-          "cost": 0,
-          "cost_details": {
-            "upstream_inference_completions_cost": 0,
-            "upstream_inference_cost": 0,
-            "upstream_inference_prompt_cost": 0
-          },
-          "is_byok": true,
-          "prompt_tokens": 15090,
-          "prompt_tokens_details": {
-            "audio_tokens": 0,
-            "cache_write_tokens": 0,
-            "cached_tokens": 0,
-            "video_tokens": 0
-          },
-          "total_tokens": 15394
-        }
+        "status": "unavailable"
       }
     ],
-    "freshness": "cached",
-    "generated_at": "2026-08-18T07:00:26.061040+00:00",
+    "freshness": "refreshed",
+    "generated_at": "2026-08-18T11:35:30.847949+00:00",
     "item_biases": {
-      "1101": 0.228,
-      "13190": 0.2507,
-      "20997": 0.1533,
-      "24417": 0.1013,
-      "25862": 0.1773,
-      "26374": 0.1266,
-      "28338": 0.1507,
-      "29796": 0.1013,
-      "4162": 0.1013
+      "12817": 0.6,
+      "20997": 0.45,
+      "22486": -0.3,
+      "24488": 0.25,
+      "24511": 0.1,
+      "26235": 0.3,
+      "26374": 0.2,
+      "27277": -0.4,
+      "28338": 0.1,
+      "31088": 0.15,
+      "31106": 0.35
     },
-    "patch_risk": 0.15,
+    "patch_risk": 0.27,
     "rationale": [],
     "schema": 1,
-    "status": "cached",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 520,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016693,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.56e-05,
+        "upstream_inference_cost": 0.00016693,
+        "upstream_inference_prompt_cost": 0.00015133
+      },
+      "is_byok": false,
+      "prompt_tokens": 15133,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15653
+    }
   },
-  "age_hours": 2.87,
+  "age_hours": 3.77,
   "auxiliary": [],
   "economy_brief": "The OSRS market shows subdued breadth with modest positive price pressure and persistent stale share. High turnover concentration and elevated liquidity stress coexist with low volatility, while the usual update window approaches in ~27 hours.",
   "freshness": "cached",
