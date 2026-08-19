@@ -1,6 +1,6 @@
 {
   "advisory": {
-    "age_hours": 3.06,
+    "age_hours": 3.99,
     "biases": {
       "liquidity": -0.0693,
       "macro": -0.0962,
@@ -154,31 +154,52 @@
     "status": "cached",
     "usage": {}
   },
-  "age_hours": 7.58,
+  "age_hours": 0,
   "auxiliary": [],
-  "economy_brief": "The OSRS market shows subdued price pressure with turnover-weighted breadth slightly positive and median momentum flat. Liquidity is heterogeneous, with elevated spread dispersion and a high share of stale quotes, while the deepest venues show tight microstructure on select high-turnover names. Recent deterministic policy shifts have introduced a mild risk-off tilt via patch-window controls.",
-  "freshness": "cached",
-  "generated_at": "2026-08-19T13:05:16.110770+00:00",
-  "market_mood": "Cautious and rotationally active; investors are favoring quality, depth, and carry over speculative breadth.",
+  "economy_brief": "The OSRS market is in a post-expansion equilibrium with subdued price pressure and elevated structural friction. Breadth is slightly positive but turnover-weighted metrics are negative, indicating liquidity-sensitive selling. The usual weekly update window is scheduled for 2026-08-26T11:30:00Z unless official Jagex comms intervene.",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-19T21:35:48.905293+00:00",
+  "market_mood": "cautious/range-bound",
   "model": "inclusionai/ling-2.6-flash",
   "notable_events": [],
-  "regime": "Low-volatility, range-bound rotation with policy-mediated risk-off microstructure.",
-  "research_summary": "Deterministic controls and patch-window risk parameters are the dominant short-term drivers. OFFICIAL updates dominate the event space, while COMMUNITY signals (e.g., Cyclops head, Steel kiteshield) provide secondary context. Model_inference highlights carry and edge in top candidates, with Frontier adding shock/catalyst overlays.",
+  "regime": "post_patch/mean_reversion_bias",
+  "research_summary": "{'OFFICIAL': ['Summer Sweep Up - Hunter & Skilling changes (2026-08-19)', 'Official OSRS Podcast Ep18 (2026-08-17)', 'Old School LANscape announcement (2026-08-17)'], 'CONFIRMED_COMMUNITY': ['Iron keel parts require 5x large iron keel parts per boat; sloop needs 16 large keel parts (400 iron bars total).', 'Ham robe identification and usage confirmed via H.A.M. mechanics.'], 'MODEL_INFERENCE': ['Mean reversion signal detected in several assets (e.g., Toadflax seed, Basalt).', 'Liquidity and edge remain the dominant cross-factor signals across wallets.']}",
   "schema": 3,
   "status": "ok",
-  "summary": "Breadth is marginally positive but momentum is flat and dispersion high. Turnover-weighted pressure is slightly negative, liquidity is uneven, and the patch window is constraining risk appetite. The economy is in a controlled, rotation-driven regime rather than a momentum or speculative surge.",
-  "usage": {},
-  "wallet_notes": [],
+  "summary": "Price pressure is near-neutral; risk appetite is moderate. Market breadth is mildly positive (advancers 614, decliners 592) but turnover-weighted breadth and price pressure are negative. Liquidity stress is moderate (0.60). The patch window is open with elevated risk (0.677) and a forthcoming usual update on 2026-08-26. Momentum is muted (median 0) and dispersion is high, consistent with a range-bound regime.",
+  "usage": {
+    "completion_tokens": 792,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.000398846,
+    "cost_details": {
+      "upstream_inference_completions_cost": 2.376e-05,
+      "upstream_inference_cost": 0.000398846,
+      "upstream_inference_prompt_cost": 0.000375086
+    },
+    "is_byok": false,
+    "prompt_tokens": 37511,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 3,
+      "video_tokens": 0
+    },
+    "total_tokens": 38303
+  },
+  "wallet_notes": [
+    "velocity: Flow-following, high-turnover book with negative carry P&L (-0.39%). Recent buys target edge + momentum (e.g., Arceuus tablet, Kwuarm).",
+    "market_maker: Liquidity-provision book with slight mean reversion (-0.09% P&L). Focused on spread rent and completion quality; reduced exposure to volatile assets.",
+    "frontier: High-risk ensemble with convex sizing; negative P&L (-0.33%) and elevated risk (0.677). Leans on carry + trend + reversion + shock interactions."
+  ],
   "watchlist": [
-    "Twisted bow",
-    "Tumeken's shadow (uncharged)",
-    "Scythe of vitur (uncharged)",
-    "Soulreaper axe",
-    "Inquisitor's mace",
-    "Avernic treads",
-    "Zaryte crossbow",
-    "Dragon hunter lance",
-    "Torva armour set",
-    "Amulet of rancour"
+    "Toadflax seed (edge 44, momentum 18.5, flow 17.5; expected ROI 5.2%)",
+    "Snowy knight (item) (edge 16.2, momentum 42.0; expected ROI 0.7%)",
+    "Granite shield (edge 44, momentum 36.5; expected ROI 3.4%)",
+    "Arctic pine logs (wallet overlap; mean reversion present)",
+    "Soiled page (high liquidity score 0.858; edge 30.8)"
   ]
 }
