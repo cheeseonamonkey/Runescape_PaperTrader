@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 5.0,
+    "age_hours": 0,
     "biases": {
-      "liquidity": -0.0693,
-      "macro": -0.0962,
-      "mean_reversion": 0.0231,
-      "momentum": 0.0038,
-      "risk": -0.1939
+      "liquidity": 0.0125,
+      "macro": 0.0062,
+      "mean_reversion": -0.0042,
+      "momentum": 0.0104,
+      "risk": -0.1656
     },
-    "confidence": 0.7505,
+    "confidence": 0.7033,
     "ensemble": [
       {
         "label": "paid_anchor",
@@ -19,47 +19,53 @@
             "macro": 0.15,
             "mean_reversion": -0.1,
             "momentum": 0.25,
-            "risk": 0.2
+            "risk": 0.05
           },
           "confidence": 0.78,
           "item_biases": {
-            "20997": 0.4,
-            "22486": 0.35,
-            "24417": 0.2,
-            "24511": 0.35,
+            "12004": 0.4,
+            "12323": 0.25,
+            "12817": 0.1,
+            "20997": 0.45,
+            "21545": 0.15,
+            "21634": 0.35,
+            "22486": 0.3,
+            "23345": 0.4,
+            "24417": 0.3,
+            "25859": 0.3,
             "26374": 0.25,
-            "26384": 0.2,
-            "27277": 0.3,
-            "31088": 0.15,
-            "31145": 0.45,
-            "33639": 0.1
+            "26376": 0.35,
+            "26384": 0.1,
+            "27277": 0.25,
+            "3369": 0.15,
+            "39": 0.2
           },
-          "patch_risk": 0.86,
+          "patch_risk": 0.59,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 396,
+          "completion_tokens": 520,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
             "reasoning_tokens": 0
           },
-          "cost": 0.00016413,
+          "cost": 0.00016913,
           "cost_details": {
-            "upstream_inference_completions_cost": 1.188e-05,
-            "upstream_inference_cost": 0.00016413,
-            "upstream_inference_prompt_cost": 0.00015225
+            "upstream_inference_completions_cost": 1.56e-05,
+            "upstream_inference_cost": 0.00016913,
+            "upstream_inference_prompt_cost": 0.00015353
           },
           "is_byok": false,
-          "prompt_tokens": 15225,
+          "prompt_tokens": 15353,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15621
+          "total_tokens": 15873
         }
       },
       {
@@ -72,36 +78,35 @@
         "model": "poolside/laguna-s-2.1:free",
         "result": {
           "biases": {
-            "liquidity": -0.45,
-            "macro": -0.35,
-            "mean_reversion": 0.15,
+            "liquidity": -0.3,
+            "macro": -0.15,
+            "mean_reversion": 0.1,
             "momentum": -0.25,
-            "risk": -0.6
+            "risk": -0.4
           },
-          "confidence": 0.72,
+          "confidence": 0.62,
           "item_biases": {
-            "1081": 0.45,
-            "1085": 0.35,
-            "1143": 0.25,
-            "12622": 0.15,
-            "12625": 0.1,
-            "1295": 0.2,
+            "10149": 0.25,
+            "1129": 0.15,
+            "12004": 0.1,
+            "12205": 0.2,
+            "12323": 0.2,
+            "12536": 0.3,
+            "12817": -0.2,
+            "1794": 0.1,
+            "1831": 0.2,
             "20997": -0.3,
-            "22486": -0.4,
+            "21049": -0.1,
+            "21545": 0.25,
+            "21634": 0.05,
+            "22486": -0.25,
+            "23345": 0.1,
             "24417": -0.15,
-            "24488": 0.25,
-            "24511": -0.2,
-            "2507": 0.1,
-            "4298": 0.6,
-            "5104": 0.3,
-            "5373": 0.15,
-            "5537": 0.5,
-            "5972": 0.05,
-            "6693": 0.1,
-            "869": 0.3,
-            "9183": 0.4
+            "24511": -0.1,
+            "3369": 0.15,
+            "39": 0.1
           },
-          "patch_risk": 0.86,
+          "patch_risk": 0.59,
           "rationale": []
         },
         "status": "ok",
@@ -119,42 +124,67 @@
             "upstream_inference_prompt_cost": 0
           },
           "is_byok": true,
-          "prompt_tokens": 14912,
+          "prompt_tokens": 15042,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15432
+          "total_tokens": 15562
         }
       }
     ],
-    "freshness": "stale_cache",
-    "generated_at": "2026-08-19T17:36:28.937005+00:00",
+    "freshness": "refreshed",
+    "generated_at": "2026-08-19T23:32:58.511028+00:00",
     "item_biases": {
-      "1081": 0.2216,
-      "1085": 0.1723,
-      "1143": 0.1231,
-      "1295": 0.0985,
-      "24488": 0.1231,
-      "26374": 0.1269,
-      "26384": 0.1015,
-      "27277": 0.1523,
-      "31145": 0.2284,
-      "4298": 0.2954,
-      "5104": 0.1477,
-      "5537": 0.2462,
-      "869": 0.1477,
-      "9183": 0.197
+      "10149": 0.1198,
+      "12004": 0.2562,
+      "12205": 0.0958,
+      "12323": 0.226,
+      "12536": 0.1438,
+      "1831": 0.0958,
+      "20997": 0.0906,
+      "21545": 0.1979,
+      "21634": 0.2062,
+      "23345": 0.2562,
+      "24417": 0.0844,
+      "25859": 0.1562,
+      "26374": 0.1302,
+      "26376": 0.1823,
+      "27277": 0.1302,
+      "3369": 0.15,
+      "39": 0.1521
     },
-    "patch_risk": 0.86,
+    "patch_risk": 0.59,
     "rationale": [],
     "schema": 1,
-    "status": "stale_cache",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 520,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016913,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.56e-05,
+        "upstream_inference_cost": 0.00016913,
+        "upstream_inference_prompt_cost": 0.00015353
+      },
+      "is_byok": false,
+      "prompt_tokens": 15353,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15873
+    }
   },
-  "age_hours": 1.01,
+  "age_hours": 1.95,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a post-expansion equilibrium with subdued price pressure and elevated structural friction. Breadth is slightly positive but turnover-weighted metrics are negative, indicating liquidity-sensitive selling. The usual weekly update window is scheduled for 2026-08-26T11:30:00Z unless official Jagex comms intervene.",
   "freshness": "cached",
