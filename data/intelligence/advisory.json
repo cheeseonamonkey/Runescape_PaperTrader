@@ -1,18 +1,68 @@
 {
-  "age_hours": 3.92,
+  "age_hours": 0,
   "biases": {
-    "liquidity": -0.4513,
-    "macro": -0.2026,
-    "mean_reversion": 0.2487,
-    "momentum": -0.3026,
-    "risk": -0.4052
+    "liquidity": 0.0306,
+    "macro": -0.0227,
+    "mean_reversion": 0.2493,
+    "momentum": 0.128,
+    "risk": 0.028
   },
-  "confidence": 0.7013,
+  "confidence": 0.6753,
   "ensemble": [
     {
-      "error": "RuntimeError",
       "label": "paid_anchor",
-      "status": "unavailable"
+      "model": "inclusionai/ling-2.6-flash",
+      "result": {
+        "biases": {
+          "liquidity": 0.45,
+          "macro": 0.15,
+          "mean_reversion": 0.2,
+          "momentum": 0.35,
+          "risk": 0.25
+        },
+        "confidence": 0.7,
+        "item_biases": {
+          "11232": 0.85,
+          "1193": 0.4,
+          "12777": 0.5,
+          "1295": 0.4,
+          "13190": 0.5,
+          "1341": 0.6,
+          "20997": 0.6,
+          "22263": 0.35,
+          "4527": 0.8,
+          "5531": 0.7,
+          "5535": 0.6,
+          "6981": 0.75,
+          "822": 0.5
+        },
+        "patch_risk": 0.15,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 520,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "cost": 0.00016684,
+        "cost_details": {
+          "upstream_inference_completions_cost": 1.56e-05,
+          "upstream_inference_cost": 0.00016684,
+          "upstream_inference_prompt_cost": 0.00015124
+        },
+        "is_byok": false,
+        "prompt_tokens": 15124,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 15644
+      }
     },
     {
       "label": "free_peer_1",
@@ -20,26 +70,26 @@
       "result": {
         "biases": {
           "liquidity": -0.4,
-          "macro": -0.1,
+          "macro": -0.2,
           "mean_reversion": 0.3,
-          "momentum": -0.2,
+          "momentum": -0.1,
           "risk": -0.2
         },
         "confidence": 0.65,
         "item_biases": {
+          "11232": 0.4,
+          "1193": -0.5,
           "13190": -0.3,
-          "20997": 0.1,
-          "22486": -0.2,
-          "22978": 0.2,
-          "26374": -0.2,
-          "29796": 0.2
+          "20997": 0.2,
+          "269": -0.2,
+          "4527": -0.7
         },
-        "patch_risk": 0.39,
+        "patch_risk": 0.1,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 309,
+        "completion_tokens": 317,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
@@ -52,87 +102,63 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": true,
-        "prompt_tokens": 15712,
+        "prompt_tokens": 15430,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 16021
+        "total_tokens": 15747
       }
     },
     {
+      "error": "ValueError",
       "label": "free_peer_2",
-      "model": "poolside/laguna-xs-2.1:free",
-      "result": {
-        "biases": {
-          "liquidity": -0.5,
-          "macro": -0.3,
-          "mean_reversion": 0.2,
-          "momentum": -0.4,
-          "risk": -0.6
-        },
-        "confidence": 0.75,
-        "item_biases": {
-          "12817": -0.1,
-          "13190": 0.1,
-          "20997": -0.4,
-          "22486": -0.3,
-          "22978": -0.2,
-          "24417": -0.2,
-          "24511": -0.4,
-          "26374": -0.2,
-          "27690": -0.3,
-          "28338": -0.3,
-          "29796": -0.3,
-          "31088": -0.2
-        },
-        "patch_risk": 0.39,
-        "rationale": []
-      },
-      "status": "ok",
-      "usage": {
-        "completion_tokens": 447,
-        "completion_tokens_details": {
-          "audio_tokens": 0,
-          "image_tokens": 0,
-          "reasoning_tokens": 0
-        },
-        "cost": 0,
-        "cost_details": {
-          "upstream_inference_completions_cost": 0,
-          "upstream_inference_cost": 0,
-          "upstream_inference_prompt_cost": 0
-        },
-        "is_byok": true,
-        "prompt_tokens": 15086,
-        "prompt_tokens_details": {
-          "audio_tokens": 0,
-          "cache_write_tokens": 0,
-          "cached_tokens": 0,
-          "video_tokens": 0
-        },
-        "total_tokens": 15533
-      }
+      "status": "unavailable"
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-08-20T03:57:08.525896+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-20T08:52:29.937910+00:00",
   "item_biases": {
-    "13190": -0.0948,
-    "20997": -0.1565,
-    "22486": -0.2513,
-    "24417": -0.1026,
-    "24511": -0.2052,
-    "26374": -0.2,
-    "27690": -0.1539,
-    "28338": -0.1539,
-    "31088": -0.1026
+    "11232": 0.628,
+    "12777": 0.2533,
+    "1295": 0.2026,
+    "13190": 0.1053,
+    "1341": 0.304,
+    "20997": 0.4026,
+    "22263": 0.1773,
+    "269": -0.0987,
+    "5531": 0.3546,
+    "5535": 0.304,
+    "6981": 0.3799,
+    "822": 0.2533
   },
-  "patch_risk": 0.39,
+  "patch_risk": 0.1253,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
-  "usage": {}
+  "status": "ok",
+  "usage": {
+    "completion_tokens": 520,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00016684,
+    "cost_details": {
+      "upstream_inference_completions_cost": 1.56e-05,
+      "upstream_inference_cost": 0.00016684,
+      "upstream_inference_prompt_cost": 0.00015124
+    },
+    "is_byok": false,
+    "prompt_tokens": 15124,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 15644
+  }
 }
