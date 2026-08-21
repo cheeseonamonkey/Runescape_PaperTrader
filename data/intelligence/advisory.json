@@ -1,13 +1,13 @@
 {
-  "age_hours": 3.7,
+  "age_hours": 0,
   "biases": {
-    "liquidity": 0.07,
-    "macro": -0.05,
-    "mean_reversion": 0.05,
-    "momentum": -0.08,
-    "risk": 0.0
+    "liquidity": -0.45,
+    "macro": -0.35,
+    "mean_reversion": 0.25,
+    "momentum": -0.15,
+    "risk": -0.6
   },
-  "confidence": 0.65,
+  "confidence": 0.75,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -21,35 +21,48 @@
     },
     {
       "label": "free_peer_2",
-      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "model": "poolside/laguna-xs-2.1:free",
       "result": {
         "biases": {
-          "liquidity": 0.07,
-          "macro": -0.05,
-          "mean_reversion": 0.05,
-          "momentum": -0.08,
-          "risk": 0.0
+          "liquidity": -0.45,
+          "macro": -0.35,
+          "mean_reversion": 0.25,
+          "momentum": -0.15,
+          "risk": -0.6
         },
-        "confidence": 0.65,
+        "confidence": 0.75,
         "item_biases": {
-          "1269": -0.15,
-          "13190": 0.1,
-          "1733": -0.2,
-          "21049": 0.2,
-          "22486": 0.2,
-          "26374": -0.1,
-          "28307": 0.1
+          "11065": -0.9,
+          "11808": -0.15,
+          "12618": -0.85,
+          "12817": -0.35,
+          "2007": -0.6,
+          "21969": 0.25,
+          "23232": -0.65,
+          "23997": -0.1,
+          "24417": -0.3,
+          "24488": -0.4,
+          "24511": -0.45,
+          "25578": 0.0,
+          "2890": -0.8,
+          "3204": 0.1,
+          "50": -0.7,
+          "5730": -0.75,
+          "6328": -0.8,
+          "6396": -0.55,
+          "7225": -0.95,
+          "823": 0.2
         },
         "patch_risk": 0,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 2537,
+        "completion_tokens": 520,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 1913
+          "reasoning_tokens": 0
         },
         "cost": 0,
         "cost_details": {
@@ -57,32 +70,44 @@
           "upstream_inference_cost": 0,
           "upstream_inference_prompt_cost": 0
         },
-        "is_byok": false,
-        "prompt_tokens": 15916,
+        "is_byok": true,
+        "prompt_tokens": 15082,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 18453
+        "total_tokens": 15602
       }
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-08-21T13:06:19.873839+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-21T17:39:29.054640+00:00",
   "item_biases": {
-    "1269": -0.15,
-    "13190": 0.1,
-    "1733": -0.2,
-    "21049": 0.2,
-    "22486": 0.2,
-    "26374": -0.1,
-    "28307": 0.1
+    "11065": -0.9,
+    "11808": -0.15,
+    "12618": -0.85,
+    "12817": -0.35,
+    "2007": -0.6,
+    "21969": 0.25,
+    "23232": -0.65,
+    "23997": -0.1,
+    "24417": -0.3,
+    "24488": -0.4,
+    "24511": -0.45,
+    "2890": -0.8,
+    "3204": 0.1,
+    "50": -0.7,
+    "5730": -0.75,
+    "6328": -0.8,
+    "6396": -0.55,
+    "7225": -0.95,
+    "823": 0.2
   },
   "patch_risk": 0,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
+  "status": "ok",
   "usage": {}
 }
