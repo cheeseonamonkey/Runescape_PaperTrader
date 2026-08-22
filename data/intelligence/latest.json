@@ -1,28 +1,71 @@
 {
   "advisory": {
-    "age_hours": 3.87,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.0,
-      "macro": 0.0,
-      "mean_reversion": 0.0,
-      "momentum": 0.0,
-      "risk": 0.0
+      "liquidity": 0.1863,
+      "macro": 0.0931,
+      "mean_reversion": -0.0621,
+      "momentum": 0.1552,
+      "risk": 0.031
     },
-    "confidence": 0,
+    "confidence": 0.4843,
     "ensemble": [
       {
-        "error": "RuntimeError",
         "label": "paid_anchor",
-        "status": "unavailable"
+        "model": "inclusionai/ling-2.6-flash",
+        "result": {
+          "biases": {
+            "liquidity": 0.3,
+            "macro": 0.15,
+            "mean_reversion": -0.1,
+            "momentum": 0.25,
+            "risk": 0.05
+          },
+          "confidence": 0.78,
+          "item_biases": {
+            "20997": 0.28,
+            "22486": 0.22,
+            "22978": 0.15,
+            "24417": 0.1,
+            "26374": -0.1,
+            "27277": 0.15,
+            "27612": 0.1,
+            "27690": 0.1,
+            "28338": 0.22,
+            "31088": -0.05,
+            "31145": 0.3
+          },
+          "patch_risk": 0.15,
+          "rationale": []
+        },
+        "status": "ok",
+        "usage": {
+          "completion_tokens": 511,
+          "completion_tokens_details": {
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "reasoning_tokens": 0
+          },
+          "cost": 0.00016513,
+          "cost_details": {
+            "upstream_inference_completions_cost": 1.533e-05,
+            "upstream_inference_cost": 0.00016513,
+            "upstream_inference_prompt_cost": 0.0001498
+          },
+          "is_byok": false,
+          "prompt_tokens": 14980,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "total_tokens": 15491
+        }
       },
       {
-        "error": "ValueError",
         "label": "free_peer_1",
-        "status": "unavailable"
-      },
-      {
-        "label": "free_peer_2",
-        "model": "google/gemma-4-26b-a4b-it:free",
+        "model": "nvidia/nemotron-3.5-lightning:free",
         "result": {
           "biases": {
             "liquidity": 0.0,
@@ -38,11 +81,11 @@
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 312,
+          "completion_tokens": 520,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
-            "reasoning_tokens": 0
+            "reasoning_tokens": 379
           },
           "cost": 0,
           "cost_details": {
@@ -50,57 +93,107 @@
             "upstream_inference_cost": 0,
             "upstream_inference_prompt_cost": 0
           },
-          "is_byok": true,
-          "prompt_tokens": 15718,
+          "is_byok": false,
+          "prompt_tokens": 15468,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 16030
+          "total_tokens": 15988
         }
+      },
+      {
+        "error": "ValueError",
+        "label": "free_peer_2",
+        "status": "unavailable"
       }
     ],
-    "freshness": "cached",
-    "generated_at": "2026-08-22T03:03:59.895001+00:00",
-    "item_biases": {},
-    "patch_risk": 0,
+    "freshness": "refreshed",
+    "generated_at": "2026-08-22T07:40:04.800449+00:00",
+    "item_biases": {
+      "20997": 0.1739,
+      "22486": 0.1366,
+      "22978": 0.0931,
+      "27277": 0.0931,
+      "28338": 0.1366,
+      "31145": 0.1863
+    },
+    "patch_risk": 0.0931,
     "rationale": [],
     "schema": 1,
-    "status": "cached",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 511,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016513,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.533e-05,
+        "upstream_inference_cost": 0.00016513,
+        "upstream_inference_prompt_cost": 0.0001498
+      },
+      "is_byok": false,
+      "prompt_tokens": 14980,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15491
+    }
   },
-  "age_hours": 8.32,
+  "age_hours": 0,
   "auxiliary": [],
-  "economy_brief": "The OSRS market shows broad softness: breadth is marginally positive (620 advancers vs 616 decliners) but turnover-weighted price pressure is slightly negative (-5e-06), median momentum is flat, and liquidity stress is elevated at 0.60. The usual weekly update window is 108.9 hours away (scheduled 2026-08-26 11:30 UTC).",
-  "freshness": "stale_cache",
-  "generated_at": "2026-08-21T22:36:53.915669+00:00",
-  "market_mood": "Cautious/soft \u2014 low turnover-weighted breadth, muted median momentum, and rising liquidity stress.",
+  "economy_brief": "The OSRS market is in a low-volatility, range-bound regime with subdued price pressure. Breadth is slightly negative, turnover is modest, and liquidity is uneven across items. The usual weekly update window is scheduled for 2026-08-26; no official changes have been confirmed.",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-22T07:40:04.800449+00:00",
+  "market_mood": "Cautious and balanced. Most participants are positioning for mean reversion with selective carry plays. The market is not experiencing broad inflationary or disinflationary shocks.",
   "model": "inclusionai/ling-2.6-flash",
   "notable_events": [],
-  "refresh_error": "RuntimeError",
-  "regime": "Normal patch window (phase=normal, risk=0.0).",
-  "research_summary": "Market breadth is near-neutral with negative turnover-weighted pressure and elevated spread dispersion. Vault fighters favour convexity via seeds and saplings; frontier deploys a high-risk ensemble with shock filters. Monitoring liquidity stress and weekly update timing.",
+  "regime": "Consolidation / Low-volatility equilibrium with mild bearish breadth (-1.97%) and positive turnover-weighted price pressure (0.09%). Shallow liquidity pockets and stale quotes are the main frictions.",
+  "research_summary": "The economy is in a balanced, low-volatility regime where local microstructure frictions (stale quotes, extreme spreads) dominate price behavior. Money is rotating into contested mid-tier items with modest carry and reversion overlays. No macro-level inflationary or disinflationary regime is evident.",
   "schema": 3,
   "status": "ok",
-  "summary": "Across 3,228 tracked items, the distribution is nearly balanced with slight negative price pressure and high turnover-weighted spread dispersion. Top turnover names (Tumeken's shadow, Scythe of Vitur, Twisted bow) show mixed momentum and elevated spreads. Vault fighters (Velocity, Market Maker, Frontier Lab) are rotating into lower-risk assets (e.g., Mithril seeds, Yew saplings) and selective high-conviction edge plays.",
-  "usage": {},
+  "summary": "Price action is contained; breadth is mildly negative but turnover-weighted pressure is near flat. Momentum is neutral, dispersion is moderate, and the market is sensitive to localized liquidity and shock effects rather than macro flows.",
+  "usage": {
+    "completion_tokens": 656,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00038878,
+    "cost_details": {
+      "upstream_inference_completions_cost": 1.968e-05,
+      "upstream_inference_cost": 0.00038878,
+      "upstream_inference_prompt_cost": 0.0003691
+    },
+    "is_byok": false,
+    "prompt_tokens": 36910,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 37566
+  },
   "wallet_notes": [
-    "velocity: Flow-following, high-turnover book; net -0.54% today. Rotating into Mithril seeds, Yew saplings, and selective high-edge names.",
-    "market_maker: Liquidity-provision book; net -0.14% today. Capturing spread on Emerald bracelet, exiting Willow sapling on stop-loss.",
-    "frontier_lab: Experimental ensemble; net -0.51% today. High-risk names (Yanillian hops, Battlefront tablet) offset by disciplined risk budgeting."
+    "velocity: Net negative P&L (-0.56%). Active carry and mean-reversion positioning with recent buys on contested consumables and mid-tier tradeables.",
+    "market_maker: Net negative P&L (-0.12%). Providing liquidity on high-turnover, low-vol items; disciplined risk control and spread capture.",
+    "frontier: Net negative P&L (-0.51%). Experimental ensemble with higher risk budget on reversion and shock/catalyst plays; recent activity on teleport and mid-tier consumables."
   ],
   "watchlist": [
-    "Jangerberry seed",
-    "Black platelegs (t)",
-    "Poison ivy seed",
-    "Leather cowl",
-    "Oak roots",
-    "Green elegant legs",
-    "Mithril seeds",
-    "Yew sapling",
-    "Battlefront teleport (tablet)",
-    "Yanillian hops"
+    "Weekly update window (2026-08-26) for any official policy or macro shifts.",
+    "Liquidity depth on top turnover items (Scythe of Vitur, Tumeken's shadow, Twisted bow).",
+    "Money flows into mid-tier contested items (Lantadyme potions, Mahogany hull parts).",
+    "Shock/catalyst sensitivity on frontier portfolio (experimental signals).",
+    "Stale share and extreme spread share as frictions affecting price discovery."
   ]
 }
