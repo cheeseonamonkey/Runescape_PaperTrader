@@ -1,13 +1,13 @@
 {
-  "age_hours": 3.8,
+  "age_hours": 0,
   "biases": {
-    "liquidity": 0.1834,
-    "macro": 0.0917,
-    "mean_reversion": -0.0611,
-    "momentum": 0.1528,
-    "risk": 0.0306
+    "liquidity": 0.1093,
+    "macro": -0.1941,
+    "mean_reversion": -0.2527,
+    "momentum": 0.154,
+    "risk": -0.2693
   },
-  "confidence": 0.4279,
+  "confidence": 0.7178,
   "ensemble": [
     {
       "label": "paid_anchor",
@@ -20,24 +20,24 @@
           "momentum": 0.25,
           "risk": 0.05
         },
-        "confidence": 0.7,
+        "confidence": 0.78,
         "item_biases": {
-          "1183": 0.35,
-          "12817": 0.15,
-          "1540": 0.3,
-          "185": 0.4,
-          "20997": 0.4,
-          "22486": 0.3,
-          "24417": 0.1,
-          "24488": 0.1,
-          "24511": 0.1,
-          "26374": 0.35,
-          "27277": 0.2,
-          "4012": 0.3,
-          "5323": 0.45,
-          "6328": 0.5,
-          "6398": 0.5,
-          "8878": 0.55
+          "1195": 0.3,
+          "12309": 0.25,
+          "13190": 0.25,
+          "20997": 0.35,
+          "21512": 0.3,
+          "22486": 0.4,
+          "24488": 0.35,
+          "24511": 0.2,
+          "3831": 0.2,
+          "50": -0.15,
+          "5096": 0.1,
+          "5105": 0.05,
+          "5331": 0.1,
+          "5497": 0.05,
+          "6687": 0.15,
+          "9183": 0.45
         },
         "patch_risk": 0.15,
         "rationale": []
@@ -50,47 +50,102 @@
           "image_tokens": 0,
           "reasoning_tokens": 0
         },
-        "cost": 0.00016625,
+        "cost": 0.00016382,
         "cost_details": {
           "upstream_inference_completions_cost": 1.56e-05,
-          "upstream_inference_cost": 0.00016625,
-          "upstream_inference_prompt_cost": 0.00015065
+          "upstream_inference_cost": 0.00016382,
+          "upstream_inference_prompt_cost": 0.00014822
         },
         "is_byok": false,
-        "prompt_tokens": 15065,
+        "prompt_tokens": 14822,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15585
+        "total_tokens": 15342
       }
     },
     {
-      "error": "ValueError",
       "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "label": "free_peer_2",
-      "model": "google/gemma-4-26b-a4b-it:free",
+      "model": "nvidia/nemotron-nano-12b-v2-vl:free",
       "result": {
         "biases": {
-          "liquidity": 0.0,
-          "macro": 0.0,
-          "mean_reversion": 0.0,
-          "momentum": 0.0,
-          "risk": 0.0
+          "liquidity": 0.1,
+          "macro": -1.0,
+          "mean_reversion": -1.0,
+          "momentum": 0.1,
+          "risk": -1.0
         },
-        "confidence": 0.0,
-        "item_biases": {},
-        "patch_risk": 0.0,
+        "confidence": 0.7,
+        "item_biases": {
+          "12817": 0.1,
+          "13190": 0.1,
+          "20997": -1.0,
+          "22486": -1.0,
+          "24511": 0.1,
+          "26374": 0.1,
+          "27277": -1.0,
+          "27690": 0.1,
+          "28338": 0.1,
+          "31088": 0.1,
+          "33639": 0.1
+        },
+        "patch_risk": 0.1,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 282,
+        "completion_tokens": 315,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "cost_details": {
+          "upstream_inference_completions_cost": 0,
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0
+        },
+        "is_byok": false,
+        "prompt_tokens": 15317,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 15632
+      }
+    },
+    {
+      "label": "free_peer_2",
+      "model": "google/gemma-4-31b-it:free",
+      "result": {
+        "biases": {
+          "liquidity": -0.3,
+          "macro": -0.1,
+          "mean_reversion": 0.2,
+          "momentum": 0.0,
+          "risk": -0.2
+        },
+        "confidence": 0.6,
+        "item_biases": {
+          "13190": 0.3,
+          "21512": -0.7,
+          "22486": 0.2,
+          "27277": 0.1,
+          "50": -0.6,
+          "9183": -0.5
+        },
+        "patch_risk": 0.1,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 319,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
@@ -103,37 +158,55 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": true,
-        "prompt_tokens": 15425,
+        "prompt_tokens": 15144,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15707
+        "total_tokens": 15463
       }
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-08-23T07:43:20.153149+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-23T12:58:37.902215+00:00",
   "item_biases": {
-    "1183": 0.214,
-    "12817": 0.0917,
-    "1540": 0.1834,
-    "185": 0.2445,
-    "20997": 0.2445,
-    "22486": 0.1834,
-    "26374": 0.214,
-    "27277": 0.1223,
-    "4012": 0.1834,
-    "5323": 0.2751,
-    "6328": 0.3057,
-    "6398": 0.3057,
-    "8878": 0.3362
+    "1195": 0.155,
+    "12309": 0.1292,
+    "13190": 0.2245,
+    "24488": 0.1809,
+    "24511": 0.1282,
+    "27277": -0.2245,
+    "3831": 0.1034,
+    "50": -0.2186,
+    "9183": 0.115
   },
-  "patch_risk": 0.0917,
+  "patch_risk": 0.1258,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
-  "usage": {}
+  "status": "ok",
+  "usage": {
+    "completion_tokens": 520,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00016382,
+    "cost_details": {
+      "upstream_inference_completions_cost": 1.56e-05,
+      "upstream_inference_cost": 0.00016382,
+      "upstream_inference_prompt_cost": 0.00014822
+    },
+    "is_byok": false,
+    "prompt_tokens": 14822,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 15342
+  }
 }
