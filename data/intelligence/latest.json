@@ -1,92 +1,87 @@
 {
   "advisory": {
-    "age_hours": 3.38,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.0593,
-      "macro": 0.0797,
-      "mean_reversion": 0.277,
-      "momentum": 0.1257,
-      "risk": -0.0717
+      "liquidity": 0.1834,
+      "macro": 0.0917,
+      "mean_reversion": -0.0611,
+      "momentum": 0.1528,
+      "risk": 0.0306
     },
-    "confidence": 0.6513,
+    "confidence": 0.4279,
     "ensemble": [
       {
         "label": "paid_anchor",
         "model": "inclusionai/ling-2.6-flash",
         "result": {
           "biases": {
-            "liquidity": 0.4,
-            "macro": 0.25,
-            "mean_reversion": 0.35,
-            "momentum": 0.15,
+            "liquidity": 0.3,
+            "macro": 0.15,
+            "mean_reversion": -0.1,
+            "momentum": 0.25,
             "risk": 0.05
           },
           "confidence": 0.7,
           "item_biases": {
-            "13190": 0.5,
-            "20997": 0.4,
-            "22486": 0.3,
-            "26374": 0.2,
-            "33639": -0.3
+            "12817": 0.05,
+            "13190": 0.1,
+            "21003": 0.05,
+            "22486": 0.1,
+            "26374": 0.05,
+            "27277": 0.2,
+            "28338": 0.15
           },
           "patch_risk": 0.15,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 253,
+          "completion_tokens": 349,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
             "reasoning_tokens": 0
           },
-          "cost": 0.00015992,
+          "cost": 0.00016299,
           "cost_details": {
-            "upstream_inference_completions_cost": 7.59e-06,
-            "upstream_inference_cost": 0.00015992,
-            "upstream_inference_prompt_cost": 0.00015233
+            "upstream_inference_completions_cost": 1.047e-05,
+            "upstream_inference_cost": 0.00016299,
+            "upstream_inference_prompt_cost": 0.00015252
           },
           "is_byok": false,
-          "prompt_tokens": 15233,
+          "prompt_tokens": 15252,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15486
+          "total_tokens": 15601
         }
       },
       {
         "label": "free_peer_1",
-        "model": "google/gemma-4-31b-it:free",
+        "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
         "result": {
           "biases": {
-            "liquidity": -0.3,
-            "macro": -0.1,
-            "mean_reversion": 0.2,
-            "momentum": 0.1,
-            "risk": -0.2
+            "liquidity": 0.0,
+            "macro": 0.0,
+            "mean_reversion": 0.0,
+            "momentum": 0.0,
+            "risk": 0.0
           },
-          "confidence": 0.6,
-          "item_biases": {
-            "1281": -0.7,
-            "13190": 0.4,
-            "29796": 0.3,
-            "32044": -0.6,
-            "3211": -0.8,
-            "4302": -0.6
-          },
-          "patch_risk": 0.1,
+          "confidence": 0.0,
+          "item_biases": {},
+          "patch_risk": 0.0,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 303,
+          "completion_tokens": 32768,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
-            "reasoning_tokens": 0
+            "reasoning_tokens": 31079
           },
           "cost": 0,
           "cost_details": {
@@ -94,15 +89,15 @@
             "upstream_inference_cost": 0,
             "upstream_inference_prompt_cost": 0
           },
-          "is_byok": true,
-          "prompt_tokens": 15589,
+          "is_byok": false,
+          "prompt_tokens": 15755,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15892
+          "total_tokens": 48523
         }
       },
       {
@@ -111,57 +106,86 @@
         "status": "unavailable"
       }
     ],
-    "freshness": "cached",
-    "generated_at": "2026-08-22T22:33:59.289102+00:00",
+    "freshness": "refreshed",
+    "generated_at": "2026-08-23T03:12:32.593427+00:00",
     "item_biases": {
-      "1281": -0.3407,
-      "13190": 0.4513,
-      "20997": 0.2053,
-      "22486": 0.154,
-      "26374": 0.1027,
-      "29796": 0.146,
-      "32044": -0.292,
-      "3211": -0.3893,
-      "33639": -0.154,
-      "4302": -0.292
+      "27277": 0.1223,
+      "28338": 0.0917
     },
-    "patch_risk": 0.1257,
+    "patch_risk": 0.0917,
     "rationale": [],
     "schema": 1,
-    "status": "cached",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 349,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016299,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.047e-05,
+        "upstream_inference_cost": 0.00016299,
+        "upstream_inference_prompt_cost": 0.00015252
+      },
+      "is_byok": false,
+      "prompt_tokens": 15252,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15601
+    }
   },
-  "age_hours": 7.19,
+  "age_hours": 0,
   "auxiliary": [],
-  "economy_brief": "The OSRS market shows broad-based softness with turnover-weighted price pressure near zero and a slight decline in medium momentum. Breadth is mildly positive but turnover concentration in a few top names keeps risk elevated. The usual weekly update window is scheduled for 2026-08-26 unless an official patch alters the schedule.",
-  "freshness": "cached",
-  "generated_at": "2026-08-22T18:45:28.715963+00:00",
-  "market_mood": "Guarded/Cautious",
+  "economy_brief": "The OSRS market shows broad-based weakness with modest positive price pressure (turnover_weighted_price_pressure 0.001). Breadth is slightly positive (advancers 627, decliners 605) but turnover-weighted breadth is negative, while liquidity remains adequate (median 0.585). Recent activity highlights unusual volume in niche items (e.g., Yanillian hops, Forgotten brew) and continued dealer participation in small caps.",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-23T03:12:32.593427+00:00",
+  "market_mood": "cautious, range-bound",
   "model": "inclusionai/ling-2.6-flash",
   "notable_events": [],
-  "regime": "Low-inflation, range-bound equilibrium with moderate liquidity stress and persistent stale-price share",
-  "research_summary": "{'official': ['Bronzeman Post-Poll Update (21 Aug 2026)', 'Spudworks: DMM All Stars Finale (20 Aug 2026)', 'Summer Sweep Up - Hunter & Skilling (19 Aug 2026)', 'The Official OSRS Podcast Episode 18 (17 Aug 2026)', 'Introducing Old School LANscape (17 Aug 2026)'], 'confirmed_community': [{'title': 'Worm hole - OSRS Wiki', 'url': 'https://oldschool.runescape.wiki/w/Worm_hole', 'evidence_class': 'CONFIRMED_COMMUNITY'}, {'title': 'Ancient mace - OSRS Wiki', 'url': 'https://oldschool.runescape.wiki/w/Ancient_mace', 'evidence_class': 'CONFIRMED_COMMUNITY'}], 'community': [{'title': 'Worm hole price & stats', 'url': 'https://www.osrs.exchange/item/worm-hole'}, {'title': 'Premade worm hole tracker', 'url': 'https://osrsgetracker.com/items/premade-worm-hole/'}], 'model_inference': ['High stale share sustains pricing friction; turnover concentration implies limited participation', 'Cross-factor and momentum signals are weak; mean-reversion and liquidity dominate edge estimates', 'Risk appetite i",
+  "regime": "neutral-to-soft with pockets of dealer-driven reversion",
+  "research_summary": "Dealer books emphasize reversion and carry on small/mid caps; large caps remain range-bound. Expected returns are low-to-moderate with controlled risk budgets. Monitoring hop and consumable subsectors for mean-reversion continuation.",
   "schema": 3,
   "status": "ok",
-  "summary": "Price pressure is close to neutral; breadth is slightly positive but turnover is concentrated. Liquidity stress and a high stale share indicate fragmented pricing. Momentum is muted while mean-reversion and cross-factor signals compete. The risk-appetite proxy is subdued.",
-  "usage": {},
+  "summary": "Price pressure is minimal; breadth is mixed but turnover-weighted measures are negative. Dealer books (Velocity, Market Maker, Frontier) show active reversion positioning in small/mid caps while large-cap names see modest flow. Inventory builds in hops and reversionary consumables; risk appetite is subdued.",
+  "usage": {
+    "completion_tokens": 580,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00038878,
+    "cost_details": {
+      "upstream_inference_completions_cost": 1.74e-05,
+      "upstream_inference_cost": 0.00038878,
+      "upstream_inference_prompt_cost": 0.00037138
+    },
+    "is_byok": false,
+    "prompt_tokens": 37138,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 37718
+  },
   "wallet_notes": [
-    "velocity: Net negative return (-0.59%). Recent activity shows tactical buys of mid-tier tradables (Aldarium, scrolls, antipoison) and a small long on Ahrim's staff; net exposure remains concentrated in a few names.",
-    "market_maker: Net negative return (-0.13%). Active in spread capture with stop-loss exits on soft names (Snowy knight, Bananas). Maintains depth in high-turnover items.",
-    "frontier: Net negative return (-0.55%). Prefers experimental setups: long sunlight antelope antler, raw sea turtle, and quetzal feed with convex sizing and strict risk budgets."
+    "velocity: Flow-following, high-turnover tilt; net negative carry (-0.62%) with small positive recent reentry into niche consumables.",
+    "market_maker: Liquidity-provision focus; modest negative P&L (-0.14%) with tight spread capture and selective reversion.",
+    "frontier: High-risk ensemble; negative P&L (-0.58%) but active in small-cap reversion and catalyst positioning."
   ],
   "watchlist": [
-    "Twisted bow",
-    "Tumeken's shadow (uncharged)",
-    "Harmonised orb",
-    "Inquisitor's mace",
-    "Noxious halberd",
-    "Ancestral robe top",
-    "Tormented synapse",
-    "Elysian spirit shield",
-    "Torva armour set",
-    "Confliction gauntlets",
-    "Dragon hunter lance",
-    "Amulet of rancour"
+    "Yanillian hops \u2014 sustain flow and monitor mean reversion.",
+    "Forgotten brew(4) \u2014 watch fill probability and inventory risk.",
+    "Lockpick \u2014 reversion trade follow-through.",
+    "Super combat potion(2) \u2014 dealer reentry signal.",
+    "Zamorak monk bottom \u2014 niche catalyst play."
   ]
 }
