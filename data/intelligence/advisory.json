@@ -1,5 +1,5 @@
 {
-  "age_hours": 3.74,
+  "age_hours": 0,
   "biases": {
     "liquidity": 0.1834,
     "macro": 0.0917,
@@ -22,45 +22,59 @@
         },
         "confidence": 0.7,
         "item_biases": {
-          "12817": 0.05,
-          "13190": 0.1,
-          "21003": 0.05,
-          "22486": 0.1,
-          "26374": 0.05,
+          "1183": 0.35,
+          "12817": 0.15,
+          "1540": 0.3,
+          "185": 0.4,
+          "20997": 0.4,
+          "22486": 0.3,
+          "24417": 0.1,
+          "24488": 0.1,
+          "24511": 0.1,
+          "26374": 0.35,
           "27277": 0.2,
-          "28338": 0.15
+          "4012": 0.3,
+          "5323": 0.45,
+          "6328": 0.5,
+          "6398": 0.5,
+          "8878": 0.55
         },
         "patch_risk": 0.15,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 349,
+        "completion_tokens": 520,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
           "reasoning_tokens": 0
         },
-        "cost": 0.00016299,
+        "cost": 0.00016625,
         "cost_details": {
-          "upstream_inference_completions_cost": 1.047e-05,
-          "upstream_inference_cost": 0.00016299,
-          "upstream_inference_prompt_cost": 0.00015252
+          "upstream_inference_completions_cost": 1.56e-05,
+          "upstream_inference_cost": 0.00016625,
+          "upstream_inference_prompt_cost": 0.00015065
         },
         "is_byok": false,
-        "prompt_tokens": 15252,
+        "prompt_tokens": 15065,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15601
+        "total_tokens": 15585
       }
     },
     {
+      "error": "ValueError",
       "label": "free_peer_1",
-      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "status": "unavailable"
+    },
+    {
+      "label": "free_peer_2",
+      "model": "google/gemma-4-26b-a4b-it:free",
       "result": {
         "biases": {
           "liquidity": 0.0,
@@ -76,11 +90,11 @@
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 32768,
+        "completion_tokens": 282,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 31079
+          "reasoning_tokens": 0
         },
         "cost": 0,
         "cost_details": {
@@ -88,32 +102,60 @@
           "upstream_inference_cost": 0,
           "upstream_inference_prompt_cost": 0
         },
-        "is_byok": false,
-        "prompt_tokens": 15755,
+        "is_byok": true,
+        "prompt_tokens": 15425,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 48523
+        "total_tokens": 15707
       }
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_2",
-      "status": "unavailable"
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-08-23T03:12:32.593427+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-23T07:43:20.153149+00:00",
   "item_biases": {
+    "1183": 0.214,
+    "12817": 0.0917,
+    "1540": 0.1834,
+    "185": 0.2445,
+    "20997": 0.2445,
+    "22486": 0.1834,
+    "26374": 0.214,
     "27277": 0.1223,
-    "28338": 0.0917
+    "4012": 0.1834,
+    "5323": 0.2751,
+    "6328": 0.3057,
+    "6398": 0.3057,
+    "8878": 0.3362
   },
   "patch_risk": 0.0917,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
-  "usage": {}
+  "status": "ok",
+  "usage": {
+    "completion_tokens": 520,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00016625,
+    "cost_details": {
+      "upstream_inference_completions_cost": 1.56e-05,
+      "upstream_inference_cost": 0.00016625,
+      "upstream_inference_prompt_cost": 0.00015065
+    },
+    "is_byok": false,
+    "prompt_tokens": 15065,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 15585
+  }
 }
