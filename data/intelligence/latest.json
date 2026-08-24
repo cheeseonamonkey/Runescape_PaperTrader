@@ -1,145 +1,141 @@
 {
   "advisory": {
-    "age_hours": 2.01,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.0763,
-      "macro": -0.15,
-      "mean_reversion": 0.1263,
-      "momentum": -0.1187,
-      "risk": -0.1161
+      "liquidity": 0.3,
+      "macro": 0.15,
+      "mean_reversion": 0.25,
+      "momentum": 0.1,
+      "risk": 0.05
     },
-    "confidence": 0.7551,
+    "confidence": 0.7,
     "ensemble": [
       {
-        "error": "RuntimeError",
         "label": "paid_anchor",
-        "status": "unavailable"
-      },
-      {
-        "label": "free_peer_1",
-        "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "model": "inclusionai/ling-2.6-flash",
         "result": {
           "biases": {
-            "liquidity": 0.1,
-            "macro": -0.15,
-            "mean_reversion": 0.15,
-            "momentum": 0.0,
+            "liquidity": 0.3,
+            "macro": 0.15,
+            "mean_reversion": 0.25,
+            "momentum": 0.1,
             "risk": 0.05
           },
-          "confidence": 0.85,
+          "confidence": 0.7,
           "item_biases": {
-            "20997": 0.3,
-            "22486": -0.2,
-            "24417": 0.2,
-            "26374": -0.2,
-            "26382": -0.2,
-            "27277": 0.2,
-            "27612": -0.2,
-            "28338": -0.3,
-            "31106": 0.2,
-            "31115": -0.2
-          },
-          "patch_risk": 0,
-          "rationale": []
-        },
-        "status": "ok",
-        "usage": {
-          "completion_tokens": 2173,
-          "completion_tokens_details": {
-            "audio_tokens": 0,
-            "image_tokens": 0,
-            "reasoning_tokens": 1500
-          },
-          "cost": 0,
-          "cost_details": {
-            "upstream_inference_completions_cost": 0,
-            "upstream_inference_cost": 0,
-            "upstream_inference_prompt_cost": 0
-          },
-          "is_byok": false,
-          "prompt_tokens": 15502,
-          "prompt_tokens_details": {
-            "audio_tokens": 0,
-            "cache_write_tokens": 0,
-            "cached_tokens": 0,
-            "video_tokens": 0
-          },
-          "total_tokens": 17675
-        }
-      },
-      {
-        "label": "free_peer_2",
-        "model": "poolside/laguna-s-2.1:free",
-        "result": {
-          "biases": {
-            "liquidity": 0.05,
-            "macro": -0.15,
-            "mean_reversion": 0.1,
-            "momentum": -0.25,
-            "risk": -0.3
-          },
-          "confidence": 0.65,
-          "item_biases": {
-            "20997": -0.2,
-            "22486": -0.25,
-            "24417": -0.2,
-            "26374": -0.1,
-            "26382": -0.35,
-            "27277": -0.15,
-            "27612": -0.4,
-            "28338": -0.3,
-            "29580": 0.1,
-            "31106": 0.05,
-            "31115": -0.15,
-            "33639": -0.1
+            "10338": 0.3,
+            "10346": 0.35,
+            "10470": 0.5,
+            "1123": 0.4,
+            "11248": 0.3,
+            "11250": 0.45,
+            "12817": 0.15,
+            "13190": 0.3,
+            "20997": 0.2,
+            "21486": 0.35,
+            "22486": 0.15,
+            "23997": 0.25,
+            "24417": 0.1,
+            "24488": 0.2,
+            "26374": 0.1,
+            "27277": 0.25,
+            "27355": 0.25,
+            "28338": 0.2,
+            "31088": 0.1,
+            "33639": 0.2
           },
           "patch_risk": 0.15,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 481,
+          "completion_tokens": 520,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
             "reasoning_tokens": 0
           },
-          "cost": 0,
+          "cost": 0.00016645,
           "cost_details": {
-            "upstream_inference_completions_cost": 0,
-            "upstream_inference_cost": 0,
-            "upstream_inference_prompt_cost": 0
+            "upstream_inference_completions_cost": 1.56e-05,
+            "upstream_inference_cost": 0.00016645,
+            "upstream_inference_prompt_cost": 0.00015085
           },
-          "is_byok": true,
-          "prompt_tokens": 14686,
+          "is_byok": false,
+          "prompt_tokens": 15085,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 15167
+          "total_tokens": 15605
         }
+      },
+      {
+        "error": "ValueError",
+        "label": "free_peer_1",
+        "status": "unavailable"
+      },
+      {
+        "error": "ValueError",
+        "label": "free_peer_2",
+        "status": "unavailable"
       }
     ],
-    "freshness": "cached",
-    "generated_at": "2026-08-23T21:31:55.511543+00:00",
+    "freshness": "refreshed",
+    "generated_at": "2026-08-24T01:54:25.578930+00:00",
     "item_biases": {
-      "22486": -0.2237,
-      "26374": -0.1525,
-      "26382": -0.2712,
-      "27612": -0.2949,
-      "28338": -0.3,
-      "31106": 0.1288,
-      "31115": -0.1763
+      "10338": 0.3,
+      "10346": 0.35,
+      "10470": 0.5,
+      "1123": 0.4,
+      "11248": 0.3,
+      "11250": 0.45,
+      "12817": 0.15,
+      "13190": 0.3,
+      "20997": 0.2,
+      "21486": 0.35,
+      "22486": 0.15,
+      "23997": 0.25,
+      "24417": 0.1,
+      "24488": 0.2,
+      "26374": 0.1,
+      "27277": 0.25,
+      "27355": 0.25,
+      "28338": 0.2,
+      "31088": 0.1,
+      "33639": 0.2
     },
-    "patch_risk": 0.0712,
+    "patch_risk": 0.15,
     "rationale": [],
     "schema": 1,
-    "status": "cached",
-    "usage": {}
+    "status": "ok",
+    "usage": {
+      "completion_tokens": 520,
+      "completion_tokens_details": {
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.00016645,
+      "cost_details": {
+        "upstream_inference_completions_cost": 1.56e-05,
+        "upstream_inference_cost": 0.00016645,
+        "upstream_inference_prompt_cost": 0.00015085
+      },
+      "is_byok": false,
+      "prompt_tokens": 15085,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0,
+        "video_tokens": 0
+      },
+      "total_tokens": 15605
+    }
   },
-  "age_hours": 8.95,
+  "age_hours": 11.32,
   "auxiliary": [],
   "economy_brief": "The OSRS market shows broad-based softness with turnover-weighted price pressure marginally negative and liquidity stretched. Breadth is negative with more decliners than advancers, and the shallowest half of issues are losing ground. The market is trading in a disinflationary mode, with turnover and momentum metrics pointing to subdued demand.",
   "freshness": "stale_cache",
