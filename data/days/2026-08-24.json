@@ -10005,6 +10005,2310 @@
           "value_gp": 3101780
         }
       }
+    },
+    {
+      "advisory": {
+        "biases": {
+          "liquidity": 0.3,
+          "macro": 0.15,
+          "mean_reversion": -0.1,
+          "momentum": 0.25,
+          "risk": 0.05
+        },
+        "confidence": 0.7,
+        "freshness": "refreshed",
+        "status": "ok"
+      },
+      "at": "2026-08-24T07:17:02.130550+00:00",
+      "health": {
+        "status": "ok",
+        "warnings": []
+      },
+      "intelligence": {
+        "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
+        "freshness": "cached",
+        "market_mood": "Cautious and range-bound; participants are prioritizing cost of entry and fill probability over aggressive reversion, producing low-volatility, low-alpha conditions.",
+        "regime": "Normal patch window (not an update cycle); deterministic news flow is quiet, macro/microstructure metrics indicate a compressed risk-appetite regime.",
+        "status": "ok",
+        "summary": "Breadth is slightly positive (5.9% advancers) but turnover-weighted pressure is near flat. Market depth is thin and spread dispersion is high, with the thinnest liquidity in lower-tier items. Book conditions favor patient, liquidity-weighted execution; the frontier lab runs a high-risk experimental sleeve while the market maker and velocity wallets pursue carry-and-flow scalps."
+      },
+      "market": {
+        "economy": {
+          "active_share": 0.1299,
+          "advancers": 526,
+          "breadth": 0.0924,
+          "decliners": 437,
+          "extreme_spread_share": 0.6611,
+          "flat": 2324,
+          "liquidity_stress": 0.6223,
+          "market_temperature": 28.0,
+          "median_abs_momentum": 0,
+          "median_liquidity": 0.5413,
+          "median_momentum": 0,
+          "median_spread": 0.116697,
+          "median_turnover_gp_1h": 29304,
+          "median_volume_acceleration": -1,
+          "members_turnover_share": 0.9788,
+          "momentum_dispersion": 1.153452,
+          "p90_volume_acceleration": 0.5,
+          "patch": {
+            "hours_since_usual_update": 115.77,
+            "hours_to_usual_update": 52.23,
+            "phase": "normal",
+            "risk": 0.0,
+            "usual_update_at_utc": "2026-08-26T11:30:00+00:00"
+          },
+          "risk_appetite_proxy": 0.4473,
+          "shock_share": 0.1524,
+          "spread_dispersion": 667.489121,
+          "stale_share": 0.7846,
+          "top10_turnover_share": 0.3964,
+          "top1_turnover_share": 0.1133,
+          "top5_turnover_share": 0.3099,
+          "total_turnover_gp_1h": 118159113346,
+          "total_volume_units_1h": 24183334,
+          "turnover_gini": 0.9633,
+          "turnover_hhi": 0.02993,
+          "turnover_weighted_breadth": 0.0973,
+          "turnover_weighted_price_pressure": -0.00033,
+          "turnover_weighted_spread": 0.019465,
+          "turnover_weighted_volume_imbalance": 0.0016
+        },
+        "median_top_momentum": -0.003181,
+        "total_turnover_gp_1h": 118159113346,
+        "tracked_items": 3287
+      },
+      "run_id": "32700747663",
+      "version": "0.5",
+      "wallets": {
+        "frontier": {
+          "cash_gp": 50623,
+          "liquid_gp": 50623,
+          "net_worth_gp": 3449831,
+          "portfolio_metrics": {
+            "cash_share": 0.0147,
+            "cost_basis_gp": 3486324,
+            "exposure_share": 0.9853,
+            "gross_exposure_gp": 3399208,
+            "inventory_pnl_gp": -87116,
+            "largest_position_share": 0.1617,
+            "liquid_gp": 50623,
+            "mean_holding_hours": 0.74,
+            "mean_unrealized_roi": -0.026601,
+            "net_worth_gp": 3449831,
+            "position_hhi": 0.1121,
+            "position_slot_utilization": 1.0,
+            "winning_position_share": 0.0
+          },
+          "positions": 22,
+          "realized_pnl_gp": -6461796,
+          "return_pct": -0.655017,
+          "trades": [
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 29286,
+              "market_move_roi": 0.0,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.021978,
+                "entry_liquidation_unit": 14619,
+                "entry_score": 131.169,
+                "exit_liquidation_unit": 14619,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Mixed hide boots",
+              "pnl_gp": -2232,
+              "qty": 6,
+              "quote_age_minutes": 19.7,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.024815,
+              "side": "SELL",
+              "unit_price": 14619,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 5406,
+              "market_move_roi": 0.108844,
+              "math": {
+                "current_score": null,
+                "entry_expected_roi": 0.051129,
+                "entry_liquidation_unit": 441,
+                "entry_score": 124.209,
+                "exit_liquidation_unit": 489,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Strawberries(5)",
+              "pnl_gp": 216,
+              "qty": 6,
+              "quote_age_minutes": 29.7,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +7.95% cleared the take-profit hurdle after 2.3h.",
+              "roi": 0.07947,
+              "side": "SELL",
+              "unit_price": 489,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 219,
+              "market_move_roi": -0.003245,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.049643,
+                "entry_liquidation_unit": 3082,
+                "entry_score": 113.705,
+                "exit_liquidation_unit": 3072,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Grimy torstol",
+              "pnl_gp": -14696,
+              "qty": 167,
+              "quote_age_minutes": 2.5,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.027848,
+              "side": "SELL",
+              "unit_price": 3072,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 1159,
+              "market_move_roi": -0.161125,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.015021,
+                "entry_liquidation_unit": 782,
+                "entry_score": 112.864,
+                "exit_liquidation_unit": 656,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Mithril full helm",
+              "pnl_gp": -290,
+              "qty": 2,
+              "quote_age_minutes": 8.4,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -16.11% breached the adverse-move stop after 2.3h.",
+              "roi": -0.181024,
+              "side": "SELL",
+              "unit_price": 656,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 2483,
+              "market_move_roi": 0.0,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.012537,
+                "entry_liquidation_unit": 1446,
+                "entry_score": 110.906,
+                "exit_liquidation_unit": 1446,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Lantadyme potion (unf)",
+              "pnl_gp": -4736,
+              "qty": 128,
+              "quote_age_minutes": 19.7,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.024949,
+              "side": "SELL",
+              "unit_price": 1446,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 383,
+              "market_move_roi": 0.049254,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.024476,
+                "entry_liquidation_unit": 670,
+                "entry_score": 110.419,
+                "exit_liquidation_unit": 703,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Raw shark",
+              "pnl_gp": 12208,
+              "qty": 763,
+              "quote_age_minutes": 1.7,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +2.33% cleared the take-profit hurdle after 2.3h.",
+              "roi": 0.02329,
+              "side": "SELL",
+              "unit_price": 703,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 32336,
+              "market_move_roi": 0.022791,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.019257,
+                "entry_liquidation_unit": 2150,
+                "entry_score": 106.568,
+                "exit_liquidation_unit": 2199,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Halibut",
+              "pnl_gp": -546,
+              "qty": 91,
+              "quote_age_minutes": 12.1,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.002721,
+              "side": "SELL",
+              "unit_price": 2199,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 32071,
+              "market_move_roi": 0.055067,
+              "math": {
+                "current_score": null,
+                "entry_expected_roi": 0.064808,
+                "entry_liquidation_unit": 34249,
+                "entry_score": 106.26,
+                "exit_liquidation_unit": 36135,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Large mahogany hull parts",
+              "pnl_gp": 1015,
+              "qty": 1,
+              "quote_age_minutes": 2.5,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +2.89% cleared the take-profit hurdle after 2.3h.",
+              "roi": 0.028901,
+              "side": "SELL",
+              "unit_price": 36135,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 11980,
+              "market_move_roi": -0.030459,
+              "math": {
+                "current_score": 8.359,
+                "entry_expected_roi": 0.014301,
+                "entry_liquidation_unit": 12443,
+                "entry_score": 98.31,
+                "exit_liquidation_unit": 12064,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Ring of wealth (5)",
+              "pnl_gp": -2088,
+              "qty": 3,
+              "quote_age_minutes": 15.8,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity decayed after 2.3h; capital recycled at current score 8.4.",
+              "roi": -0.054545,
+              "side": "SELL",
+              "unit_price": 12064,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 7218,
+              "market_move_roi": 0.006221,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.020128,
+                "entry_liquidation_unit": 643,
+                "entry_score": 85.137,
+                "exit_liquidation_unit": 647,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Summer pie",
+              "pnl_gp": -13,
+              "qty": 1,
+              "quote_age_minutes": 1.9,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.019697,
+              "side": "SELL",
+              "unit_price": 647,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 2.33,
+              "item_id": 9242,
+              "market_move_roi": -0.032895,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.035282,
+                "entry_liquidation_unit": 152,
+                "entry_score": 83.478,
+                "exit_liquidation_unit": 147,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Ruby bolts (e)",
+              "pnl_gp": -40,
+              "qty": 4,
+              "quote_age_minutes": 7.2,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.063694,
+              "side": "SELL",
+              "unit_price": 147,
+              "wallet": "frontier"
+            },
+            {
+              "at": "2026-08-24T07:17:02.124536+00:00",
+              "held_hours": 1.46,
+              "item_id": 4097,
+              "market_move_roi": -0.105633,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.048471,
+                "entry_liquidation_unit": 6125,
+                "entry_score": 101.638,
+                "exit_liquidation_unit": 5478,
+                "stop_loss": -0.045,
+                "take_profit": 0.012
+              },
+              "name": "Mystic boots",
+              "pnl_gp": -3216,
+              "qty": 4,
+              "quote_age_minutes": 2.1,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -10.56% breached the adverse-move stop after 1.5h.",
+              "roi": -0.127985,
+              "side": "SELL",
+              "unit_price": 5478,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.871,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 12,
+              "completion_probability": 0.4565,
+              "conviction": 0.8147,
+              "cost_gp": 10616,
+              "entry_fill_probability": 0.6789,
+              "expected_roi": 0.047746,
+              "fill_model": "expected_quantity",
+              "item_id": 1065,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 1.0,
+                "kelly_fraction_proxy": 0.2515,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 64.36
+              },
+              "name": "Green d'hide vambraces",
+              "order_qty": 12,
+              "qty": 8,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +4.77%, conviction 81%; strongest score terms: edge +44.0, cross_factor +25.7, momentum +24.0.",
+              "risk_budget_pct": 0.1765,
+              "score": 124.45,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.8647,
+                "reversion": -0.0512,
+                "shock": 0,
+                "trend": 0.8
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 25.727
+                },
+                {
+                  "factor": "momentum",
+                  "points": 24.0
+                }
+              ],
+              "unit_price": 1327,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.944,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 27,
+              "completion_probability": 0.607,
+              "conviction": 0.8023,
+              "cost_gp": 97860,
+              "entry_fill_probability": 0.786,
+              "expected_roi": 0.017676,
+              "fill_model": "expected_quantity",
+              "item_id": 23694,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 2.61,
+                "kelly_fraction_proxy": 0.216,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 84.98
+              },
+              "name": "Divine super combat potion(1)",
+              "order_qty": 27,
+              "qty": 21,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.77%, conviction 80%; strongest score terms: edge +38.9, cross_factor +26.3, momentum +23.2.",
+              "risk_budget_pct": 0.1835,
+              "score": 124.191,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9042,
+                "reversion": -0.0241,
+                "shock": 0,
+                "trend": 0.7843
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 38.887
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 26.348
+                },
+                {
+                  "factor": "momentum",
+                  "points": 23.162
+                }
+              ],
+              "unit_price": 4660,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 1.049,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 4,
+              "completion_probability": 0.5345,
+              "conviction": 0.8198,
+              "cost_gp": 408490,
+              "entry_fill_probability": 0.7001,
+              "expected_roi": 0.017003,
+              "fill_model": "expected_quantity",
+              "item_id": 30810,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 96.77,
+                "kelly_fraction_proxy": 0.2025,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 3569.63
+              },
+              "name": "Contract of Glyphic Attenuation",
+              "order_qty": 3,
+              "qty": 2,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.70%, conviction 82%; strongest score terms: edge +37.4, cross_factor +28.0, momentum +23.6.",
+              "risk_budget_pct": 0.1946,
+              "score": 122.629,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9454,
+                "reversion": -0.0061,
+                "shock": 0,
+                "trend": 0.7934
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 37.408
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 28.01
+                },
+                {
+                  "factor": "momentum",
+                  "points": 23.648
+                }
+              ],
+              "unit_price": 204245,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.958,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 182,
+              "completion_probability": 0.4995,
+              "conviction": 0.7975,
+              "cost_gp": 132352,
+              "entry_fill_probability": 0.7058,
+              "expected_roi": 0.018208,
+              "fill_model": "expected_quantity",
+              "item_id": 4803,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 0.66,
+                "kelly_fraction_proxy": 0.2018,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 19.48
+              },
+              "name": "Rune brutal",
+              "order_qty": 182,
+              "qty": 128,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.82%, conviction 80%; strongest score terms: edge +40.1, cross_factor +26.4, momentum +22.9.",
+              "risk_budget_pct": 0.1848,
+              "score": 120.526,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9129,
+                "reversion": -0.0176,
+                "shock": 0,
+                "trend": 0.7794
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 40.058
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 26.425
+                },
+                {
+                  "factor": "momentum",
+                  "points": 22.9
+                }
+              ],
+              "unit_price": 1034,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.896,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 56,
+              "completion_probability": 0.6942,
+              "conviction": 0.5772,
+              "cost_gp": 461524,
+              "entry_fill_probability": 0.8389,
+              "expected_roi": 0.038542,
+              "fill_model": "expected_quantity",
+              "item_id": 24251,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 6.83,
+                "kelly_fraction_proxy": 0.2976,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 642.13
+              },
+              "name": "Wilderness crabs teleport",
+              "order_qty": 34,
+              "qty": 28,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +3.85%, conviction 58%; strongest score terms: edge +44.0, cross_factor +18.0, momentum +16.7.",
+              "risk_budget_pct": 0.1619,
+              "score": 109.648,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9448,
+                "reversion": 0.0931,
+                "shock": 0,
+                "trend": 0.5308
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 18.045
+                },
+                {
+                  "factor": "momentum",
+                  "points": 16.719
+                }
+              ],
+              "unit_price": 16483,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 1.065,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 63,
+              "completion_probability": 0.5375,
+              "conviction": 0.5935,
+              "cost_gp": 361262,
+              "entry_fill_probability": 0.7292,
+              "expected_roi": 0.070087,
+              "fill_model": "expected_quantity",
+              "item_id": 5502,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 8.93,
+                "kelly_fraction_proxy": 0.2943,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 1159.83
+              },
+              "name": "Palm sapling",
+              "order_qty": 31,
+              "qty": 22,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +7.01%, conviction 59%; strongest score terms: edge +44.0, momentum +24.0, cross_factor +16.7.",
+              "risk_budget_pct": 0.1677,
+              "score": 104.717,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9487,
+                "reversion": 0.1097,
+                "shock": 0,
+                "trend": 0.573
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 24.0
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 16.707
+                }
+              ],
+              "unit_price": 16421,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.647,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 7,
+              "completion_probability": 0.5716,
+              "conviction": 0.2992,
+              "cost_gp": 73198,
+              "entry_fill_probability": 0.7444,
+              "expected_roi": 0.03901,
+              "fill_model": "expected_quantity",
+              "item_id": 34033,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 19.09,
+                "kelly_fraction_proxy": 0.2723,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 1446.8
+              },
+              "name": "Ardeaglais teleport",
+              "order_qty": 4,
+              "qty": 2,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +3.90%, conviction 30%; strongest score terms: edge +44.0, cross_factor +10.8, liquidity +9.5.",
+              "risk_budget_pct": 0.1235,
+              "score": 85.298,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9211,
+                "reversion": 0.1451,
+                "shock": 0,
+                "trend": 0.2265
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 10.839
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 9.508
+                }
+              ],
+              "unit_price": 36599,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 1.09,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 5571,
+              "completion_probability": 0.7663,
+              "conviction": 0.291,
+              "cost_gp": 72600,
+              "entry_fill_probability": 0.8806,
+              "expected_roi": 0.026081,
+              "fill_model": "expected_quantity",
+              "item_id": 8780,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 0.22,
+                "kelly_fraction_proxy": 0.2734,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 19.16
+              },
+              "name": "Teak plank",
+              "order_qty": 114,
+              "qty": 100,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.61%, conviction 29%; strongest score terms: edge +44.0, momentum +22.5, liquidity +11.2.",
+              "risk_budget_pct": 0.1456,
+              "score": 85.295,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9741,
+                "reversion": 0.1864,
+                "shock": 0,
+                "trend": 0.2826
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 22.49
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 11.183
+                }
+              ],
+              "unit_price": 726,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.889,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 42,
+              "completion_probability": 0.4428,
+              "conviction": 0.3334,
+              "cost_gp": 6156,
+              "entry_fill_probability": 0.6477,
+              "expected_roi": 0.063409,
+              "fill_model": "expected_quantity",
+              "item_id": 5303,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 0.47,
+                "kelly_fraction_proxy": 0.2591,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 43.84
+              },
+              "name": "Dwarf weed seed",
+              "order_qty": 15,
+              "qty": 9,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +6.34%, conviction 33%; strongest score terms: edge +44.0, momentum +24.0, liquidity +8.0.",
+              "risk_budget_pct": 0.1308,
+              "score": 85.289,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.8724,
+                "reversion": 0.1328,
+                "shock": 0,
+                "trend": 0.4126
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 24.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 7.97
+                }
+              ],
+              "unit_price": 684,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.881,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 786,
+              "completion_probability": 0.6946,
+              "conviction": 0.2421,
+              "cost_gp": 1941,
+              "entry_fill_probability": 0.8398,
+              "expected_roi": 0.025358,
+              "fill_model": "expected_quantity",
+              "item_id": 213,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 0.79,
+                "kelly_fraction_proxy": 0.2607,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 50.01
+              },
+              "name": "Grimy kwuarm",
+              "order_qty": 2,
+              "qty": 1,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.54%, conviction 24%; strongest score terms: edge +44.0, momentum +15.0, liquidity +10.6.",
+              "risk_budget_pct": 0.1307,
+              "score": 83.301,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9547,
+                "reversion": 0.1761,
+                "shock": 0,
+                "trend": 0.2123
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 15.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 10.568
+                }
+              ],
+              "unit_price": 1941,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.975,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 119,
+              "completion_probability": 0.6139,
+              "conviction": 0.2835,
+              "cost_gp": 1379,
+              "entry_fill_probability": 0.7672,
+              "expected_roi": 0.021338,
+              "fill_model": "expected_quantity",
+              "item_id": 32889,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 0.65,
+                "kelly_fraction_proxy": 0.2329,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 30.08
+              },
+              "name": "Lead bar",
+              "order_qty": 2,
+              "qty": 1,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.13%, conviction 28%; strongest score terms: edge +44.0, momentum +24.0, freshness +9.3.",
+              "risk_budget_pct": 0.135,
+              "score": 82.591,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9099,
+                "reversion": 0.1526,
+                "shock": 0,
+                "trend": 0.3139
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 24.0
+                },
+                {
+                  "factor": "freshness",
+                  "points": 9.312
+                }
+              ],
+              "unit_price": 1379,
+              "wallet": "frontier"
+            },
+            {
+              "ai_prior_points": 0.966,
+              "at": "2026-08-24T07:17:02.124724+00:00",
+              "capacity_qty": 512,
+              "completion_probability": 0.5458,
+              "conviction": 0.312,
+              "cost_gp": 789,
+              "entry_fill_probability": 0.7417,
+              "expected_roi": 0.02637,
+              "fill_model": "expected_quantity",
+              "item_id": 253,
+              "math": {
+                "ai_risk_multiplier": 1.0063,
+                "inventory_risk_ev_gp": 0.16,
+                "kelly_fraction_proxy": 0.234,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 7.1
+              },
+              "name": "Tarromin",
+              "order_qty": 5,
+              "qty": 3,
+              "reason": "frontier_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.64%, conviction 31%; strongest score terms: edge +44.0, momentum +24.0, liquidity +9.0.",
+              "risk_budget_pct": 0.1359,
+              "score": 81.061,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9061,
+                "reversion": 0.1506,
+                "shock": 0,
+                "trend": 0.3403
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 24.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 9.035
+                }
+              ],
+              "unit_price": 263,
+              "wallet": "frontier"
+            }
+          ],
+          "unrealized_pnl_gp": -87116,
+          "value_gp": 3449831
+        },
+        "market_maker": {
+          "cash_gp": 4307577,
+          "liquid_gp": 4307577,
+          "net_worth_gp": 8352834,
+          "portfolio_metrics": {
+            "cash_share": 0.5157,
+            "cost_basis_gp": 4142146,
+            "exposure_share": 0.4843,
+            "gross_exposure_gp": 4045257,
+            "inventory_pnl_gp": -96889,
+            "largest_position_share": 0.2365,
+            "liquid_gp": 4307577,
+            "mean_holding_hours": 1.38,
+            "mean_unrealized_roi": -0.022882,
+            "net_worth_gp": 8352834,
+            "position_hhi": 0.1695,
+            "position_slot_utilization": 1.0,
+            "winning_position_share": 0.0
+          },
+          "positions": 14,
+          "realized_pnl_gp": -1550277,
+          "return_pct": -0.164717,
+          "trades": [
+            {
+              "at": "2026-08-24T07:17:02.115760+00:00",
+              "held_hours": 5.37,
+              "item_id": 19621,
+              "market_move_roi": -0.006182,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.022792,
+                "entry_liquidation_unit": 2750,
+                "entry_score": 149.84,
+                "exit_liquidation_unit": 2733,
+                "stop_loss": -0.03,
+                "take_profit": 0.009
+              },
+              "name": "Fenkenstrain's castle teleport (tablet)",
+              "pnl_gp": -1312,
+              "qty": 16,
+              "quote_age_minutes": 29.9,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 5.4h; capital recycled.",
+              "roi": -0.02913,
+              "side": "SELL",
+              "unit_price": 2733,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-24T07:17:02.115760+00:00",
+              "held_hours": 5.37,
+              "item_id": 4675,
+              "market_move_roi": 0.008215,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.021574,
+                "entry_liquidation_unit": 57702,
+                "entry_score": 146.646,
+                "exit_liquidation_unit": 58176,
+                "stop_loss": -0.03,
+                "take_profit": 0.009
+              },
+              "name": "Ancient staff",
+              "pnl_gp": -4375,
+              "qty": 5,
+              "quote_age_minutes": 10.4,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 5.4h; capital recycled.",
+              "roi": -0.014818,
+              "side": "SELL",
+              "unit_price": 58176,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-24T07:17:02.115760+00:00",
+              "held_hours": 4.07,
+              "item_id": 22599,
+              "market_move_roi": 0.064793,
+              "math": {
+                "current_score": null,
+                "entry_expected_roi": 0.025859,
+                "entry_liquidation_unit": 1281,
+                "entry_score": 139.376,
+                "exit_liquidation_unit": 1364,
+                "stop_loss": -0.03,
+                "take_profit": 0.009
+              },
+              "name": "Icy basalt",
+              "pnl_gp": 1040,
+              "qty": 20,
+              "quote_age_minutes": 23.3,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +3.96% cleared the take-profit hurdle after 4.1h.",
+              "roi": 0.039634,
+              "side": "SELL",
+              "unit_price": 1364,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-24T07:17:02.115760+00:00",
+              "held_hours": 1.46,
+              "item_id": 30773,
+              "market_move_roi": -0.030612,
+              "math": {
+                "current_score": 96.753,
+                "entry_expected_roi": 0.029246,
+                "entry_liquidation_unit": 2254,
+                "entry_score": 147.337,
+                "exit_liquidation_unit": 2185,
+                "stop_loss": -0.03,
+                "take_profit": 0.009
+              },
+              "name": "Diabolic worms",
+              "pnl_gp": -30627,
+              "qty": 249,
+              "quote_age_minutes": 4.3,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -3.06% breached the adverse-move stop after 1.5h.",
+              "roi": -0.053293,
+              "side": "SELL",
+              "unit_price": 2185,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-24T07:17:02.115760+00:00",
+              "held_hours": 1.46,
+              "item_id": 5301,
+              "market_move_roi": -0.032293,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.027925,
+                "entry_liquidation_unit": 2787,
+                "entry_score": 145.598,
+                "exit_liquidation_unit": 2697,
+                "stop_loss": -0.03,
+                "take_profit": 0.009
+              },
+              "name": "Cadantine seed",
+              "pnl_gp": -1240,
+              "qty": 8,
+              "quote_age_minutes": 7.3,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -3.23% breached the adverse-move stop after 1.5h.",
+              "roi": -0.054348,
+              "side": "SELL",
+              "unit_price": 2697,
+              "wallet": "market_maker"
+            },
+            {
+              "at": "2026-08-24T07:17:02.115760+00:00",
+              "held_hours": 1.46,
+              "item_id": 4097,
+              "market_move_roi": -0.105641,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.051454,
+                "entry_liquidation_unit": 6134,
+                "entry_score": 141.389,
+                "exit_liquidation_unit": 5486,
+                "stop_loss": -0.03,
+                "take_profit": 0.009
+              },
+              "name": "Mystic boots",
+              "pnl_gp": -2376,
+              "qty": 3,
+              "quote_age_minutes": 2.1,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -10.56% breached the adverse-move stop after 1.5h.",
+              "roi": -0.126155,
+              "side": "SELL",
+              "unit_price": 5486,
+              "wallet": "market_maker"
+            },
+            {
+              "ai_prior_points": 0.199,
+              "at": "2026-08-24T07:17:02.115898+00:00",
+              "capacity_qty": 75,
+              "completion_probability": 0.5649,
+              "conviction": 0.8028,
+              "cost_gp": 57848,
+              "entry_fill_probability": 0.7547,
+              "expected_roi": 0.021291,
+              "fill_model": "expected_quantity",
+              "item_id": 4803,
+              "math": {
+                "ai_risk_multiplier": 1.0017,
+                "inventory_risk_ev_gp": 0.6,
+                "kelly_fraction_proxy": 0.2282,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 22.6
+              },
+              "name": "Rune brutal",
+              "order_qty": 75,
+              "qty": 56,
+              "reason": "market_maker_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.13%, conviction 80%; strongest score terms: edge +96.0, liquidity +23.1, cross_factor +10.6.",
+              "risk_budget_pct": 0.1358,
+              "score": 151.177,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9129,
+                "reversion": -0.0176,
+                "shock": 0,
+                "trend": 0.7794
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 96.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 23.124
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 10.57
+                }
+              ],
+              "unit_price": 1033,
+              "wallet": "market_maker"
+            },
+            {
+              "ai_prior_points": 0.196,
+              "at": "2026-08-24T07:17:02.115898+00:00",
+              "capacity_qty": 11,
+              "completion_probability": 0.6282,
+              "conviction": 0.805,
+              "cost_gp": 37256,
+              "entry_fill_probability": 0.8007,
+              "expected_roi": 0.019154,
+              "fill_model": "expected_quantity",
+              "item_id": 23694,
+              "math": {
+                "ai_risk_multiplier": 1.0017,
+                "inventory_risk_ev_gp": 2.51,
+                "kelly_fraction_proxy": 0.2299,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 91.72
+              },
+              "name": "Divine super combat potion(1)",
+              "order_qty": 11,
+              "qty": 8,
+              "reason": "market_maker_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.92%, conviction 80%; strongest score terms: edge +91.9, liquidity +22.4, cross_factor +10.5.",
+              "risk_budget_pct": 0.1346,
+              "score": 149.526,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9042,
+                "reversion": -0.0241,
+                "shock": 0,
+                "trend": 0.7843
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 91.94
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 22.44
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 10.539
+                }
+              ],
+              "unit_price": 4657,
+              "wallet": "market_maker"
+            },
+            {
+              "ai_prior_points": 0.186,
+              "at": "2026-08-24T07:17:02.115898+00:00",
+              "capacity_qty": 23,
+              "completion_probability": 0.7095,
+              "conviction": 0.5793,
+              "cost_gp": 312987,
+              "entry_fill_probability": 0.8489,
+              "expected_roi": 0.040516,
+              "fill_model": "expected_quantity",
+              "item_id": 24251,
+              "math": {
+                "ai_risk_multiplier": 1.0017,
+                "inventory_risk_ev_gp": 6.58,
+                "kelly_fraction_proxy": 0.3081,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 673.99
+              },
+              "name": "Wilderness crabs teleport",
+              "order_qty": 23,
+              "qty": 19,
+              "reason": "market_maker_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +4.05%, conviction 58%; strongest score terms: edge +96.0, liquidity +25.6, freshness +9.1.",
+              "risk_budget_pct": 0.1252,
+              "score": 148.689,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9448,
+                "reversion": 0.0931,
+                "shock": 0,
+                "trend": 0.5308
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 96.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 25.644
+                },
+                {
+                  "factor": "freshness",
+                  "points": 9.115
+                }
+              ],
+              "unit_price": 16473,
+              "wallet": "market_maker"
+            },
+            {
+              "ai_prior_points": 0.181,
+              "at": "2026-08-24T07:17:02.115898+00:00",
+              "capacity_qty": 5,
+              "completion_probability": 0.5082,
+              "conviction": 0.8195,
+              "cost_gp": 3978,
+              "entry_fill_probability": 0.7196,
+              "expected_roi": 0.054088,
+              "fill_model": "expected_quantity",
+              "item_id": 1065,
+              "math": {
+                "ai_risk_multiplier": 1.0017,
+                "inventory_risk_ev_gp": 0.95,
+                "kelly_fraction_proxy": 0.2757,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 72.67
+              },
+              "name": "Green d'hide vambraces",
+              "order_qty": 5,
+              "qty": 3,
+              "reason": "market_maker_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +5.41%, conviction 82%; strongest score terms: edge +96.0, liquidity +19.3, cross_factor +10.3.",
+              "risk_budget_pct": 0.1292,
+              "score": 148.174,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.8647,
+                "reversion": -0.0512,
+                "shock": 0,
+                "trend": 0.8
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 96.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 19.317
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 10.291
+                }
+              ],
+              "unit_price": 1326,
+              "wallet": "market_maker"
+            },
+            {
+              "ai_prior_points": 0.185,
+              "at": "2026-08-24T07:17:02.115898+00:00",
+              "capacity_qty": 13,
+              "completion_probability": 0.4592,
+              "conviction": 0.8156,
+              "cost_gp": 6312,
+              "entry_fill_probability": 0.6799,
+              "expected_roi": 0.039427,
+              "fill_model": "expected_quantity",
+              "item_id": 21177,
+              "math": {
+                "ai_risk_multiplier": 1.0017,
+                "inventory_risk_ev_gp": 0.58,
+                "kelly_fraction_proxy": 0.2447,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 31.69
+              },
+              "name": "Expeditious bracelet",
+              "order_qty": 13,
+              "qty": 8,
+              "reason": "market_maker_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +3.94%, conviction 82%; strongest score terms: edge +96.0, liquidity +20.0, cross_factor +10.4.",
+              "risk_budget_pct": 0.1306,
+              "score": 146.285,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.8734,
+                "reversion": -0.0466,
+                "shock": 0,
+                "trend": 0.8
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 96.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 20.007
+                },
+                {
+                  "factor": "cross_factor",
+                  "points": 10.401
+                }
+              ],
+              "unit_price": 789,
+              "wallet": "market_maker"
+            },
+            {
+              "ai_prior_points": 0.221,
+              "at": "2026-08-24T07:17:02.115898+00:00",
+              "capacity_qty": 26,
+              "completion_probability": 0.612,
+              "conviction": 0.5997,
+              "cost_gp": 328220,
+              "entry_fill_probability": 0.7829,
+              "expected_roi": 0.080962,
+              "fill_model": "expected_quantity",
+              "item_id": 5502,
+              "math": {
+                "ai_risk_multiplier": 1.0017,
+                "inventory_risk_ev_gp": 7.96,
+                "kelly_fraction_proxy": 0.3251,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 1336.62
+              },
+              "name": "Palm sapling",
+              "order_qty": 26,
+              "qty": 20,
+              "reason": "market_maker_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +8.10%, conviction 60%; strongest score terms: edge +96.0, liquidity +25.9, momentum +8.0.",
+              "risk_budget_pct": 0.1292,
+              "score": 144.878,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9487,
+                "reversion": 0.1097,
+                "shock": 0,
+                "trend": 0.573
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 96.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 25.95
+                },
+                {
+                  "factor": "momentum",
+                  "points": 8.0
+                }
+              ],
+              "unit_price": 16411,
+              "wallet": "market_maker"
+            }
+          ],
+          "unrealized_pnl_gp": -96889,
+          "value_gp": 8352834
+        },
+        "velocity": {
+          "cash_gp": 101471,
+          "liquid_gp": 101471,
+          "net_worth_gp": 3089602,
+          "portfolio_metrics": {
+            "cash_share": 0.0328,
+            "cost_basis_gp": 3048235,
+            "exposure_share": 0.9672,
+            "gross_exposure_gp": 2988131,
+            "inventory_pnl_gp": -60104,
+            "largest_position_share": 0.1127,
+            "liquid_gp": 101471,
+            "mean_holding_hours": 0.69,
+            "mean_unrealized_roi": -0.02077,
+            "net_worth_gp": 3089602,
+            "position_hhi": 0.0821,
+            "position_slot_utilization": 1.0,
+            "winning_position_share": 0.0
+          },
+          "positions": 20,
+          "realized_pnl_gp": -6850294,
+          "return_pct": -0.69104,
+          "trades": [
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 29286,
+              "market_move_roi": 0.0,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.022402,
+                "entry_liquidation_unit": 14630,
+                "entry_score": 151.7,
+                "exit_liquidation_unit": 14630,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Mixed hide boots",
+              "pnl_gp": -1432,
+              "qty": 4,
+              "quote_age_minutes": 19.7,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.023886,
+              "side": "SELL",
+              "unit_price": 14630,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 1159,
+              "market_move_roi": -0.161125,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.01538,
+                "entry_liquidation_unit": 782,
+                "entry_score": 135.21,
+                "exit_liquidation_unit": 656,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Mithril full helm",
+              "pnl_gp": -145,
+              "qty": 1,
+              "quote_age_minutes": 8.4,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -16.11% breached the adverse-move stop after 2.3h.",
+              "roi": -0.181024,
+              "side": "SELL",
+              "unit_price": 656,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 219,
+              "market_move_roi": -0.003243,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.050244,
+                "entry_liquidation_unit": 3084,
+                "entry_score": 130.487,
+                "exit_liquidation_unit": 3074,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Grimy torstol",
+              "pnl_gp": -9030,
+              "qty": 105,
+              "quote_age_minutes": 2.5,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.027215,
+              "side": "SELL",
+              "unit_price": 3074,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 32336,
+              "market_move_roi": 0.02277,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.02055,
+                "entry_liquidation_unit": 2152,
+                "entry_score": 126.737,
+                "exit_liquidation_unit": 2201,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Halibut",
+              "pnl_gp": -492,
+              "qty": 123,
+              "quote_age_minutes": 12.1,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.001814,
+              "side": "SELL",
+              "unit_price": 2201,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 383,
+              "market_move_roi": 0.049254,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.024535,
+                "entry_liquidation_unit": 670,
+                "entry_score": 121.632,
+                "exit_liquidation_unit": 703,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Raw shark",
+              "pnl_gp": 7776,
+              "qty": 486,
+              "quote_age_minutes": 1.7,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +2.33% cleared the take-profit hurdle after 2.3h.",
+              "roi": 0.02329,
+              "side": "SELL",
+              "unit_price": 703,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 30619,
+              "market_move_roi": 0.275706,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.005381,
+                "entry_liquidation_unit": 5738,
+                "entry_score": 112.867,
+                "exit_liquidation_unit": 7320,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Bounty supply crate (anglerfish)",
+              "pnl_gp": 2882,
+              "qty": 2,
+              "quote_age_minutes": 36.6,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +24.51% cleared the take-profit hurdle after 2.3h.",
+              "roi": 0.24511,
+              "side": "SELL",
+              "unit_price": 7320,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 2.33,
+              "item_id": 21978,
+              "market_move_roi": -0.005419,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.025576,
+                "entry_liquidation_unit": 19190,
+                "entry_score": 106.753,
+                "exit_liquidation_unit": 19086,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Super antifire potion(4)",
+              "pnl_gp": -574,
+              "qty": 1,
+              "quote_age_minutes": 54.8,
+              "reason": "capital_rotation",
+              "reasoning": "Opportunity fell out of the current eligibility set after 2.3h; capital recycled.",
+              "roi": -0.029196,
+              "side": "SELL",
+              "unit_price": 19086,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 1.46,
+              "item_id": 5301,
+              "market_move_roi": -0.032316,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.025443,
+                "entry_liquidation_unit": 2785,
+                "entry_score": 132.722,
+                "exit_liquidation_unit": 2695,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Cadantine seed",
+              "pnl_gp": -2370,
+              "qty": 15,
+              "quote_age_minutes": 7.3,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -3.23% breached the adverse-move stop after 1.5h.",
+              "roi": -0.05538,
+              "side": "SELL",
+              "unit_price": 2695,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 1.46,
+              "item_id": 30773,
+              "market_move_roi": -0.031056,
+              "math": {
+                "current_score": 29.212,
+                "entry_expected_roi": 0.02734,
+                "entry_liquidation_unit": 2254,
+                "entry_score": 124.427,
+                "exit_liquidation_unit": 2184,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Diabolic worms",
+              "pnl_gp": -16000,
+              "qty": 128,
+              "quote_age_minutes": 4.3,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -3.11% breached the adverse-move stop after 1.5h.",
+              "roi": -0.054136,
+              "side": "SELL",
+              "unit_price": 2184,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 1.46,
+              "item_id": 7418,
+              "market_move_roi": 0.032683,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.024867,
+                "entry_liquidation_unit": 5232,
+                "entry_score": 104.945,
+                "exit_liquidation_unit": 5403,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Mole skin",
+              "pnl_gp": 210,
+              "qty": 5,
+              "quote_age_minutes": 7.1,
+              "reason": "take_profit",
+              "reasoning": "Net liquidation ROI +0.78% cleared the take-profit hurdle after 1.5h.",
+              "roi": 0.007834,
+              "side": "SELL",
+              "unit_price": 5403,
+              "wallet": "velocity"
+            },
+            {
+              "at": "2026-08-24T07:17:02.105633+00:00",
+              "held_hours": 1.46,
+              "item_id": 3105,
+              "market_move_roi": -0.031879,
+              "math": {
+                "current_score": 0,
+                "entry_expected_roi": 0.024832,
+                "entry_liquidation_unit": 596,
+                "entry_score": 98.07,
+                "exit_liquidation_unit": 577,
+                "stop_loss": -0.024,
+                "take_profit": 0.006
+              },
+              "name": "Climbing boots",
+              "pnl_gp": -102,
+              "qty": 3,
+              "quote_age_minutes": 8.0,
+              "reason": "stop_loss",
+              "reasoning": "Market-move ROI -3.19% breached the adverse-move stop after 1.5h.",
+              "roi": -0.055646,
+              "side": "SELL",
+              "unit_price": 577,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.32,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 19,
+              "completion_probability": 0.6131,
+              "conviction": 0.8031,
+              "cost_gp": 69885,
+              "entry_fill_probability": 0.7902,
+              "expected_roi": 0.018132,
+              "fill_model": "expected_quantity",
+              "item_id": 23694,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 2.58,
+                "kelly_fraction_proxy": 0.2204,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 87.06
+              },
+              "name": "Divine super combat potion(1)",
+              "order_qty": 19,
+              "qty": 15,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.81%, conviction 80%; strongest score terms: momentum +40.5, edge +39.9, flow +28.0.",
+              "risk_budget_pct": 0.1242,
+              "score": 145.152,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9042,
+                "reversion": -0.0241,
+                "shock": 0,
+                "trend": 0.7843
+              },
+              "top_components": [
+                {
+                  "factor": "momentum",
+                  "points": 40.534
+                },
+                {
+                  "factor": "edge",
+                  "points": 39.89
+                },
+                {
+                  "factor": "flow",
+                  "points": 28.0
+                }
+              ],
+              "unit_price": 4659,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.356,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 3,
+              "completion_probability": 0.5501,
+              "conviction": 0.8212,
+              "cost_gp": 204204,
+              "entry_fill_probability": 0.7116,
+              "expected_roi": 0.017755,
+              "fill_model": "expected_quantity",
+              "item_id": 30810,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 94.35,
+                "kelly_fraction_proxy": 0.2096,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 3720.02
+              },
+              "name": "Contract of Glyphic Attenuation",
+              "order_qty": 2,
+              "qty": 1,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.78%, conviction 82%; strongest score terms: momentum +41.4, edge +39.1, flow +28.0.",
+              "risk_budget_pct": 0.1313,
+              "score": 144.495,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9454,
+                "reversion": -0.0061,
+                "shock": 0,
+                "trend": 0.7934
+              },
+              "top_components": [
+                {
+                  "factor": "momentum",
+                  "points": 41.384
+                },
+                {
+                  "factor": "edge",
+                  "points": 39.061
+                },
+                {
+                  "factor": "flow",
+                  "points": 28.0
+                }
+              ],
+              "unit_price": 204204,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.325,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 129,
+              "completion_probability": 0.518,
+              "conviction": 0.7988,
+              "cost_gp": 95128,
+              "entry_fill_probability": 0.7199,
+              "expected_roi": 0.018918,
+              "fill_model": "expected_quantity",
+              "item_id": 4803,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 0.64,
+                "kelly_fraction_proxy": 0.208,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 20.2
+              },
+              "name": "Rune brutal",
+              "order_qty": 129,
+              "qty": 92,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.89%, conviction 80%; strongest score terms: edge +41.6, momentum +40.1, flow +28.0.",
+              "risk_budget_pct": 0.1252,
+              "score": 142.368,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9129,
+                "reversion": -0.0176,
+                "shock": 0,
+                "trend": 0.7794
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 41.62
+                },
+                {
+                  "factor": "momentum",
+                  "points": 40.075
+                },
+                {
+                  "factor": "flow",
+                  "points": 28.0
+                }
+              ],
+              "unit_price": 1034,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.304,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 40,
+              "completion_probability": 0.6986,
+              "conviction": 0.5778,
+              "cost_gp": 280160,
+              "entry_fill_probability": 0.8418,
+              "expected_roi": 0.039097,
+              "fill_model": "expected_quantity",
+              "item_id": 24251,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 6.76,
+                "kelly_fraction_proxy": 0.3006,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 651.08
+              },
+              "name": "Wilderness crabs teleport",
+              "order_qty": 21,
+              "qty": 17,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +3.91%, conviction 58%; strongest score terms: edge +44.0, momentum +29.3, flow +17.4.",
+              "risk_budget_pct": 0.1139,
+              "score": 123.154,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9448,
+                "reversion": 0.0931,
+                "shock": 0,
+                "trend": 0.5308
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 29.259
+                },
+                {
+                  "factor": "flow",
+                  "points": 17.388
+                }
+              ],
+              "unit_price": 16480,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.346,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 346,
+              "completion_probability": 0.4806,
+              "conviction": 0.4484,
+              "cost_gp": 208012,
+              "entry_fill_probability": 0.6886,
+              "expected_roi": 0.03238,
+              "fill_model": "expected_quantity",
+              "item_id": 5998,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 0.54,
+                "kelly_fraction_proxy": 0.2375,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 28.84
+              },
+              "name": "Yanillian hops",
+              "order_qty": 346,
+              "qty": 238,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +3.24%, conviction 45%; strongest score terms: edge +44.0, momentum +42.0, liquidity +9.8.",
+              "risk_budget_pct": 0.1071,
+              "score": 105.167,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9296,
+                "reversion": 0.1593,
+                "shock": 0,
+                "trend": 0.457
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 42.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 9.776
+                }
+              ],
+              "unit_price": 874,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.37,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 3933,
+              "completion_probability": 0.7687,
+              "conviction": 0.2912,
+              "cost_gp": 297660,
+              "entry_fill_probability": 0.8821,
+              "expected_roi": 0.026167,
+              "fill_model": "expected_quantity",
+              "item_id": 8780,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 0.22,
+                "kelly_fraction_proxy": 0.2741,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 19.22
+              },
+              "name": "Teak plank",
+              "order_qty": 465,
+              "qty": 410,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.62%, conviction 29%; strongest score terms: edge +44.0, momentum +39.4, liquidity +11.2.",
+              "risk_budget_pct": 0.1083,
+              "score": 96.356,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9741,
+                "reversion": 0.1864,
+                "shock": 0,
+                "trend": 0.2826
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 39.357
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 11.183
+                }
+              ],
+              "unit_price": 726,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.286,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 3,
+              "completion_probability": 0.4609,
+              "conviction": 0.5122,
+              "cost_gp": 2309,
+              "entry_fill_probability": 0.6527,
+              "expected_roi": 0.00732,
+              "fill_model": "expected_quantity",
+              "item_id": 2493,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 1.54,
+                "kelly_fraction_proxy": 0.126,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 18.44
+              },
+              "name": "Blue d'hide chaps",
+              "order_qty": 3,
+              "qty": 1,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +0.73%, conviction 51%; strongest score terms: momentum +42.0, edge +16.1, flow +12.9.",
+              "risk_budget_pct": 0.1034,
+              "score": 95.905,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.6864,
+                "reversion": 0.0396,
+                "shock": 0,
+                "trend": 0.611
+              },
+              "top_components": [
+                {
+                  "factor": "momentum",
+                  "points": 42.0
+                },
+                {
+                  "factor": "edge",
+                  "points": 16.103
+                },
+                {
+                  "factor": "flow",
+                  "points": 12.88
+                }
+              ],
+              "unit_price": 2309,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.331,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 84,
+              "completion_probability": 0.6159,
+              "conviction": 0.2836,
+              "cost_gp": 88256,
+              "entry_fill_probability": 0.7686,
+              "expected_roi": 0.021411,
+              "fill_model": "expected_quantity",
+              "item_id": 32889,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 0.65,
+                "kelly_fraction_proxy": 0.2335,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 30.18
+              },
+              "name": "Lead bar",
+              "order_qty": 84,
+              "qty": 64,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.14%, conviction 28%; strongest score terms: edge +44.0, momentum +42.0, flow -10.9.",
+              "risk_budget_pct": 0.1006,
+              "score": 95.56,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9099,
+                "reversion": 0.1526,
+                "shock": 0,
+                "trend": 0.3139
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 42.0
+                },
+                {
+                  "factor": "flow",
+                  "points": -10.892
+                }
+              ],
+              "unit_price": 1379,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.184,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 72,
+              "completion_probability": 0.631,
+              "conviction": 0.3737,
+              "cost_gp": 106730,
+              "entry_fill_probability": 0.8277,
+              "expected_roi": 0.014171,
+              "fill_model": "expected_quantity",
+              "item_id": 19629,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 2.4,
+                "kelly_fraction_proxy": 0.1989,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 60.57
+              },
+              "name": "Barrows teleport (tablet)",
+              "order_qty": 32,
+              "qty": 26,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +1.42%, conviction 37%; strongest score terms: edge +31.2, flow +28.0, liquidity +9.7.",
+              "risk_budget_pct": 0.0997,
+              "score": 90.396,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9287,
+                "reversion": 0.1451,
+                "shock": 0,
+                "trend": 0.3933
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 31.177
+                },
+                {
+                  "factor": "flow",
+                  "points": 28.0
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 9.748
+                }
+              ],
+              "unit_price": 4105,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.299,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 554,
+              "completion_probability": 0.7005,
+              "conviction": 0.243,
+              "cost_gp": 19400,
+              "entry_fill_probability": 0.8437,
+              "expected_roi": 0.025959,
+              "fill_model": "expected_quantity",
+              "item_id": 213,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 0.78,
+                "kelly_fraction_proxy": 0.2652,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 51.14
+              },
+              "name": "Grimy kwuarm",
+              "order_qty": 13,
+              "qty": 10,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.60%, conviction 24%; strongest score terms: edge +44.0, momentum +26.2, liquidity +10.6.",
+              "risk_budget_pct": 0.0983,
+              "score": 89.988,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.9547,
+                "reversion": 0.1761,
+                "shock": 0,
+                "trend": 0.2123
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 26.25
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 10.568
+                }
+              ],
+              "unit_price": 1940,
+              "wallet": "velocity"
+            },
+            {
+              "ai_prior_points": 0.288,
+              "at": "2026-08-24T07:17:02.105836+00:00",
+              "capacity_qty": 3466,
+              "completion_probability": 0.7175,
+              "conviction": 0.2261,
+              "cost_gp": 5057,
+              "entry_fill_probability": 0.858,
+              "expected_roi": 0.027277,
+              "fill_model": "expected_quantity",
+              "item_id": 1605,
+              "math": {
+                "ai_risk_multiplier": 1.0022,
+                "inventory_risk_ev_gp": 0.15,
+                "kelly_fraction_proxy": 0.2682,
+                "patch_signal": -0.0,
+                "spread_capture_ev_gp": 10.76
+              },
+              "name": "Emerald",
+              "order_qty": 16,
+              "qty": 13,
+              "reason": "velocity_rank",
+              "reasoning": "Opened from the ranked opportunity book: EV +2.73%, conviction 23%; strongest score terms: edge +44.0, momentum +22.9, liquidity +10.7.",
+              "risk_budget_pct": 0.0969,
+              "score": 85.125,
+              "side": "BUY",
+              "strategy_lenses": {
+                "carry": 0.959,
+                "reversion": 0.1784,
+                "shock": 0,
+                "trend": 0.1516
+              },
+              "top_components": [
+                {
+                  "factor": "edge",
+                  "points": 44.0
+                },
+                {
+                  "factor": "momentum",
+                  "points": 22.922
+                },
+                {
+                  "factor": "liquidity",
+                  "points": 10.704
+                }
+              ],
+              "unit_price": 389,
+              "wallet": "velocity"
+            }
+          ],
+          "unrealized_pnl_gp": -60104,
+          "value_gp": 3089602
+        }
+      }
     }
   ]
 }
