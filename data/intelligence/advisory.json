@@ -1,13 +1,13 @@
 {
-  "age_hours": 3.35,
+  "age_hours": 0,
   "biases": {
-    "liquidity": -0.3,
-    "macro": -0.1,
-    "mean_reversion": 0.1,
-    "momentum": -0.2,
-    "risk": -0.2
+    "liquidity": -0.45,
+    "macro": -0.35,
+    "mean_reversion": 0.15,
+    "momentum": -0.25,
+    "risk": -0.6
   },
-  "confidence": 0.65,
+  "confidence": 0.72,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -21,31 +21,41 @@
     },
     {
       "label": "free_peer_2",
-      "model": "google/gemma-4-31b-it:free",
+      "model": "poolside/laguna-s-2.1:free",
       "result": {
         "biases": {
-          "liquidity": -0.3,
-          "macro": -0.1,
-          "mean_reversion": 0.1,
-          "momentum": -0.2,
-          "risk": -0.2
+          "liquidity": -0.45,
+          "macro": -0.35,
+          "mean_reversion": 0.15,
+          "momentum": -0.25,
+          "risk": -0.6
         },
-        "confidence": 0.65,
+        "confidence": 0.72,
         "item_biases": {
-          "10146": -0.5,
-          "20997": -0.1,
-          "22486": -0.2,
-          "24417": 0.2,
-          "24511": -0.3,
-          "26374": 0.2,
-          "29796": 0.1
+          "1013": -0.65,
+          "10282": -0.8,
+          "10824": -0.7,
+          "12377": -0.65,
+          "12913": 0.45,
+          "1658": 0.5,
+          "1887": -0.7,
+          "22368": 0.4,
+          "24488": 0.3,
+          "26384": 0.25,
+          "28931": 0.5,
+          "2902": -0.75,
+          "30759": 0.35,
+          "4302": -0.75,
+          "628": -0.8,
+          "6629": -0.85,
+          "6979": -0.8
         },
-        "patch_risk": 0.8,
+        "patch_risk": 0.78,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 347,
+        "completion_tokens": 520,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
@@ -58,31 +68,41 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": true,
-        "prompt_tokens": 15195,
+        "prompt_tokens": 14883,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15542
+        "total_tokens": 15403
       }
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-08-26T13:12:05.859240+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-08-26T19:17:16.275573+00:00",
   "item_biases": {
-    "10146": -0.5,
-    "20997": -0.1,
-    "22486": -0.2,
-    "24417": 0.2,
-    "24511": -0.3,
-    "26374": 0.2,
-    "29796": 0.1
+    "1013": -0.65,
+    "10282": -0.8,
+    "10824": -0.7,
+    "12377": -0.65,
+    "12913": 0.45,
+    "1658": 0.5,
+    "1887": -0.7,
+    "22368": 0.4,
+    "24488": 0.3,
+    "26384": 0.25,
+    "28931": 0.5,
+    "2902": -0.75,
+    "30759": 0.35,
+    "4302": -0.75,
+    "628": -0.8,
+    "6629": -0.85,
+    "6979": -0.8
   },
-  "patch_risk": 0.8,
+  "patch_risk": 0.78,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
+  "status": "ok",
   "usage": {}
 }
