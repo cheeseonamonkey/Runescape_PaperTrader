@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 5.02,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.0,
-      "macro": 0.0,
-      "mean_reversion": 0.0,
-      "momentum": 0.0,
-      "risk": 0.0
+      "liquidity": -0.1,
+      "macro": -0.2,
+      "mean_reversion": 0.2,
+      "momentum": 0.1,
+      "risk": 0.1
     },
-    "confidence": 0,
+    "confidence": 0.7,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -17,27 +17,36 @@
       },
       {
         "label": "free_peer_1",
-        "model": "nvidia/nemotron-3.5-lightning:free",
+        "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
         "result": {
           "biases": {
-            "liquidity": 0.0,
-            "macro": 0.0,
-            "mean_reversion": 0.0,
-            "momentum": 0.0,
-            "risk": 0.0
+            "liquidity": -0.1,
+            "macro": -0.2,
+            "mean_reversion": 0.2,
+            "momentum": 0.1,
+            "risk": 0.1
           },
-          "confidence": 0.0,
-          "item_biases": {},
-          "patch_risk": 0.0,
+          "confidence": 0.7,
+          "item_biases": {
+            "12257": 0.5,
+            "1299": 0.6,
+            "269": 0.4,
+            "2934": 0.6,
+            "30744": 0.3,
+            "31145": 0.5,
+            "4091": 0.4,
+            "6155": 0.7
+          },
+          "patch_risk": 0.38,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 520,
+          "completion_tokens": 3456,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
-            "reasoning_tokens": 516
+            "reasoning_tokens": 2668
           },
           "cost": 0,
           "cost_details": {
@@ -46,14 +55,14 @@
             "upstream_inference_prompt_cost": 0
           },
           "is_byok": false,
-          "prompt_tokens": 16242,
+          "prompt_tokens": 15691,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 16762
+          "total_tokens": 19147
         }
       },
       {
@@ -62,16 +71,25 @@
         "status": "unavailable"
       }
     ],
-    "freshness": "stale_cache",
-    "generated_at": "2026-09-01T04:58:51.759596+00:00",
-    "item_biases": {},
-    "patch_risk": 0,
+    "freshness": "refreshed",
+    "generated_at": "2026-09-01T14:48:20.686266+00:00",
+    "item_biases": {
+      "12257": 0.5,
+      "1299": 0.6,
+      "269": 0.4,
+      "2934": 0.6,
+      "30744": 0.3,
+      "31145": 0.5,
+      "4091": 0.4,
+      "6155": 0.7
+    },
+    "patch_risk": 0.38,
     "rationale": [],
     "schema": 1,
-    "status": "stale_cache",
+    "status": "ok",
     "usage": {}
   },
-  "age_hours": 197.05,
+  "age_hours": 201.85,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
