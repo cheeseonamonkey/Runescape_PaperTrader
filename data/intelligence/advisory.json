@@ -1,13 +1,13 @@
 {
   "age_hours": 0,
   "biases": {
-    "liquidity": -0.45,
-    "macro": -0.35,
-    "mean_reversion": 0.15,
-    "momentum": -0.25,
-    "risk": -0.6
+    "liquidity": 0.152,
+    "macro": -0.076,
+    "mean_reversion": -0.0014,
+    "momentum": 0.1267,
+    "risk": -0.1014
   },
-  "confidence": 0.65,
+  "confidence": 0.6253,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -15,45 +15,40 @@
       "status": "unavailable"
     },
     {
-      "error": "ValueError",
       "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "label": "free_peer_2",
       "model": "poolside/laguna-s-2.1:free",
       "result": {
         "biases": {
-          "liquidity": -0.45,
-          "macro": -0.35,
-          "mean_reversion": 0.15,
-          "momentum": -0.25,
-          "risk": -0.6
+          "liquidity": 0.3,
+          "macro": -0.15,
+          "mean_reversion": -0.1,
+          "momentum": 0.25,
+          "risk": -0.2
         },
         "confidence": 0.65,
         "item_biases": {
-          "10069": -0.65,
-          "10142": -0.6,
-          "10334": -0.6,
-          "1137": -0.7,
-          "12817": -0.3,
-          "13231": -0.45,
-          "1424": -0.8,
-          "157": -0.3,
-          "2007": -0.7,
-          "20134": -0.85,
-          "20997": -0.4,
-          "22486": -0.35,
-          "22866": -0.5,
-          "24417": -0.3,
-          "24488": -0.35,
-          "3327": -0.75,
-          "4298": -0.7,
-          "5374": -0.4,
-          "5523": -0.8,
-          "823": -0.25
+          "10466": 0.55,
+          "1131": 0.3,
+          "1207": 0.45,
+          "12922": 0.0,
+          "1424": 0.5,
+          "20997": 0.4,
+          "21049": -0.15,
+          "21270": 0.1,
+          "21347": 0.05,
+          "22486": -0.3,
+          "22978": 0.2,
+          "24417": -0.1,
+          "24511": 0.3,
+          "2468": 0.6,
+          "26374": 0.25,
+          "5105": 0.25,
+          "5282": 0.35,
+          "5535": 0.4,
+          "9245": 0.1,
+          "948": 0.4
         },
-        "patch_risk": 0.7,
+        "patch_risk": 0.15,
         "rationale": []
       },
       "status": "ok",
@@ -71,42 +66,103 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": true,
-        "prompt_tokens": 14768,
+        "prompt_tokens": 14811,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15288
+        "total_tokens": 15331
+      }
+    },
+    {
+      "label": "free_peer_2",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "result": {
+        "biases": {
+          "liquidity": 0.0,
+          "macro": 0.0,
+          "mean_reversion": 0.1,
+          "momentum": 0.0,
+          "risk": 0.0
+        },
+        "confidence": 0.6,
+        "item_biases": {
+          "1131": 0.5,
+          "1207": 0.6,
+          "1424": 0.6,
+          "20997": 0.5,
+          "21049": 0.0,
+          "22486": -0.5,
+          "22978": 0.5,
+          "24511": 0.5,
+          "2468": 0.6,
+          "26374": 0.5,
+          "28338": 0.0,
+          "29580": -0.5,
+          "29796": -0.5,
+          "31088": 0.5,
+          "33639": -0.5,
+          "33651": 0.7,
+          "5105": 0.5,
+          "5282": 0.5,
+          "5535": 0.5,
+          "948": 0.6
+        },
+        "patch_risk": 0,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 4360,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 2702
+        },
+        "cost": 0,
+        "cost_details": {
+          "upstream_inference_completions_cost": 0,
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0
+        },
+        "is_byok": false,
+        "prompt_tokens": 15636,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 19996
       }
     }
   ],
   "freshness": "refreshed",
-  "generated_at": "2026-09-07T16:25:28.985000+00:00",
+  "generated_at": "2026-09-07T20:31:42.872573+00:00",
   "item_biases": {
-    "10069": -0.65,
-    "10142": -0.6,
-    "10334": -0.6,
-    "1137": -0.7,
-    "12817": -0.3,
-    "13231": -0.45,
-    "1424": -0.8,
-    "157": -0.3,
-    "2007": -0.7,
-    "20134": -0.85,
-    "20997": -0.4,
-    "22486": -0.35,
-    "22866": -0.5,
-    "24417": -0.3,
-    "24488": -0.35,
-    "3327": -0.75,
-    "4298": -0.7,
-    "5374": -0.4,
-    "5523": -0.8,
-    "823": -0.25
+    "10466": 0.2787,
+    "1131": 0.3986,
+    "1207": 0.524,
+    "1424": 0.5493,
+    "20997": 0.4493,
+    "22486": -0.3986,
+    "22978": 0.348,
+    "24511": 0.3986,
+    "2468": 0.6,
+    "26374": 0.3733,
+    "29580": -0.2466,
+    "29796": -0.2466,
+    "31088": 0.2466,
+    "33639": -0.2466,
+    "33651": 0.3453,
+    "5105": 0.3733,
+    "5282": 0.424,
+    "5535": 0.4493,
+    "948": 0.4986
   },
-  "patch_risk": 0.7,
+  "patch_risk": 0.076,
   "rationale": [],
   "schema": 1,
   "status": "ok",
