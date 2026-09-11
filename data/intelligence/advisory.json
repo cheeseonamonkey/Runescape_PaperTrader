@@ -1,13 +1,13 @@
 {
-  "age_hours": 8.43,
+  "age_hours": 0,
   "biases": {
-    "liquidity": -0.2762,
-    "macro": -0.2148,
-    "mean_reversion": 0.0921,
-    "momentum": -0.1534,
-    "risk": -0.3683
+    "liquidity": 0.3,
+    "macro": 0.036,
+    "mean_reversion": -0.0469,
+    "momentum": 0.2234,
+    "risk": 0.0125
   },
-  "confidence": 0.4419,
+  "confidence": 0.7828,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -19,34 +19,34 @@
       "model": "poolside/laguna-s-2.1:free",
       "result": {
         "biases": {
-          "liquidity": -0.45,
-          "macro": -0.35,
-          "mean_reversion": 0.15,
-          "momentum": -0.25,
-          "risk": -0.6
+          "liquidity": 0.3,
+          "macro": -0.15,
+          "mean_reversion": -0.1,
+          "momentum": 0.25,
+          "risk": -0.2
         },
-        "confidence": 0.72,
+        "confidence": 0.65,
         "item_biases": {
-          "1115": 0.35,
-          "1141": 0.45,
-          "1203": 0.3,
-          "12817": -0.1,
-          "13190": 0.1,
-          "1365": 0.5,
-          "1424": -0.2,
-          "1540": 0.4,
-          "20997": -0.3,
-          "21049": -0.25,
-          "21967": 0.0,
-          "22477": -0.3,
-          "22486": -0.4,
-          "22978": -0.15,
-          "24417": -0.2,
-          "2577": -0.1,
-          "2910": 0.6,
-          "3835": -0.4,
-          "4812": 0.55,
-          "8880": 0.5
+          "10296": 0.5,
+          "11335": 0.1,
+          "1157": 0.4,
+          "1169": 0.3,
+          "1177": 0.5,
+          "12817": 0.3,
+          "13036": 0.2,
+          "13190": -0.1,
+          "20026": 0.55,
+          "20220": 0.6,
+          "22006": 0.2,
+          "22461": 0.0,
+          "24417": 0.15,
+          "25404": 0.15,
+          "25862": 0.25,
+          "273": 0.45,
+          "391": 0.1,
+          "4302": 0.4,
+          "5293": 0.35,
+          "6983": 0.45
         },
         "patch_risk": 0.15,
         "rationale": []
@@ -66,39 +66,45 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": true,
-        "prompt_tokens": 14797,
+        "prompt_tokens": 14810,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15317
+        "total_tokens": 15330
       }
     },
     {
       "label": "free_peer_2",
-      "model": "nvidia/nemotron-3.5-lightning:free",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "result": {
         "biases": {
-          "liquidity": 0.0,
-          "macro": 0.0,
+          "liquidity": 0.3,
+          "macro": 0.2,
           "mean_reversion": 0.0,
-          "momentum": 0.0,
-          "risk": 0.0
+          "momentum": 0.2,
+          "risk": 0.2
         },
-        "confidence": 0.0,
-        "item_biases": {},
-        "patch_risk": 0.0,
+        "confidence": 0.9,
+        "item_biases": {
+          "13036": -0.5,
+          "26374": -0.5,
+          "27277": 0.5,
+          "28338": 0.5,
+          "33534": -0.5
+        },
+        "patch_risk": 0,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 298,
+        "completion_tokens": 2441,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 330
+          "reasoning_tokens": 1801
         },
         "cost": 0,
         "cost_details": {
@@ -107,58 +113,42 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": false,
-        "prompt_tokens": 15634,
+        "prompt_tokens": 15629,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 15932
+        "total_tokens": 18070
       }
     }
   ],
-  "freshness": "stale_cache",
-  "generated_at": "2026-09-11T11:11:39.248373+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-09-11T22:30:55.831738+00:00",
   "item_biases": {
-    "1115": 0.2148,
-    "1141": 0.2762,
-    "1203": 0.1841,
-    "1365": 0.3069,
-    "1424": -0.1228,
-    "1540": 0.2455,
-    "20997": -0.1841,
-    "21049": -0.1534,
-    "22477": -0.1841,
-    "22486": -0.2455,
-    "22978": -0.0921,
-    "24417": -0.1228,
-    "2910": 0.3683,
-    "3835": -0.2455,
-    "4812": 0.3376,
-    "8880": 0.3069
+    "10296": 0.2344,
+    "1157": 0.1875,
+    "1169": 0.1406,
+    "1177": 0.2344,
+    "12817": 0.1406,
+    "13036": -0.1719,
+    "20026": 0.2578,
+    "20220": 0.2812,
+    "22006": 0.0937,
+    "25862": 0.1172,
+    "26374": -0.2656,
+    "27277": 0.2656,
+    "273": 0.2109,
+    "28338": 0.2656,
+    "33534": -0.2656,
+    "4302": 0.1875,
+    "5293": 0.164,
+    "6983": 0.2109
   },
-  "last_attempt": [
-    {
-      "error": "RuntimeError",
-      "label": "paid_anchor",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_2",
-      "status": "unavailable"
-    }
-  ],
-  "patch_risk": 0.0921,
+  "patch_risk": 0.0703,
   "rationale": [],
-  "refresh_error": "all_advisors_unavailable",
   "schema": 1,
-  "status": "stale_cache",
+  "status": "ok",
   "usage": {}
 }
