@@ -1,13 +1,13 @@
 {
-  "age_hours": 2.61,
+  "age_hours": 0,
   "biases": {
-    "liquidity": 0.0,
-    "macro": 0.0,
-    "mean_reversion": 0.0,
-    "momentum": 0.0,
-    "risk": 0.0
+    "liquidity": -0.242,
+    "macro": -0.0605,
+    "mean_reversion": 0.1815,
+    "momentum": -0.121,
+    "risk": -0.121
   },
-  "confidence": 0,
+  "confidence": 0.3933,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -16,7 +16,7 @@
     },
     {
       "label": "free_peer_1",
-      "model": "nvidia/nemotron-3.5-lightning:free",
+      "model": "google/gemma-4-26b-a4b-it:free",
       "result": {
         "biases": {
           "liquidity": 0.0,
@@ -32,11 +32,11 @@
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 520,
+        "completion_tokens": 281,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 523
+          "reasoning_tokens": 0
         },
         "cost": 0,
         "cost_details": {
@@ -44,40 +44,46 @@
           "upstream_inference_cost": 0,
           "upstream_inference_prompt_cost": 0
         },
-        "is_byok": false,
-        "prompt_tokens": 15675,
+        "is_byok": true,
+        "prompt_tokens": 15457,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 16195
+        "total_tokens": 15738
       }
     },
     {
       "label": "free_peer_2",
-      "model": "nvidia/nemotron-3.5-lightning:free",
+      "model": "google/gemma-4-31b-it:free",
       "result": {
         "biases": {
-          "liquidity": 0.0,
-          "macro": 0.0,
-          "mean_reversion": 0.0,
-          "momentum": 0.0,
-          "risk": 0.0
+          "liquidity": -0.4,
+          "macro": -0.1,
+          "mean_reversion": 0.3,
+          "momentum": -0.2,
+          "risk": -0.2
         },
-        "confidence": 0.0,
-        "item_biases": {},
-        "patch_risk": 0.0,
+        "confidence": 0.65,
+        "item_biases": {
+          "20997": 0.0,
+          "22486": 0.1,
+          "24514": -0.3,
+          "26374": 0.2,
+          "27277": -0.1
+        },
+        "patch_risk": 0.1,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 520,
+        "completion_tokens": 305,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 501
+          "reasoning_tokens": 0
         },
         "cost": 0,
         "cost_details": {
@@ -85,24 +91,27 @@
           "upstream_inference_cost": 0,
           "upstream_inference_prompt_cost": 0
         },
-        "is_byok": false,
-        "prompt_tokens": 15675,
+        "is_byok": true,
+        "prompt_tokens": 15457,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
-          "cached_tokens": 15232,
+          "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 16195
+        "total_tokens": 15762
       }
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-09-13T22:22:30.788720+00:00",
-  "item_biases": {},
-  "patch_risk": 0,
+  "freshness": "refreshed",
+  "generated_at": "2026-09-14T06:09:53.767090+00:00",
+  "item_biases": {
+    "24514": -0.1815,
+    "26374": 0.121
+  },
+  "patch_risk": 0.0605,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
+  "status": "ok",
   "usage": {}
 }
