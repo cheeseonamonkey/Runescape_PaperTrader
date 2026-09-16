@@ -2,13 +2,13 @@
   "advisory": {
     "age_hours": 0,
     "biases": {
-      "liquidity": -0.3069,
-      "macro": -0.1841,
-      "mean_reversion": 0.1228,
-      "momentum": -0.2455,
-      "risk": -0.3683
+      "liquidity": 0.0,
+      "macro": 0.0,
+      "mean_reversion": 0.0,
+      "momentum": 0.0,
+      "risk": 0.0
     },
-    "confidence": 0.4419,
+    "confidence": 0,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -17,69 +17,7 @@
       },
       {
         "label": "free_peer_1",
-        "model": "poolside/laguna-s-2.1:free",
-        "result": {
-          "biases": {
-            "liquidity": -0.5,
-            "macro": -0.3,
-            "mean_reversion": 0.2,
-            "momentum": -0.4,
-            "risk": -0.6
-          },
-          "confidence": 0.72,
-          "item_biases": {
-            "1021": 0.5,
-            "1059": 0.4,
-            "1063": 0.4,
-            "1095": 0.4,
-            "1237": 0.5,
-            "12817": -0.3,
-            "1552": 0.3,
-            "20997": -0.4,
-            "21049": -0.3,
-            "22486": -0.5,
-            "24511": -0.4,
-            "263": 0.1,
-            "26374": -0.4,
-            "27238": -0.3,
-            "27277": -0.3,
-            "28307": -0.2,
-            "3351": 0.6,
-            "5283": 0.3,
-            "5322": 0.3,
-            "975": 0.4
-          },
-          "patch_risk": 0.94,
-          "rationale": []
-        },
-        "status": "ok",
-        "usage": {
-          "completion_tokens": 520,
-          "completion_tokens_details": {
-            "audio_tokens": 0,
-            "image_tokens": 0,
-            "reasoning_tokens": 0
-          },
-          "cost": 0,
-          "cost_details": {
-            "upstream_inference_completions_cost": 0,
-            "upstream_inference_cost": 0,
-            "upstream_inference_prompt_cost": 0
-          },
-          "is_byok": true,
-          "prompt_tokens": 14917,
-          "prompt_tokens_details": {
-            "audio_tokens": 0,
-            "cache_write_tokens": 0,
-            "cached_tokens": 0,
-            "video_tokens": 0
-          },
-          "total_tokens": 15437
-        }
-      },
-      {
-        "label": "free_peer_2",
-        "model": "nvidia/nemotron-3.5-lightning:free",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "result": {
           "biases": {
             "liquidity": 0.0,
@@ -95,11 +33,11 @@
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 520,
+          "completion_tokens": 291,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
-            "reasoning_tokens": 539
+            "reasoning_tokens": 0
           },
           "cost": 0,
           "cost_details": {
@@ -107,48 +45,33 @@
             "upstream_inference_cost": 0,
             "upstream_inference_prompt_cost": 0
           },
-          "is_byok": false,
-          "prompt_tokens": 15733,
+          "is_byok": true,
+          "prompt_tokens": 15797,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 16253
+          "total_tokens": 16088
         }
+      },
+      {
+        "error": "ValueError",
+        "label": "free_peer_2",
+        "status": "unavailable"
       }
     ],
     "freshness": "refreshed",
-    "generated_at": "2026-09-16T07:38:11.640697+00:00",
-    "item_biases": {
-      "1021": 0.3069,
-      "1059": 0.2455,
-      "1063": 0.2455,
-      "1095": 0.2455,
-      "1237": 0.3069,
-      "12817": -0.1841,
-      "1552": 0.1841,
-      "20997": -0.2455,
-      "21049": -0.1841,
-      "22486": -0.3069,
-      "24511": -0.2455,
-      "26374": -0.2455,
-      "27238": -0.1841,
-      "27277": -0.1841,
-      "28307": -0.1228,
-      "3351": 0.3683,
-      "5283": 0.1841,
-      "5322": 0.1841,
-      "975": 0.2455
-    },
-    "patch_risk": 0.5769,
+    "generated_at": "2026-09-16T13:27:17.899840+00:00",
+    "item_biases": {},
+    "patch_risk": 0,
     "rationale": [],
     "schema": 1,
     "status": "ok",
     "usage": {}
   },
-  "age_hours": 554.68,
+  "age_hours": 560.5,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
