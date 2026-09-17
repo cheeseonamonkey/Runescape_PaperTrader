@@ -1,5 +1,5 @@
 {
-  "age_hours": 7.99,
+  "age_hours": 0,
   "biases": {
     "liquidity": 0.0,
     "macro": 0.0,
@@ -7,7 +7,7 @@
     "momentum": 0.0,
     "risk": 0.0
   },
-  "confidence": 0,
+  "confidence": 0.0,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -20,71 +20,17 @@
       "status": "unavailable"
     },
     {
+      "error": "ValueError",
       "label": "free_peer_2",
-      "model": "google/gemma-4-26b-a4b-it:free",
-      "result": {
-        "biases": {
-          "liquidity": 0.0,
-          "macro": 0.0,
-          "mean_reversion": 0.0,
-          "momentum": 0.0,
-          "risk": 0.0
-        },
-        "confidence": 0.0,
-        "item_biases": {},
-        "patch_risk": 0.0,
-        "rationale": []
-      },
-      "status": "ok",
-      "usage": {
-        "completion_tokens": 368,
-        "completion_tokens_details": {
-          "audio_tokens": 0,
-          "image_tokens": 0,
-          "reasoning_tokens": 0
-        },
-        "cost": 0,
-        "cost_details": {
-          "upstream_inference_completions_cost": 0,
-          "upstream_inference_cost": 0,
-          "upstream_inference_prompt_cost": 0
-        },
-        "is_byok": true,
-        "prompt_tokens": 15455,
-        "prompt_tokens_details": {
-          "audio_tokens": 0,
-          "cache_write_tokens": 0,
-          "cached_tokens": 0,
-          "video_tokens": 0
-        },
-        "total_tokens": 15823
-      }
+      "status": "unavailable"
     }
   ],
-  "freshness": "stale_cache",
-  "generated_at": "2026-09-16T22:05:26.230124+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-09-17T11:35:33.109221+00:00",
   "item_biases": {},
-  "last_attempt": [
-    {
-      "error": "RuntimeError",
-      "label": "paid_anchor",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_2",
-      "status": "unavailable"
-    }
-  ],
-  "patch_risk": 0,
+  "patch_risk": 0.0,
   "rationale": [],
-  "refresh_error": "all_advisors_unavailable",
   "schema": 1,
-  "status": "stale_cache",
+  "status": "error",
   "usage": {}
 }
