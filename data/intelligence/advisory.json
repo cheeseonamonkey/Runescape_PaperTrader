@@ -1,13 +1,13 @@
 {
-  "age_hours": 6.13,
+  "age_hours": 0,
   "biases": {
-    "liquidity": 0.0,
-    "macro": 0.0,
-    "mean_reversion": 0.0,
+    "liquidity": -0.05,
+    "macro": -0.07,
+    "mean_reversion": 0.2,
     "momentum": 0.0,
-    "risk": 0.0
+    "risk": -0.07
   },
-  "confidence": 0,
+  "confidence": 0.6,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -21,27 +21,48 @@
     },
     {
       "label": "free_peer_2",
-      "model": "nvidia/nemotron-3.5-lightning:free",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "result": {
         "biases": {
-          "liquidity": 0.0,
-          "macro": 0.0,
-          "mean_reversion": 0.0,
+          "liquidity": -0.05,
+          "macro": -0.07,
+          "mean_reversion": 0.2,
           "momentum": 0.0,
-          "risk": 0.0
+          "risk": -0.07
         },
-        "confidence": 0.0,
-        "item_biases": {},
-        "patch_risk": 0.0,
+        "confidence": 0.6,
+        "item_biases": {
+          "10952": 0.8,
+          "1211": 0.6,
+          "20220": 0.4,
+          "20997": -0.1,
+          "22486": 0.2,
+          "22978": -0.6,
+          "24417": 0.0,
+          "24511": 0.4,
+          "26374": 0.5,
+          "27690": -0.2,
+          "28338": 0.0,
+          "29580": 0.3,
+          "29796": 0.2,
+          "31088": 0.3,
+          "31608": 0.7,
+          "3162": 0.6,
+          "33639": 0.2,
+          "5014": 0.6,
+          "5282": 0.5,
+          "9634": 0.6
+        },
+        "patch_risk": 0,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 520,
+        "completion_tokens": 3230,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 501
+          "reasoning_tokens": 2030
         },
         "cost": 0,
         "cost_details": {
@@ -50,41 +71,42 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": false,
-        "prompt_tokens": 15593,
+        "prompt_tokens": 15525,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 16113
+        "total_tokens": 18755
       }
     }
   ],
-  "freshness": "stale_cache",
-  "generated_at": "2026-09-20T06:08:07.217355+00:00",
-  "item_biases": {},
-  "last_attempt": [
-    {
-      "error": "RuntimeError",
-      "label": "paid_anchor",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_1",
-      "status": "unavailable"
-    },
-    {
-      "error": "ValueError",
-      "label": "free_peer_2",
-      "status": "unavailable"
-    }
-  ],
+  "freshness": "refreshed",
+  "generated_at": "2026-09-20T16:46:18.529156+00:00",
+  "item_biases": {
+    "10952": 0.8,
+    "1211": 0.6,
+    "20220": 0.4,
+    "20997": -0.1,
+    "22486": 0.2,
+    "22978": -0.6,
+    "24511": 0.4,
+    "26374": 0.5,
+    "27690": -0.2,
+    "29580": 0.3,
+    "29796": 0.2,
+    "31088": 0.3,
+    "31608": 0.7,
+    "3162": 0.6,
+    "33639": 0.2,
+    "5014": 0.6,
+    "5282": 0.5,
+    "9634": 0.6
+  },
   "patch_risk": 0,
   "rationale": [],
-  "refresh_error": "all_advisors_unavailable",
   "schema": 1,
-  "status": "stale_cache",
+  "status": "ok",
   "usage": {}
 }
