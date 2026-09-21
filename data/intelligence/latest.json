@@ -2,13 +2,13 @@
   "advisory": {
     "age_hours": 0,
     "biases": {
-      "liquidity": 0.0,
-      "macro": 0.0,
-      "mean_reversion": 0.0,
-      "momentum": 0.0,
-      "risk": 0.0
+      "liquidity": -0.4,
+      "macro": -0.3,
+      "mean_reversion": 0.1,
+      "momentum": -0.2,
+      "risk": -0.5
     },
-    "confidence": 0.0,
+    "confidence": 0.65,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -16,9 +16,56 @@
         "status": "unavailable"
       },
       {
-        "error": "ValueError",
         "label": "free_peer_1",
-        "status": "unavailable"
+        "model": "poolside/laguna-s-2.1:free",
+        "result": {
+          "biases": {
+            "liquidity": -0.4,
+            "macro": -0.3,
+            "mean_reversion": 0.1,
+            "momentum": -0.2,
+            "risk": -0.5
+          },
+          "confidence": 0.65,
+          "item_biases": {
+            "1095": -0.5,
+            "1133": -0.4,
+            "1141": -0.4,
+            "1143": -0.5,
+            "12275": -0.7,
+            "12301": -0.8,
+            "1424": -0.6,
+            "288": -0.4,
+            "48": -0.6,
+            "5106": -0.5
+          },
+          "patch_risk": 0.15,
+          "rationale": []
+        },
+        "status": "ok",
+        "usage": {
+          "completion_tokens": 419,
+          "completion_tokens_details": {
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "reasoning_tokens": 0
+          },
+          "cost": 0,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0,
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0
+          },
+          "is_byok": true,
+          "prompt_tokens": 14591,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "total_tokens": 15010
+        }
       },
       {
         "error": "ValueError",
@@ -27,15 +74,26 @@
       }
     ],
     "freshness": "refreshed",
-    "generated_at": "2026-09-21T06:14:10.423575+00:00",
-    "item_biases": {},
-    "patch_risk": 0.0,
+    "generated_at": "2026-09-21T14:00:02.084716+00:00",
+    "item_biases": {
+      "1095": -0.5,
+      "1133": -0.4,
+      "1141": -0.4,
+      "1143": -0.5,
+      "12275": -0.7,
+      "12301": -0.8,
+      "1424": -0.6,
+      "288": -0.4,
+      "48": -0.6,
+      "5106": -0.5
+    },
+    "patch_risk": 0.15,
     "rationale": [],
     "schema": 1,
-    "status": "error",
+    "status": "ok",
     "usage": {}
   },
-  "age_hours": 673.28,
+  "age_hours": 681.04,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
