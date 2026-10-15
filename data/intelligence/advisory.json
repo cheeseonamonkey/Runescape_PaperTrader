@@ -7,7 +7,7 @@
     "momentum": 0.0,
     "risk": 0.0
   },
-  "confidence": 0.0,
+  "confidence": 0,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -15,22 +15,94 @@
       "status": "unavailable"
     },
     {
-      "error": "ValueError",
       "label": "free_peer_1",
-      "status": "unavailable"
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "result": {
+        "biases": {
+          "liquidity": 0.0,
+          "macro": 0.0,
+          "mean_reversion": 0.0,
+          "momentum": 0.0,
+          "risk": 0.0
+        },
+        "confidence": 0.0,
+        "item_biases": {},
+        "patch_risk": 0.0,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 24873,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 17490
+        },
+        "cost": 0,
+        "cost_details": {
+          "upstream_inference_completions_cost": 0,
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0
+        },
+        "is_byok": false,
+        "prompt_tokens": 15085,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 39958
+      }
     },
     {
-      "error": "ValueError",
       "label": "free_peer_2",
-      "status": "unavailable"
+      "model": "google/gemma-4-26b-a4b-it:free",
+      "result": {
+        "biases": {
+          "liquidity": 0.0,
+          "macro": 0.0,
+          "mean_reversion": 0.0,
+          "momentum": 0.0,
+          "risk": 0.0
+        },
+        "confidence": 0.0,
+        "item_biases": {},
+        "patch_risk": 0.0,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 433,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "cost_details": {
+          "upstream_inference_completions_cost": 0,
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0
+        },
+        "is_byok": true,
+        "prompt_tokens": 14934,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 15367
+      }
     }
   ],
   "freshness": "refreshed",
-  "generated_at": "2026-10-15T09:48:40.608872+00:00",
+  "generated_at": "2026-10-15T14:57:18.444291+00:00",
   "item_biases": {},
-  "patch_risk": 0.0,
+  "patch_risk": 0,
   "rationale": [],
   "schema": 1,
-  "status": "error",
+  "status": "ok",
   "usage": {}
 }
