@@ -1,13 +1,13 @@
 {
-  "age_hours": 2.9,
+  "age_hours": 0,
   "biases": {
-    "liquidity": -0.2762,
-    "macro": -0.2148,
-    "mean_reversion": 0.0921,
-    "momentum": -0.1534,
-    "risk": -0.3683
+    "liquidity": -0.1,
+    "macro": -0.1,
+    "mean_reversion": 0.3,
+    "momentum": 0.0,
+    "risk": -0.5
   },
-  "confidence": 0.4419,
+  "confidence": 0.8,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -19,24 +19,29 @@
       "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "result": {
         "biases": {
-          "liquidity": 0.0,
-          "macro": 0.0,
-          "mean_reversion": 0.0,
+          "liquidity": -0.1,
+          "macro": -0.1,
+          "mean_reversion": 0.3,
           "momentum": 0.0,
-          "risk": 0.0
+          "risk": -0.5
         },
-        "confidence": 0.0,
-        "item_biases": {},
-        "patch_risk": 0.0,
+        "confidence": 0.8,
+        "item_biases": {
+          "12817": -0.5,
+          "13190": -0.5,
+          "20997": -0.5,
+          "34679": -1.0
+        },
+        "patch_risk": 0,
         "rationale": []
       },
       "status": "ok",
       "usage": {
-        "completion_tokens": 32768,
+        "completion_tokens": 2395,
         "completion_tokens_details": {
           "audio_tokens": 0,
           "image_tokens": 0,
-          "reasoning_tokens": 21935
+          "reasoning_tokens": 1865
         },
         "cost": 0,
         "cost_details": {
@@ -45,96 +50,33 @@
           "upstream_inference_prompt_cost": 0
         },
         "is_byok": false,
-        "prompt_tokens": 14904,
+        "prompt_tokens": 14973,
         "prompt_tokens_details": {
           "audio_tokens": 0,
           "cache_write_tokens": 0,
           "cached_tokens": 0,
           "video_tokens": 0
         },
-        "total_tokens": 47672
+        "total_tokens": 17368
       }
     },
     {
+      "error": "ValueError",
       "label": "free_peer_2",
-      "model": "poolside/laguna-s-2.1:free",
-      "result": {
-        "biases": {
-          "liquidity": -0.45,
-          "macro": -0.35,
-          "mean_reversion": 0.15,
-          "momentum": -0.25,
-          "risk": -0.6
-        },
-        "confidence": 0.72,
-        "item_biases": {
-          "11816": 0.1,
-          "12873": -0.2,
-          "13190": -0.3,
-          "13511": 0.15,
-          "20997": -0.3,
-          "219": 0.1,
-          "22486": -0.25,
-          "24417": -0.05,
-          "26374": -0.1,
-          "27277": -0.15,
-          "27612": -0.15,
-          "28338": -0.1,
-          "28919": -0.1,
-          "31729": 0.15,
-          "32349": 0.2,
-          "34679": -0.1,
-          "34681": -0.2,
-          "34717": -0.4,
-          "9342": 0.1
-        },
-        "patch_risk": 0.15,
-        "rationale": []
-      },
-      "status": "ok",
-      "usage": {
-        "completion_tokens": 520,
-        "completion_tokens_details": {
-          "audio_tokens": 0,
-          "image_tokens": 0,
-          "reasoning_tokens": 0
-        },
-        "cost": 0,
-        "cost_details": {
-          "upstream_inference_completions_cost": 0,
-          "upstream_inference_cost": 0,
-          "upstream_inference_prompt_cost": 0
-        },
-        "is_byok": true,
-        "prompt_tokens": 14147,
-        "prompt_tokens_details": {
-          "audio_tokens": 0,
-          "cache_write_tokens": 0,
-          "cached_tokens": 0,
-          "video_tokens": 0
-        },
-        "total_tokens": 14667
-      }
+      "status": "unavailable"
     }
   ],
-  "freshness": "cached",
-  "generated_at": "2026-10-25T16:05:36.380366+00:00",
+  "freshness": "refreshed",
+  "generated_at": "2026-10-25T21:42:09.191387+00:00",
   "item_biases": {
-    "12873": -0.1228,
-    "13190": -0.1841,
-    "13511": 0.0921,
-    "20997": -0.1841,
-    "22486": -0.1534,
-    "27277": -0.0921,
-    "27612": -0.0921,
-    "31729": 0.0921,
-    "32349": 0.1228,
-    "34681": -0.1228,
-    "34717": -0.2455
+    "12817": -0.5,
+    "13190": -0.5,
+    "20997": -0.5,
+    "34679": -1.0
   },
-  "patch_risk": 0.0921,
+  "patch_risk": 0,
   "rationale": [],
   "schema": 1,
-  "status": "cached",
+  "status": "ok",
   "usage": {}
 }
