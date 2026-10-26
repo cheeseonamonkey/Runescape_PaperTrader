@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 8.37,
+    "age_hours": 0,
     "biases": {
-      "liquidity": -0.1,
-      "macro": -0.1,
-      "mean_reversion": 0.3,
+      "liquidity": 0.0,
+      "macro": 0.0,
+      "mean_reversion": 0.0,
       "momentum": 0.0,
-      "risk": -0.5
+      "risk": 0.0
     },
-    "confidence": 0.8,
+    "confidence": 0.0,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -16,50 +16,9 @@
         "status": "unavailable"
       },
       {
+        "error": "ValueError",
         "label": "free_peer_1",
-        "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-        "result": {
-          "biases": {
-            "liquidity": -0.1,
-            "macro": -0.1,
-            "mean_reversion": 0.3,
-            "momentum": 0.0,
-            "risk": -0.5
-          },
-          "confidence": 0.8,
-          "item_biases": {
-            "12817": -0.5,
-            "13190": -0.5,
-            "20997": -0.5,
-            "34679": -1.0
-          },
-          "patch_risk": 0,
-          "rationale": []
-        },
-        "status": "ok",
-        "usage": {
-          "completion_tokens": 2395,
-          "completion_tokens_details": {
-            "audio_tokens": 0,
-            "image_tokens": 0,
-            "reasoning_tokens": 1865
-          },
-          "cost": 0,
-          "cost_details": {
-            "upstream_inference_completions_cost": 0,
-            "upstream_inference_cost": 0,
-            "upstream_inference_prompt_cost": 0
-          },
-          "is_byok": false,
-          "prompt_tokens": 14973,
-          "prompt_tokens_details": {
-            "audio_tokens": 0,
-            "cache_write_tokens": 0,
-            "cached_tokens": 0,
-            "video_tokens": 0
-          },
-          "total_tokens": 17368
-        }
+        "status": "unavailable"
       },
       {
         "error": "ValueError",
@@ -67,21 +26,16 @@
         "status": "unavailable"
       }
     ],
-    "freshness": "stale_cache",
-    "generated_at": "2026-10-25T21:42:09.191387+00:00",
-    "item_biases": {
-      "12817": -0.5,
-      "13190": -0.5,
-      "20997": -0.5,
-      "34679": -1.0
-    },
-    "patch_risk": 0,
+    "freshness": "refreshed",
+    "generated_at": "2026-10-26T12:51:06.207325+00:00",
+    "item_biases": {},
+    "patch_risk": 0.0,
     "rationale": [],
     "schema": 1,
-    "status": "stale_cache",
+    "status": "error",
     "usage": {}
   },
-  "age_hours": 1513.11,
+  "age_hours": 1519.9,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
