@@ -1,13 +1,13 @@
 {
   "age_hours": 0,
   "biases": {
-    "liquidity": 0.0,
-    "macro": 0.0,
-    "mean_reversion": 0.0,
-    "momentum": 0.0,
-    "risk": 0.0
+    "liquidity": -0.33,
+    "macro": 0.05,
+    "mean_reversion": 0.22,
+    "momentum": -0.12,
+    "risk": -0.45
   },
-  "confidence": 0.0,
+  "confidence": 0.62,
   "ensemble": [
     {
       "error": "RuntimeError",
@@ -15,9 +15,66 @@
       "status": "unavailable"
     },
     {
-      "error": "ValueError",
       "label": "free_peer_1",
-      "status": "unavailable"
+      "model": "xingchen-agi/xing4.0-29b-a4b:free",
+      "result": {
+        "biases": {
+          "liquidity": -0.33,
+          "macro": 0.05,
+          "mean_reversion": 0.22,
+          "momentum": -0.12,
+          "risk": -0.45
+        },
+        "confidence": 0.62,
+        "item_biases": {
+          "1035": -0.62,
+          "11065": -0.55,
+          "12377": -0.58,
+          "12624": -0.72,
+          "20997": 0.18,
+          "22486": -0.28,
+          "24417": -0.22,
+          "24488": 0.15,
+          "24511": 0.28,
+          "26374": 0.12,
+          "27277": -0.35,
+          "28338": -0.15,
+          "28919": 0.25,
+          "30": -0.85,
+          "3046": -0.92,
+          "31145": -0.38,
+          "34679": 0.32,
+          "34681": -0.42,
+          "5627": -0.78,
+          "6470": -0.68
+        },
+        "patch_risk": 0.18,
+        "rationale": []
+      },
+      "status": "ok",
+      "usage": {
+        "completion_tokens": 480,
+        "completion_tokens_details": {
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "cost": 0,
+        "cost_details": {
+          "upstream_inference_completions_cost": 0,
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0
+        },
+        "is_byok": false,
+        "prompt_tokens": 14999,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "video_tokens": 0
+        },
+        "total_tokens": 15479
+      }
     },
     {
       "error": "ValueError",
@@ -26,11 +83,32 @@
     }
   ],
   "freshness": "refreshed",
-  "generated_at": "2026-11-05T21:57:21.364495+00:00",
-  "item_biases": {},
-  "patch_risk": 0.0,
+  "generated_at": "2026-11-06T02:19:10.036725+00:00",
+  "item_biases": {
+    "1035": -0.62,
+    "11065": -0.55,
+    "12377": -0.58,
+    "12624": -0.72,
+    "20997": 0.18,
+    "22486": -0.28,
+    "24417": -0.22,
+    "24488": 0.15,
+    "24511": 0.28,
+    "26374": 0.12,
+    "27277": -0.35,
+    "28338": -0.15,
+    "28919": 0.25,
+    "30": -0.85,
+    "3046": -0.92,
+    "31145": -0.38,
+    "34679": 0.32,
+    "34681": -0.42,
+    "5627": -0.78,
+    "6470": -0.68
+  },
+  "patch_risk": 0.18,
   "rationale": [],
   "schema": 1,
-  "status": "error",
+  "status": "ok",
   "usage": {}
 }
