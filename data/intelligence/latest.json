@@ -2,13 +2,13 @@
   "advisory": {
     "age_hours": 0,
     "biases": {
-      "liquidity": 0.132,
-      "macro": 0.03,
-      "mean_reversion": -0.03,
-      "momentum": 0.072,
-      "risk": 0.2099
+      "liquidity": 0.0,
+      "macro": 0.0,
+      "mean_reversion": 0.0,
+      "momentum": 0.0,
+      "risk": 0.0
     },
-    "confidence": 0.3659,
+    "confidence": 0,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -16,7 +16,12 @@
         "status": "unavailable"
       },
       {
+        "error": "ValueError",
         "label": "free_peer_1",
+        "status": "unavailable"
+      },
+      {
+        "label": "free_peer_2",
         "model": "google/gemma-4-26b-a4b-it:free",
         "result": {
           "biases": {
@@ -33,7 +38,7 @@
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 325,
+          "completion_tokens": 348,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
@@ -46,109 +51,27 @@
             "upstream_inference_prompt_cost": 0
           },
           "is_byok": true,
-          "prompt_tokens": 14519,
+          "prompt_tokens": 14849,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 14844
-        }
-      },
-      {
-        "label": "free_peer_2",
-        "model": "xingchen-agi/xing4.0-29b-a4b:free",
-        "result": {
-          "biases": {
-            "liquidity": 0.22,
-            "macro": 0.05,
-            "mean_reversion": -0.05,
-            "momentum": 0.12,
-            "risk": 0.35
-          },
-          "confidence": 0.61,
-          "item_biases": {
-            "1191": -0.36,
-            "13190": -0.62,
-            "22486": -0.38,
-            "24417": -0.45,
-            "24488": 0.12,
-            "24511": 0.15,
-            "2466": -0.41,
-            "26374": 0.18,
-            "27277": 0.28,
-            "27690": -0.22,
-            "33639": -0.33,
-            "34679": -0.55,
-            "34681": 0.31,
-            "34717": 0.42,
-            "3799": -0.71,
-            "6281": -0.58,
-            "6418": -0.44,
-            "642": -0.68,
-            "6981": -0.52,
-            "865": -0.39
-          },
-          "patch_risk": 0,
-          "rationale": []
-        },
-        "status": "ok",
-        "usage": {
-          "completion_tokens": 512,
-          "completion_tokens_details": {
-            "audio_tokens": 0,
-            "image_tokens": 0,
-            "reasoning_tokens": 0
-          },
-          "cost": 0,
-          "cost_details": {
-            "upstream_inference_completions_cost": 0,
-            "upstream_inference_cost": 0,
-            "upstream_inference_prompt_cost": 0
-          },
-          "is_byok": false,
-          "prompt_tokens": 15023,
-          "prompt_tokens_details": {
-            "audio_tokens": 0,
-            "cache_write_tokens": 0,
-            "cached_tokens": 0,
-            "video_tokens": 0
-          },
-          "total_tokens": 15535
+          "total_tokens": 15197
         }
       }
     ],
     "freshness": "refreshed",
-    "generated_at": "2026-11-07T16:21:41.195627+00:00",
-    "item_biases": {
-      "1191": -0.2159,
-      "13190": -0.3719,
-      "22486": -0.2279,
-      "24417": -0.2699,
-      "24511": 0.09,
-      "2466": -0.2459,
-      "26374": 0.108,
-      "27277": 0.168,
-      "27690": -0.132,
-      "33639": -0.198,
-      "34679": -0.3299,
-      "34681": 0.186,
-      "34717": 0.2519,
-      "3799": -0.4259,
-      "6281": -0.3479,
-      "6418": -0.2639,
-      "642": -0.4079,
-      "6981": -0.3119,
-      "865": -0.2339
-    },
+    "generated_at": "2026-11-07T20:50:33.259875+00:00",
+    "item_biases": {},
     "patch_risk": 0,
     "rationale": [],
     "schema": 1,
     "status": "ok",
     "usage": {}
   },
-  "age_hours": 1811.4,
+  "age_hours": 1815.89,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
