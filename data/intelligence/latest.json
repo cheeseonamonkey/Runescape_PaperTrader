@@ -1,14 +1,14 @@
 {
   "advisory": {
-    "age_hours": 9.46,
+    "age_hours": 0,
     "biases": {
-      "liquidity": 0.0,
-      "macro": 0.0,
-      "mean_reversion": 0.0,
-      "momentum": 0.0,
-      "risk": 0.0
+      "liquidity": -0.35,
+      "macro": -0.18,
+      "mean_reversion": 0.12,
+      "momentum": 0.08,
+      "risk": -0.28
     },
-    "confidence": 0,
+    "confidence": 0.58,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -22,27 +22,37 @@
       },
       {
         "label": "free_peer_2",
-        "model": "google/gemma-4-26b-a4b-it:free",
+        "model": "particle-ai/particle-1:free",
         "result": {
           "biases": {
-            "liquidity": 0.0,
-            "macro": 0.0,
-            "mean_reversion": 0.0,
-            "momentum": 0.0,
-            "risk": 0.0
+            "liquidity": -0.35,
+            "macro": -0.18,
+            "mean_reversion": 0.12,
+            "momentum": 0.08,
+            "risk": -0.28
           },
-          "confidence": 0.0,
-          "item_biases": {},
-          "patch_risk": 0.0,
+          "confidence": 0.58,
+          "item_biases": {
+            "20997": 0.08,
+            "22486": 0.18,
+            "24417": -0.06,
+            "26374": -0.12,
+            "27277": 0.04,
+            "28338": -0.08,
+            "34679": -0.22,
+            "34681": -0.16,
+            "34717": -0.12
+          },
+          "patch_risk": 0.62,
           "rationale": []
         },
         "status": "ok",
         "usage": {
-          "completion_tokens": 282,
+          "completion_tokens": 520,
           "completion_tokens_details": {
             "audio_tokens": 0,
             "image_tokens": 0,
-            "reasoning_tokens": 0
+            "reasoning_tokens": 389
           },
           "cost": 0,
           "cost_details": {
@@ -50,28 +60,36 @@
             "upstream_inference_cost": 0,
             "upstream_inference_prompt_cost": 0
           },
-          "is_byok": true,
-          "prompt_tokens": 14510,
+          "is_byok": false,
+          "prompt_tokens": 12376,
           "prompt_tokens_details": {
             "audio_tokens": 0,
             "cache_write_tokens": 0,
             "cached_tokens": 0,
             "video_tokens": 0
           },
-          "total_tokens": 14792
+          "total_tokens": 12896
         }
       }
     ],
-    "freshness": "stale_cache",
-    "generated_at": "2026-11-17T03:44:59.958347+00:00",
-    "item_biases": {},
-    "patch_risk": 0,
+    "freshness": "refreshed",
+    "generated_at": "2026-11-17T22:14:01.745912+00:00",
+    "item_biases": {
+      "20997": 0.08,
+      "22486": 0.18,
+      "26374": -0.12,
+      "28338": -0.08,
+      "34679": -0.22,
+      "34681": -0.16,
+      "34717": -0.12
+    },
+    "patch_risk": 0.62,
     "rationale": [],
     "schema": 1,
-    "status": "stale_cache",
+    "status": "ok",
     "usage": {}
   },
-  "age_hours": 2048.25,
+  "age_hours": 2057.28,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
