@@ -2,13 +2,13 @@
   "advisory": {
     "age_hours": 0,
     "biases": {
-      "liquidity": 0.0,
-      "macro": 0.0,
-      "mean_reversion": 0.0,
-      "momentum": 0.0,
-      "risk": 0.0
+      "liquidity": -0.25,
+      "macro": -0.13,
+      "mean_reversion": 0.11,
+      "momentum": -0.1,
+      "risk": -0.17
     },
-    "confidence": 0.0,
+    "confidence": 0.58,
     "ensemble": [
       {
         "error": "RuntimeError",
@@ -16,26 +16,148 @@
         "status": "unavailable"
       },
       {
-        "error": "ValueError",
         "label": "free_peer_1",
-        "status": "unavailable"
+        "model": "particle-ai/particle-1:free",
+        "result": {
+          "biases": {
+            "liquidity": -0.18,
+            "macro": -0.08,
+            "mean_reversion": 0.1,
+            "momentum": -0.12,
+            "risk": -0.12
+          },
+          "confidence": 0.58,
+          "item_biases": {
+            "10476": -0.12,
+            "11212": -0.04,
+            "1135": -0.04,
+            "13190": -0.2,
+            "1397": 0.05,
+            "1749": -0.05,
+            "19582": 0.06,
+            "19707": -0.04,
+            "20997": -0.05,
+            "22486": 0.1,
+            "24417": 0.06,
+            "26374": -0.03,
+            "27277": -0.18,
+            "28338": -0.04,
+            "28919": 0.04,
+            "30825": -0.06,
+            "31088": -0.1,
+            "34679": -0.04,
+            "34681": -0.12,
+            "34717": -0.08
+          },
+          "patch_risk": 0.12,
+          "rationale": []
+        },
+        "status": "ok",
+        "usage": {
+          "completion_tokens": 520,
+          "completion_tokens_details": {
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "reasoning_tokens": 259
+          },
+          "cost": 0,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0,
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0
+          },
+          "is_byok": false,
+          "prompt_tokens": 12613,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "video_tokens": 0
+          },
+          "total_tokens": 13133
+        }
       },
       {
-        "error": "ValueError",
         "label": "free_peer_2",
-        "status": "unavailable"
+        "model": "particle-ai/particle-1:free",
+        "result": {
+          "biases": {
+            "liquidity": -0.32,
+            "macro": -0.18,
+            "mean_reversion": 0.12,
+            "momentum": -0.08,
+            "risk": -0.22
+          },
+          "confidence": 0.58,
+          "item_biases": {
+            "10476": -0.1,
+            "11212": -0.03,
+            "1135": -0.04,
+            "13190": -0.22,
+            "1397": 0.04,
+            "1749": -0.04,
+            "19582": 0.05,
+            "19707": -0.03,
+            "20997": -0.05,
+            "22486": 0.06,
+            "24417": 0.05,
+            "26374": -0.03,
+            "27277": -0.18,
+            "28338": -0.04,
+            "28919": 0.03,
+            "30825": -0.06,
+            "31088": -0.1,
+            "34679": -0.04,
+            "34681": -0.12,
+            "34717": -0.08
+          },
+          "patch_risk": 0.08,
+          "rationale": []
+        },
+        "status": "ok",
+        "usage": {
+          "completion_tokens": 520,
+          "completion_tokens_details": {
+            "audio_tokens": 0,
+            "image_tokens": 0,
+            "reasoning_tokens": 259
+          },
+          "cost": 0,
+          "cost_details": {
+            "upstream_inference_completions_cost": 0,
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0
+          },
+          "is_byok": false,
+          "prompt_tokens": 12613,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 12544,
+            "video_tokens": 0
+          },
+          "total_tokens": 13133
+        }
       }
     ],
     "freshness": "refreshed",
-    "generated_at": "2026-11-19T12:54:12.620349+00:00",
-    "item_biases": {},
-    "patch_risk": 0.0,
+    "generated_at": "2026-11-19T21:26:01.328754+00:00",
+    "item_biases": {
+      "10476": -0.11,
+      "13190": -0.21,
+      "22486": 0.08,
+      "27277": -0.18,
+      "31088": -0.1,
+      "34681": -0.12,
+      "34717": -0.08
+    },
+    "patch_risk": 0.1,
     "rationale": [],
     "schema": 1,
-    "status": "error",
+    "status": "ok",
     "usage": {}
   },
-  "age_hours": 2095.95,
+  "age_hours": 2104.48,
   "auxiliary": [],
   "economy_brief": "The OSRS market is in a normal patch window with subdued price pressure and elevated breadth. Turnover is modestly positive while liquidity stress remains elevated, and the shallowest book depth is concentrated in high-spread, low-volume names.",
   "freshness": "stale_cache",
